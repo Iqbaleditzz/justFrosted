@@ -393,20 +393,96 @@ margin-top:20px;
   font-weight: 600;
 }
 /* ===== STEPS ===== */
-.steps-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-text-align:center;
+/* SECTION */
+.order-section {
+  background: #fff7f2;
+  padding: 50px 20px;
+  text-align: center;
 }
-.circle{
-width:60px;height:60px;
-background:#ffe6ec;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:auto;
+
+/* SUB */
+.order-sub {
+  color: #ff7a9c;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+/* TITLE */
+.order-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin: 10px 0 30px;
+}
+
+/* GRID */
+.order-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 20px;
+}
+
+/* ITEM */
+.order-item {
+  text-align: center;
+}
+
+/* ICON CIRCLE */
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background: #fbe3ea;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG */
+.icon-circle svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* STEP */
+.step {
+  color: #ff7a9c;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+/* TITLE */
+.order-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+/* DESC */
+.desc {
+  font-size: 14px;
+  color: #7a6a6a;
+}
+
+/* BUTTON */
+.order-btn-main {
+  display: block;
+  margin: 40px auto 0;
+  background: #25D366;
+  color: white;
+  padding: 18px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  width: 90%;
+  max-width: 400px;
+}
+
+/* ICON */
+.wa-icon {
+  margin-right: 8px;
 }
 
 /* ===== CONTACT ===== */
@@ -694,14 +770,76 @@ font-weight:bold;
 </section>
 
 <!-- STEPS -->
-<section class="steps">
-<h2>How to Order</h2>
-<div class="steps-grid">
-<div><div class="circle">🎂</div>Choose</div>
-<div><div class="circle">💬</div>Message</div>
-<div><div class="circle">✔</div>Confirm</div>
-<div><div class="circle">📦</div>Deliver</div>
-</div>
+<section class="order-section">
+
+  <p class="order-sub">SIMPLE & EASY</p>
+  <h2 class="order-title">How to Order</h2>
+
+  <div class="order-grid">
+
+    <!-- STEP 1 -->
+    <div class="order-item">
+      <div class="icon-circle">
+        <!-- CAKE -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3 10h18v8H3z" stroke="#ff7a9c" stroke-width="2"/>
+          <path d="M6 10V7a6 6 0 0112 0v3" stroke="#ff7a9c" stroke-width="2"/>
+        </svg>
+      </div>
+      <p class="step">Step 1</p>
+      <h3>Choose Cake</h3>
+      <p class="desc">Browse our menu and pick your favorite</p>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="order-item">
+      <div class="icon-circle">
+        <!-- CHAT -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"
+          stroke="#ff7a9c" stroke-width="2"/>
+        </svg>
+      </div>
+      <p class="step">Step 2</p>
+      <h3>DM or WhatsApp</h3>
+      <p class="desc">Send us your requirements</p>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="order-item">
+      <div class="icon-circle">
+        <!-- CHECK -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="#ff7a9c" stroke-width="2"/>
+          <path d="M8 12l2 2 4-4" stroke="#ff7a9c" stroke-width="2"/>
+        </svg>
+      </div>
+      <p class="step">Step 3</p>
+      <h3>Confirm Order</h3>
+      <p class="desc">We confirm details and pricing</p>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="order-item">
+      <div class="icon-circle">
+        <!-- BOX -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3 7l9 5 9-5-9-5-9 5z" stroke="#ff7a9c" stroke-width="2"/>
+          <path d="M3 7v10l9 5 9-5V7" stroke="#ff7a9c" stroke-width="2"/>
+        </svg>
+      </div>
+      <p class="step">Step 4</p>
+      <h3>Delivery / Pickup</h3>
+      <p class="desc">Get your cake fresh and on time</p>
+    </div>
+
+  </div>
+
+  <!-- CTA BUTTON -->
+  <a href="https://wa.me/919074087851" class="order-btn-main">
+    <span class="wa-icon">💬</span> Order on WhatsApp Now
+  </a>
+
 </section>
 
 <!-- CONTACT -->
