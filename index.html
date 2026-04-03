@@ -265,18 +265,76 @@ margin-top:20px;
 .stats h3{color:#ff7a9c;}
 
 /* ===== WHY ===== */
-.why{padding:30px;text-align:center;}
-.why-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
-}
-.why-card{
-background:#f3ebe7;
-padding:20px;
-border-radius:20px;
+/* SECTION */
+.why-section {
+  background: #fff7f2;
+  padding: 50px 20px;
+  text-align: center;
 }
 
+/* SUBTITLE */
+.why-sub {
+  color: #ff7a9c;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+/* TITLE */
+.why-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin: 10px 0 30px;
+}
+
+/* GRID */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* CARD */
+.why-card {
+  background: #f6efea;
+  border-radius: 25px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* ICON BOX */
+.icon-box {
+  width: 70px;
+  height: 70px;
+  background: #fbe3ea;
+  border-radius: 20px;
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SVG */
+.icon-box svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* TITLE */
+.why-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #3a2a24;
+}
+
+/* TEXT */
+.why-card p {
+  font-size: 14px;
+  color: #7a6a6a;
+  line-height: 1.6;
+}
 /* ===== TESTIMONIAL ===== */
 .review{
 background:#f3ebe7;
@@ -461,14 +519,69 @@ font-weight:bold;
 </section>
 
 <!-- WHY -->
-<section class="why">
-<h2>Why Choose Us</h2>
-<div class="why-grid">
-<div class="why-card">Freshly Baked<p>Every order is baked fresh — never frozen, always delicious.</p></div>
-<div class="why-card">Delivery<p>We deliver right to your doorstep across Calicut.</p></div>
-<div class="why-card">Custom<p>Design your dream cake — flavors, colors, themes.</p></div>
-<div class="why-card">Made with Love<p>Handcrafted with care using premium ingredients.</p></div>
-</div>
+<section class="why-section">
+
+  <p class="why-sub">THE JUST FROSTED DIFFERENCE</p>
+  <h2 class="why-title">Why Choose Us</h2>
+
+  <div class="why-grid">
+
+    <!-- CARD 1 -->
+    <div class="why-card">
+      <div class="icon-box">
+        <!-- CAKE SVG -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3 10h18v8H3z" stroke="#ff7a9c" stroke-width="2"/>
+          <path d="M6 10V7a6 6 0 0112 0v3" stroke="#ff7a9c" stroke-width="2"/>
+        </svg>
+      </div>
+      <h3>Freshly<br>Baked Daily</h3>
+      <p>Every order is baked fresh — never frozen, always delicious.</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="why-card">
+      <div class="icon-box">
+        <!-- DELIVERY SVG -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3 7h13v10H3z" stroke="#ff7a9c" stroke-width="2"/>
+          <path d="M16 10h4l2 3v4h-6z" stroke="#ff7a9c" stroke-width="2"/>
+        </svg>
+      </div>
+      <h3>Home<br>Delivery</h3>
+      <p>We deliver right to your doorstep across Calicut.</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="why-card">
+      <div class="icon-box">
+        <!-- PALETTE SVG -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="#ff7a9c" stroke-width="2"/>
+          <circle cx="9" cy="10" r="1.5" fill="#ff7a9c"/>
+          <circle cx="14" cy="8" r="1.5" fill="#ff7a9c"/>
+          <circle cx="16" cy="13" r="1.5" fill="#ff7a9c"/>
+        </svg>
+      </div>
+      <h3>Fully<br>Customizable</h3>
+      <p>Design your dream cake — flavors, colors, and themes.</p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="why-card">
+      <div class="icon-box">
+        <!-- HEART SVG -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 21s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"
+          stroke="#ff7a9c" stroke-width="2"/>
+        </svg>
+      </div>
+      <h3>Made with<br>Love</h3>
+      <p>Handcrafted with care using premium ingredients.</p>
+    </div>
+
+  </div>
+
 </section>
 
 <!-- TESTIMONIAL -->
