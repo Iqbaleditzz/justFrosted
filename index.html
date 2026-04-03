@@ -257,12 +257,44 @@ padding:40px 20px;
 text-align:center;
 }
 .about h2{font-family:'Playfair Display',serif;}
-.stats{
-display:flex;
-justify-content:space-around;
-margin-top:20px;
+/* HEART ICON */
+.about-icon{
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  background: #fbe3ea;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.stats h3{color:#ff7a9c;}
+
+.about-icon svg{
+  width: 30px;
+  fill: #ff7a9c;
+}
+
+/* STAR ICON */
+.rating{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.star-icon{
+  width: 22px;
+  height: 22px;
+  fill: #ff7a9c;
+}
+
+/* COUNT STYLE */
+.stat h3{
+  color: #ff7a9c;
+  font-size: 32px;
+  font-weight: bold;
+}
 
 /* ===== WHY ===== */
 /* SECTION */
@@ -573,44 +605,46 @@ padding:30px;
 }
 
 /* FLOAT BUTTON */
-.float{
+.wa-float{
   position: fixed;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
+  bottom: 20px;
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
 
   background: #25D366;
-  color: white;
+  border-radius: 50%;
 
-  padding: 16px;
-  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 
   z-index: 9999;
 }
 
-/* INNER FLEX */
-.wa-content{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
 /* ICON */
 .wa-icon{
-  width: 22px;
-  height: 22px;
+  width: 28px;
+  height: 28px;
 }
 
-/* HOVER */
-.float:hover{
-  transform: scale(1.02);
+/* HOVER EFFECT */
+.wa-float:hover{
+  transform: scale(1.1);
+}
+
+/* OPTIONAL: PULSE ANIMATION */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
+  70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+
+.wa-float{
+  animation: pulse 2s infinite;
 }
 
 </style>
@@ -728,15 +762,51 @@ padding:30px;
 
 <!-- ABOUT -->
 <section id="about" class="about">
+  <div class="about-icon">
+
+  <!-- HEART SVG -->
+  <svg viewBox="0 0 24 24">
+    <path d="M12 21s-7-4.35-10-9a6 6 0 0110-5 6 6 0 0110 5c-3 4.65-10 9-10 9z"/>
+  </svg>
+
+</div>
 <h2>About Just Frosted</h2>
 <p>Just Frosted is a home baking brand creating delicious, handcrafted cakes in Calicut. Every cake is made fresh with premium ingredients and love. What started as a passion for baking has grown into a beloved local brand, bringing smiles to every celebration — one slice at a time.</p>
 
 <div class="stats">
-<div><h3>500+</h3><p>Cakes</p></div>
-<div><h3>200+</h3><p>Customers</p></div>
-</div>
 
-<a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
+  <!-- CAKES -->
+  <div class="stat">
+    <h3>
+      <span class="count" data-target="500">0</span><span>+</span>
+    </h3>
+    <p>Cakes Delivered</p>
+  </div>
+
+  <!-- CUSTOMERS -->
+  <div class="stat">
+    <h3>
+      <span class="count" data-target="200">0</span><span>+</span>
+    </h3>
+    <p>Happy Customers</p>
+  </div>
+
+  <!-- RATING -->
+  <div class="stat">
+    <h3 class="rating">
+
+      <span class="count" data-target="4.9">0</span>
+
+      <!-- STAR SVG -->
+      <svg viewBox="0 0 24 24" class="star-icon">
+        <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
+      </svg>
+
+    </h3>
+    <p>Average Rating</p>
+  </div>
+
+</div>
 </section>
 
 <!-- WHY -->
@@ -1019,13 +1089,11 @@ padding:30px;
   <span class="wa-content">
     
     <!-- WHATSAPP SVG -->
-    <svg viewBox="0 0 32 32" class="wa-icon">
-      <path fill="white" d="M16.003 3.003c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.74 6.48L3 29l6.69-1.75a12.94 12.94 0 006.31 1.63h.01c7.18 0 13-5.82 13-13s-5.82-12.99-13.01-12.99zm0 23.69c-1.97 0-3.9-.53-5.58-1.53l-.4-.24-3.97 1.04 1.06-3.87-.26-.4a10.6 10.6 0 01-1.63-5.68c0-5.88 4.78-10.66 10.66-10.66s10.66 4.78 10.66 10.66-4.78 10.66-10.66 10.66zm5.84-7.99c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.22.32-.85 1.05-1.04 1.27-.19.22-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.57.16-.19.22-.32.32-.53.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.02-2.44-.27-.65-.54-.56-.74-.57h-.63c-.22 0-.57.08-.87.41-.3.32-1.14 1.12-1.14 2.74s1.17 3.19 1.33 3.41c.16.22 2.3 3.52 5.56 4.94.78.34 1.39.54 1.87.69.79.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37z"/>
-    </svg>
+<a href="https://wa.me/919074087851" class="wa-float" target="_blank">
 
-    <span>Order Now on WhatsApp</span>
-
-  </span>
+  <svg viewBox="0 0 32 32" class="wa-icon">
+    <path fill="white" d="M16.003 3.003c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.74 6.48L3 29l6.69-1.75a12.94 12.94 0 006.31 1.63h.01c7.18 0 13-5.82 13-13s-5.82-12.99-13.01-12.99zm0 23.69c-1.97 0-3.9-.53-5.58-1.53l-.4-.24-3.97 1.04 1.06-3.87-.26-.4a10.6 10.6 0 01-1.63-5.68c0-5.88 4.78-10.66 10.66-10.66s10.66 4.78 10.66 10.66-4.78 10.66-10.66 10.66zm5.84-7.99c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.22.32-.85 1.05-1.04 1.27-.19.22-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.57.16-.19.22-.32.32-.53.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.02-2.44-.27-.65-.54-.56-.74-.57h-.63c-.22 0-.57.08-.87.41-.3.32-1.14 1.12-1.14 2.74s1.17 3.19 1.33 3.41c.16.22 2.3 3.52 5.56 4.94.78.34 1.39.54 1.87.69.79.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37z"/>
+  </svg>
 
 </a>
 
@@ -1070,6 +1138,53 @@ document.addEventListener("keydown", function(e) {
     closeMenu();
   }
 });
+</script>
+    <script>
+
+const counters = document.querySelectorAll('.count');
+let started = false;
+
+function startCounting() {
+  if (started) return;
+  started = true;
+
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+
+    const increment = target / 100;
+
+    const updateCount = () => {
+      if (count < target) {
+        count += increment;
+
+        if (target % 1 !== 0) {
+          counter.innerText = count.toFixed(1);
+        } else {
+          counter.innerText = Math.ceil(count);
+        }
+
+        setTimeout(updateCount, 20);
+      } else {
+        counter.innerText = target + (target >= 100 ? '+' : '');
+      }
+    };
+
+    updateCount();
+  });
+}
+
+// 🔥 Intersection Observer (trigger on scroll)
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      startCounting();
+    }
+  });
+}, { threshold: 0.5 });
+
+observer.observe(document.querySelector('.stats'));
+
 </script>
 
 </body>
