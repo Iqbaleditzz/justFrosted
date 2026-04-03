@@ -336,13 +336,62 @@ margin-top:20px;
   line-height: 1.6;
 }
 /* ===== TESTIMONIAL ===== */
-.review{
-background:#f3ebe7;
-padding:20px;
-margin:15px;
-border-radius:20px;
+/* SECTION */
+.testimonial-section {
+  background: #fff7f2;
+  padding: 50px 20px;
+  text-align: center;
 }
 
+/* SUB */
+.test-sub {
+  color: #ff7a9c;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+/* TITLE */
+.test-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin: 10px 0 30px;
+}
+
+/* CARD */
+.test-card {
+  background: #f6efea;
+  border-radius: 25px;
+  padding: 25px;
+  margin: 15px 0;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* STARS */
+.stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.stars svg {
+  width: 18px;
+  height: 18px;
+  fill: #f4b740;
+}
+
+/* TEXT */
+.review-text {
+  color: #3a2a24;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* NAME */
+.review-name {
+  color: #ff7a9c;
+  font-weight: 600;
+}
 /* ===== STEPS ===== */
 .steps-grid{
 display:grid;
@@ -585,10 +634,64 @@ font-weight:bold;
 </section>
 
 <!-- TESTIMONIAL -->
-<div class="review">
-★★★★★
-<p>"Best cake in Calicut!"</p>
-</div>
+<section class="testimonial-section">
+
+  <p class="test-sub">CUSTOMER LOVE</p>
+  <h2 class="test-title">What People Say</h2>
+
+  <!-- CARD 1 -->
+  <div class="test-card">
+    <div class="stars">
+      <!-- 5 SVG STARS -->
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+    </div>
+
+    <p class="review-text">
+      "The red velvet cake was absolutely divine! Best I've ever had in Calicut. Will definitely order again."
+    </p>
+
+    <h4 class="review-name">Ayesha M.</h4>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="test-card">
+    <div class="stars">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+    </div>
+
+    <p class="review-text">
+      "Ordered a custom birthday cake for my daughter. The design was perfect and it tasted amazing!"
+    </p>
+
+    <h4 class="review-name">Rahul K.</h4>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="test-card">
+    <div class="stars">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+    </div>
+
+    <p class="review-text">
+      "Those brownies are dangerously addictive 😍 Fresh, fudgy, and delivered right on time."
+    </p>
+
+    <h4 class="review-name">Customer</h4>
+  </div>
+
+</section>
 
 <!-- STEPS -->
 <section class="steps">
