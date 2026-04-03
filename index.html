@@ -574,17 +574,43 @@ padding:30px;
 
 /* FLOAT BUTTON */
 .float{
-position:fixed;
-bottom:10px;
-left:10px;
-right:10px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:30px;
-text-align:center;
-text-decoration:none;
-font-weight:bold;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+
+  background: #25D366;
+  color: white;
+
+  padding: 16px;
+  border-radius: 40px;
+
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  z-index: 9999;
+}
+
+/* INNER FLEX */
+.wa-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ICON */
+.wa-icon{
+  width: 22px;
+  height: 22px;
+}
+
+/* HOVER */
+.float:hover{
+  transform: scale(1.02);
 }
 
 </style>
@@ -988,7 +1014,20 @@ font-weight:bold;
 <p>Made with ❤️ in Calicut</p>
 </footer>
 
-<a href="https://wa.me/919074087851" class="float">Order Now on WhatsApp</a>
+<a href="https://wa.me/919074087851" class="float" target="_blank">
+
+  <span class="wa-content">
+    
+    <!-- WHATSAPP SVG -->
+    <svg viewBox="0 0 32 32" class="wa-icon">
+      <path fill="white" d="M16.003 3.003c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.74 6.48L3 29l6.69-1.75a12.94 12.94 0 006.31 1.63h.01c7.18 0 13-5.82 13-13s-5.82-12.99-13.01-12.99zm0 23.69c-1.97 0-3.9-.53-5.58-1.53l-.4-.24-3.97 1.04 1.06-3.87-.26-.4a10.6 10.6 0 01-1.63-5.68c0-5.88 4.78-10.66 10.66-10.66s10.66 4.78 10.66 10.66-4.78 10.66-10.66 10.66zm5.84-7.99c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.22.32-.85 1.05-1.04 1.27-.19.22-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.57.16-.19.22-.32.32-.53.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.02-2.44-.27-.65-.54-.56-.74-.57h-.63c-.22 0-.57.08-.87.41-.3.32-1.14 1.12-1.14 2.74s1.17 3.19 1.33 3.41c.16.22 2.3 3.52 5.56 4.94.78.34 1.39.54 1.87.69.79.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37z"/>
+    </svg>
+
+    <span>Order Now on WhatsApp</span>
+
+  </span>
+
+</a>
 
 <script>
 const menu = document.getElementById("menu");
