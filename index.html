@@ -246,10 +246,15 @@ justify-content:space-between;
 
 /* ===== GALLERY ===== */
 .gallery{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-padding:20px;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:12px;
+  padding:20px;
+}
+
+/* BIG FEATURE IMAGE */
+.gallery-item:nth-child(1){
+  grid-column: span 2;
 }
 .gallery-item{
 position:relative;
@@ -263,19 +268,41 @@ object-fit:cover;
 transition:.5s;
 }
 .gallery-overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.4);
-display:flex;
-justify-content:center;
-align-items:center;
-opacity:0;
-transition:.3s;
-color:white;
-}
-.gallery-item:hover img{transform:scale(1.1);}
-.gallery-item:hover .gallery-overlay{opacity:1;}
+  position:absolute;
+  bottom:0;
+  width:100%;
+  padding:15px;
 
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+
+  color:white;
+  font-weight:600;
+  font-size:14px;
+
+  transform: translateY(100%);
+  transition:0.4s ease;
+}
+
+/* SHOW ON HOVER */
+
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.5s;
+}
+
+/* HOVER ZOOM */
+.gallery-item:hover img{
+  transform:scale(1.08);
+}  
 /* ===== ABOUT ===== */
 .about{
 background:#f3e9e9;
@@ -609,12 +636,20 @@ text-align:center;
 }
 
 /* ICON */
-  .icon-svg{
-  width: 30px;
-  height: 30px;
-}
-  .icon-svg{
+.icon-svg{
+  width:30px;
+  height:30px;
   color:#ff7a9c;
+}
+
+  /* FIX ICON ALIGN */
+.icon-box img{
+  display:block;
+}
+
+/* FIX BUTTON TAP */
+a{
+  -webkit-tap-highlight-color: transparent;
 }
 .icon-circle {
   width: 70px;
@@ -1209,7 +1244,7 @@ padding:30px;
 <p>Made with ❤️ in Calicut</p>
 </footer>
 
-<a href="https://wa.me/919074087851" class="float" target="_blank">
+
 
   <span class="wa-content">
     
