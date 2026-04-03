@@ -8,7 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
+html{
+  scroll-behavior: smooth;
+}
 /* ===== BASE ===== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#fff7f2;color:#2b2b2b;}
@@ -116,6 +118,9 @@ font-size:20px;
 }
 
 /* ===== MENU LINKS ===== */
+  #menu-section{
+  padding: 20px 0;
+}
 .side-menu a {
   display: block;
   padding: 12px 5px;
@@ -284,16 +289,15 @@ text-align:center;
 .stats{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  text-align: center;
 
   margin-top: 30px;
 }
 
-/* EACH ITEM */
+/* EACH */
 .stat{
   flex: 1;
-  text-align: center;
 }
 
 /* NUMBER */
@@ -301,62 +305,40 @@ text-align:center;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
 
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  color: #ff7a9c;
+  font-size: 26px;
   font-weight: 700;
-}
-
-/* PLUS */
-.plus{
-  font-size: 20px;
+  color: #ff7a9c;
 }
 
 /* LABEL */
 .stat p{
-  font-size: 13px;
+  font-size: 12px;
   color: #7a6a6a;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 /* STAR */
 .star-icon{
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   fill: #ff7a9c;
 }
 
-/* MOBILE FIX */
+/* MOBILE PERFECT FIX */
 @media(max-width:480px){
+  .stats{
+    gap: 5px;
+  }
+
   .stat h3{
-    font-size: 24px;
+    font-size: 22px;
   }
+
   .stat p{
-    font-size: 12px;
+    font-size: 11px;
   }
-}
-
-/* STAR ICON */
-.rating{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
-
-.star-icon{
-  width: 22px;
-  height: 22px;
-  fill: #ff7a9c;
-}
-
-/* COUNT STYLE */
-.stat h3{
-  color: #ff7a9c;
-  font-size: 32px;
-  font-weight: bold;
 }
 
 /* ===== WHY ===== */
@@ -755,53 +737,57 @@ padding:30px;
 </section>
 
 <!-- PRODUCT -->
-<div id="menu" class="product-card">
-<img src="public/cakes/cake5.jpg" class="card-img">
-<div class="card-content">
-<div class="card-header">
-<h3>Mini Cookies with Dip</h3>
-<span class="price">₹250</span>
-</div>
-<p>Crunchy cookies with chocolate dip</p>
-<a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
-</div>
-</div>
-  <!-- PRODUCT -->
-<div id="menu" class="product-card">
-<img src="public/cakes/cake7.jpg" class="card-img">
-<div class="card-content">
-<div class="card-header">
-<h3>Chocolate Brownies</h3>
-<span class="price">₹250</span>
-</div>
-<p>Rich, fudgy brownies with a crispy top and gooey center.</p>
-<a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
-</div>
-</div>
-  <!-- PRODUCT -->
-<div id="menu" class="product-card">
-<img src="public/cakes/red-velvet.jpg" class="card-img">
-<div class="card-content">
-<div class="card-header">
-<h3>Red Velvet Cake</h3>
-<span class="price">₹250</span>
-</div>
-<p>Classic red velvet layers with luscious cream cheese frosting.</p>
-<a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
-</div>
-</div>
-  <!-- PRODUCT -->
-<div id="menu" class="product-card">
-<img src="public/cakes/birthday-cake.jpg" class="card-img">
-<div class="card-content">
-<div class="card-header">
-<h3>Birthday Cakes</h3>
-<span class="price">₹250</span>
-</div>
-<p>Personalized cakes designed for your special celebrations.</p>
-<a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
-</div>
-</div>
+  <section id="menu-section">
+
+  <div class="product-card">
+    <img src="public/cakes/cake5.jpg" class="card-img">
+    <div class="card-content">
+      <div class="card-header">
+        <h3>Mini Cookies with Dip</h3>
+        <span class="price">₹250</span>
+      </div>
+      <p>Crunchy cookies with chocolate dip</p>
+      <a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="public/cakes/cake7.jpg" class="card-img">
+    <div class="card-content">
+      <div class="card-header">
+        <h3>Chocolate Brownies</h3>
+        <span class="price">₹250</span>
+      </div>
+      <p>Rich, fudgy brownies with gooey center.</p>
+      <a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="public/cakes/red-velvet.jpg" class="card-img">
+    <div class="card-content">
+      <div class="card-header">
+        <h3>Red Velvet Cake</h3>
+        <span class="price">₹250</span>
+      </div>
+      <p>Classic red velvet with cream cheese frosting.</p>
+      <a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="public/cakes/birthday-cake.jpg" class="card-img">
+    <div class="card-content">
+      <div class="card-header">
+        <h3>Birthday Cakes</h3>
+        <span class="price">₹250</span>
+      </div>
+      <p>Custom cakes for your special moments.</p>
+      <a href="https://wa.me/919074087851" class="btn primary">Order Now</a>
+    </div>
+  </div>
+
+</section>
 
 <!-- GALLERY -->
 <section id="gallery" class="gallery">
@@ -1146,11 +1132,9 @@ padding:30px;
     
     <!-- WHATSAPP SVG -->
 <a href="https://wa.me/919074087851" class="wa-float" target="_blank">
-
   <svg viewBox="0 0 32 32" class="wa-icon">
-    <path fill="white" d="M16.003 3.003c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.74 6.48L3 29l6.69-1.75a12.94 12.94 0 006.31 1.63h.01c7.18 0 13-5.82 13-13s-5.82-12.99-13.01-12.99zm0 23.69c-1.97 0-3.9-.53-5.58-1.53l-.4-.24-3.97 1.04 1.06-3.87-.26-.4a10.6 10.6 0 01-1.63-5.68c0-5.88 4.78-10.66 10.66-10.66s10.66 4.78 10.66 10.66-4.78 10.66-10.66 10.66zm5.84-7.99c-.32-.16-1.9-.94-2.2-1.05-.3-.11-.52-.16-.74.16-.22.32-.85 1.05-1.04 1.27-.19.22-.38.24-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.57.16-.19.22-.32.32-.53.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.02-2.44-.27-.65-.54-.56-.74-.57h-.63c-.22 0-.57.08-.87.41-.3.32-1.14 1.12-1.14 2.74s1.17 3.19 1.33 3.41c.16.22 2.3 3.52 5.56 4.94.78.34 1.39.54 1.87.69.79.25 1.5.21 2.06.13.63-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37z"/>
+    <path fill="white" d="M16.003 3.003c-7.18 0-13 5.82-13 13 0 2.29.6 4.52 1.74 6.48L3 29l6.69-1.75a12.94 12.94 0 006.31 1.63h.01c7.18 0 13-5.82 13-13s-5.82-12.99-13.01-12.99zm0 23.69c-1.97 0-3.9-.53-5.58-1.53l-.4-.24-3.97 1.04 1.06-3.87-.26-.4a10.6 10.6 0 01-1.63-5.68c0-5.88 4.78-10.66 10.66-10.66s10.66 4.78 10.66 10.66-4.78 10.66-10.66 10.66z"/>
   </svg>
-
 </a>
 
 <script>
