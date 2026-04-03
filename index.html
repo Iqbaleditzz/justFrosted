@@ -43,28 +43,124 @@ font-size:20px;
 }
 .menu-btn{font-size:22px;cursor:pointer;}
 
-/* SIDE MENU */
-.side-menu{
-position:fixed;
-top:0;
-right:-100%;
-width:80%;
-height:100%;
-background:#f5e9e9;
-padding:20px;
-transition:.4s;
-z-index:2000;
-}
-.side-menu.active{right:0;}
-.side-menu a{
-display:block;
-margin:20px 0;
-font-size:20px;
-text-decoration:none;
-color:#7a6a6a;
-}
-.side-menu a:hover{color:#ff7a9c;}
+/* ===== SIDEBAR BASE ===== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 320px;
+  height: 100%;
+  background: #f5e9e9;
 
+  padding: 25px 20px;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: right 0.4s ease;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+}
+
+/* ACTIVE STATE */
+.side-menu.active {
+  right: 0;
+}
+
+/* ===== OVERLAY BACKGROUND ===== */
+.side-menu::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.side-menu.active::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== TOP BAR ===== */
+.menu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.menu-top h2 {
+  font-family: 'Playfair Display', serif;
+  color: #ff7a9c;
+  font-size: 22px;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  font-size: 26px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* ===== MENU LINKS ===== */
+.side-menu a {
+  display: block;
+  padding: 12px 5px;
+  margin: 5px 0;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  color: #7a6a6a;
+  text-decoration: none;
+
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.side-menu a:hover {
+  background: #ffe6ec;
+  color: #ff7a9c;
+  padding-left: 15px;
+}
+
+/* ===== ENTRY ANIMATION (STAGGER) ===== */
+.side-menu a {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.side-menu.active a {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* DELAY EACH ITEM */
+.side-menu.active a:nth-child(2) { transition-delay: 0.1s; }
+.side-menu.active a:nth-child(3) { transition-delay: 0.15s; }
+.side-menu.active a:nth-child(4) { transition-delay: 0.2s; }
+.side-menu.active a:nth-child(5) { transition-delay: 0.25s; }
+
+/* ===== SCROLLABLE MENU ===== */
+.side-menu {
+  overflow-y: auto;
+}
+
+/* ===== MOBILE TWEAK ===== */
+@media (max-width: 480px) {
+  .side-menu {
+    width: 85%;
+  }
+}
 /* ===== HERO ===== */
 .hero{
 margin-top:70px;
@@ -255,10 +351,17 @@ font-weight:bold;
 </header>
 
 <div class="side-menu" id="menu">
-<a href="#">Home</a>
-<a href="#menu">Menu</a>
-<a href="#gallery">Gallery</a>
-<a href="#about">About</a>
+
+  <div class="menu-top">
+    <h2>Just Frosted</h2>
+    <span class="close-btn" onclick="closeMenu()">✕</span>
+  </div>
+
+  <a href="#" onclick="closeMenu()">Home</a>
+  <a href="#menu" onclick="closeMenu()">Menu</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+
 </div>
 
 <!-- HERO -->
@@ -403,9 +506,46 @@ font-weight:bold;
 <a href="https://wa.me/919074087851" class="float">Order Now on WhatsApp</a>
 
 <script>
-function openMenu(){
-document.getElementById("menu").classList.toggle("active");
+const menu = document.getElementById("menu");
+
+/* OPEN */
+function openMenu() {
+  menu.classList.add("active");
 }
+
+/* CLOSE */
+function closeMenu() {
+  menu.classList.remove("active");
+}
+
+/* TOGGLE */
+function toggleMenu() {
+  menu.classList.toggle("active");
+}
+
+/* CLOSE WHEN CLICK OUTSIDE */
+document.addEventListener("click", function(e) {
+  const isMenu = menu.contains(e.target);
+  const isBtn = e.target.closest(".menu-btn");
+
+  if (menu.classList.contains("active") && !isMenu && !isBtn) {
+    closeMenu();
+  }
+});
+
+/* CLOSE WHEN CLICKING LINKS */
+document.querySelectorAll(".side-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    closeMenu();
+  });
+});
+
+/* CLOSE WITH ESC KEY */
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeMenu();
+  }
+});
 </script>
 
 </body>
