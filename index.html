@@ -12,7 +12,13 @@
 /* ===== BASE ===== */
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#fff7f2;color:#2b2b2b;}
+body{
+  font-family: 'Poppins', sans-serif;
+}
 
+h1,h2,h3{
+  font-family: 'Playfair Display', serif;
+}
 /* ===== NAV ===== */
 .nav{
 position:fixed;
@@ -273,6 +279,63 @@ text-align:center;
 .about-icon svg{
   width: 30px;
   fill: #ff7a9c;
+}
+  /* STATS ROW */
+.stats{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+/* EACH ITEM */
+.stat{
+  flex: 1;
+  text-align: center;
+}
+
+/* NUMBER */
+.stat h3{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #ff7a9c;
+  font-weight: 700;
+}
+
+/* PLUS */
+.plus{
+  font-size: 20px;
+}
+
+/* LABEL */
+.stat p{
+  font-size: 13px;
+  color: #7a6a6a;
+  margin-top: 5px;
+}
+
+/* STAR */
+.star-icon{
+  width: 18px;
+  height: 18px;
+  fill: #ff7a9c;
+}
+
+/* MOBILE FIX */
+@media(max-width:480px){
+  .stat h3{
+    font-size: 24px;
+  }
+  .stat p{
+    font-size: 12px;
+  }
 }
 
 /* STAR ICON */
@@ -775,33 +838,26 @@ padding:30px;
 
 <div class="stats">
 
-  <!-- CAKES -->
   <div class="stat">
     <h3>
-      <span class="count" data-target="500">0</span><span>+</span>
+      <span class="count" data-target="500">0</span><span class="plus">+</span>
     </h3>
     <p>Cakes Delivered</p>
   </div>
 
-  <!-- CUSTOMERS -->
   <div class="stat">
     <h3>
-      <span class="count" data-target="200">0</span><span>+</span>
+      <span class="count" data-target="200">0</span><span class="plus">+</span>
     </h3>
     <p>Happy Customers</p>
   </div>
 
-  <!-- RATING -->
-  <div class="stat">
-    <h3 class="rating">
-
+  <div class="stat rating">
+    <h3>
       <span class="count" data-target="4.9">0</span>
-
-      <!-- STAR SVG -->
       <svg viewBox="0 0 24 24" class="star-icon">
         <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
       </svg>
-
     </h3>
     <p>Average Rating</p>
   </div>
