@@ -393,8 +393,8 @@ padding:12px 15px;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* ===== GALLERY ===== */
-.gallery{
+/* ===== GALLERY GRID ===== */
+.gallery-grid{
   display:grid;
   grid-template-columns: repeat(2, 1fr);
   gap:12px;
@@ -404,14 +404,28 @@ padding:12px 15px;
 /* FEATURE IMAGE */
 .gallery-item:nth-child(1){
   grid-column: span 2;
+  height:260px;
 }
+
+/* DYNAMIC HEIGHT (BREAKS BORING GRID) */
+.gallery-item:nth-child(3n){ height:220px; }
+.gallery-item:nth-child(4n){ height:260px; }
+.gallery-item:nth-child(5n){ height:200px; }
 
 /* CARD */
 .gallery-item{
   position:relative;
   overflow:hidden;
-  border-radius:18px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+  border-radius:20px;
+
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.08),
+    inset 0 1px 1px rgba(255,255,255,0.4);
+
+  transition: all 0.4s ease;
 }
 
 /* IMAGE */
@@ -419,7 +433,7 @@ padding:12px 15px;
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:0.5s ease;
+  transition: transform 0.6s ease;
 }
 
 /* OVERLAY */
@@ -430,25 +444,56 @@ padding:12px 15px;
   width:100%;
   padding:12px;
 
-  background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
 
   color:white;
-  font-size:14px;
-  font-weight:600;
+  font-size:13px;
+  font-weight:500;
 
   transform:translateY(100%);
   transition:0.4s ease;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
+.gallery-item:hover{
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
 .gallery-item:hover img{
-  transform:scale(1.08);
+  transform: scale(1.12);
 }
 
 .gallery-item:hover .gallery-overlay{
   transform:translateY(0);
 }
 
+/* ===== ENTRY ANIMATION ===== */
+.gallery-item{
+  opacity:0;
+  transform:translateY(30px);
+  animation:fadeUp 0.6s ease forwards;
+}
+
+.gallery-item:nth-child(2){animation-delay:0.1s;}
+.gallery-item:nth-child(3){animation-delay:0.2s;}
+.gallery-item:nth-child(4){animation-delay:0.3s;}
+.gallery-item:nth-child(5){animation-delay:0.4s;}
+
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:480px){
+  .gallery-grid{
+    gap:10px;
+    padding:15px;
+  }
+}
 /* ===== HEADING ===== */
 .section-title{
   text-align:center;
