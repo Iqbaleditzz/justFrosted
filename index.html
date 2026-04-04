@@ -270,16 +270,31 @@ padding:12px 15px;
 
 /* BUTTONS */
 .btn{
-display:block;
-padding:14px;
-border-radius:30px;
-text-align:center;
-margin:10px 0;
-text-decoration:none;
-font-weight:600;
+  display:block;
+
+  width:90%;
+  max-width:350px;
+
+  margin:12px auto;   /* center */
+
+  padding:14px;
+  border-radius:30px;
+
+  text-align:center;
+  text-decoration:none;
+  font-weight:600;
 }
-.primary{background:#25D366;color:white;}
-.secondary{background:#ff7a9c;color:white;}
+
+/* COLORS */
+.primary{
+  background:#25D366;
+  color:white;
+}
+
+.secondary{
+  background:#ff7a9c;
+  color:white;
+}
 
 /* ===== CARDS ===== */
 .product-card{
@@ -1378,8 +1393,11 @@ function displayCakes(data){
 
     container.innerHTML += `
       <div class="product-card">
-        <img src="${item.Image}" class="card-img">
-
+<img 
+  src="${item.Image}" 
+  class="card-img"
+  onerror="this.src='public/cakes/default.jpg'"
+>
         <div class="card-content">
           <div class="card-header">
             <h3>${item.Name}</h3>
@@ -1388,7 +1406,7 @@ function displayCakes(data){
 
           <p>${item.Description}</p>
 
-          <a href="https://wa.me/919074087851" class="btn primary">
+          <a href="https://wa.me/919074087851" class=" primary">
             Order Now
           </a>
         </div>
