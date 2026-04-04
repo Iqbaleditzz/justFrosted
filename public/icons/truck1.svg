@@ -1,27 +1,28 @@
-<svg width="320" height="180" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
 
-  <!-- Truck Body -->
-  <rect x="20" y="60" width="180" height="70" rx="10" fill="#2d89ef"/>
+  <!-- Background -->
+  <rect x="0" y="0" width="220" height="220" rx="40" fill="#e6c9cf"/>
 
-  <!-- Cabin -->
-  <rect x="200" y="80" width="80" height="50" rx="8" fill="#1b5fa7"/>
+  <!-- Truck Outline -->
+  <g stroke="#d45b7c" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- Cargo box -->
+    <rect x="55" y="70" width="70" height="60" rx="10"/>
 
-  <!-- Window -->
-  <rect x="215" y="90" width="35" height="25" rx="4" fill="#cfe8ff"/>
+    <!-- Cabin -->
+    <path d="M125 85 H145 L165 110 V130 H125 Z"/>
 
-  <!-- Cargo Lines -->
-  <line x1="40" y1="75" x2="180" y2="75" stroke="#ffffff" stroke-width="2"/>
-  <line x1="40" y1="95" x2="180" y2="95" stroke="#ffffff" stroke-width="2"/>
-  <line x1="40" y1="115" x2="180" y2="115" stroke="#ffffff" stroke-width="2"/>
+    <!-- Wheels -->
+    <circle cx="85" cy="140" r="12"/>
+    <circle cx="145" cy="140" r="12"/>
 
-  <!-- Wheels -->
-  <circle cx="80" cy="140" r="20" fill="#222"/>
-  <circle cx="80" cy="140" r="10" fill="#888"/>
+    <!-- Inner wheel dots -->
+    <circle cx="85" cy="140" r="4" fill="#d45b7c" stroke="none"/>
+    <circle cx="145" cy="140" r="4" fill="#d45b7c" stroke="none"/>
 
-  <circle cx="230" cy="140" r="20" fill="#222"/>
-  <circle cx="230" cy="140" r="10" fill="#888"/>
+    <!-- Bottom line -->
+    <line x1="55" y1="130" x2="165" y2="130"/>
 
-  <!-- Ground Shadow -->
-  <ellipse cx="160" cy="160" rx="120" ry="10" fill="#000" opacity="0.1"/>
+  </g>
 
 </svg>
