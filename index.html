@@ -96,6 +96,7 @@ padding:12px 15px;
   content: "";
   position: fixed;
   inset: 0;
+  z-index: 1;
   background: rgba(0,0,0,0.35);
   opacity: 0;
   pointer-events: none;
@@ -113,6 +114,8 @@ padding:12px 15px;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
 }
 
 .menu-top h2 {
@@ -1010,7 +1013,7 @@ padding:30px;
 
   <div class="menu-top">
     <h2>Just Frosted</h2>
-    <span class="close-btn" onclick="closeMenu()">✕</span>
+    <span class="close-btn" id="closeBtn">✕</span>
   </div>
 
   <a href="#" onclick="closeMenu()">Home</a>
@@ -1463,8 +1466,8 @@ function closeMenu() {
 /* CLOSE WHEN CLICK OUTSIDE */
 document.addEventListener("click", function(e) {
   const isMenu = menu.contains(e.target);
-  const isBtn = e.target.closest(".menu-btn");
-
+  const isBtn = e.target.closest(".menu-btn, .close-btn");
+document.getElementById("closeBtn").addEventListener("click", closeMenu);
   if (menu.classList.contains("active") && !isMenu && !isBtn) {
     closeMenu();
   }
