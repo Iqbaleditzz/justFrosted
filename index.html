@@ -133,6 +133,28 @@ padding:12px 15px;
 }
 
 /* ===== MENU LINKS ===== */
+  .filters{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:10px 15px;
+}
+
+.filters button{
+  border:none;
+  padding:8px 15px;
+  border-radius:20px;
+  background:#eee;
+  cursor:pointer;
+  white-space:nowrap;
+  font-size:14px;
+}
+
+.filters button.active{
+  background:#ff7a9c;
+  color:white;
+}
+  
   #menu-section{
   padding: 20px 0;
 }
@@ -189,28 +211,62 @@ padding:12px 15px;
 }
 /* ===== HERO ===== */
 .hero{
-margin-top:70px;
-position:relative;
-height:80vh;
+  margin-top:70px;
+  position:relative;
+  height:80vh;
+  overflow:hidden;
 }
-.hero img{
-width:100%;height:100%;object-fit:cover;
+
+/* SLIDES */
+.hero-slide{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+
+  opacity:0;
+  transform:scale(1);
+  transition: opacity 1s ease-in-out;
+
+  will-change: transform;
 }
+
+/* ACTIVE */
+.hero-slide.active{
+  opacity:1;
+  z-index:1;
+}
+
+/* OVERLAY */
 .overlay{
-position:absolute;inset:0;
-background:linear-gradient(to top,rgba(0,0,0,.6),transparent);
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.6),transparent);
+  z-index:2;
 }
+
+/* CONTENT */
 .hero-content{
-position:absolute;
-bottom:30px;
-left:20px;
-color:white;
+  position:absolute;
+  bottom:30px;
+  left:20px;
+  color:white;
+  z-index:3;
 }
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:32px;
+
+/* ===== KEN BURNS ANIMATION ===== */
+.hero-slide.active{
+  animation: kenburns 6s ease-in-out forwards;
 }
-.hero p{margin:10px 0;}
+
+@keyframes kenburns{
+  0%{
+    transform: scale(1) translate(0,0);
+  }
+  100%{
+    transform: scale(1.15) translate(-2%, -2%);
+  }
+}
 
 /* BUTTONS */
 .btn{
@@ -785,18 +841,32 @@ padding:30px;
 
 <!-- HERO -->
 <section class="hero">
-<img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c">
-<div class="overlay"></div>
 
-<div class="hero-content">
-<h1>Homemade Cakes Crafted with Love ❤️</h1>
-<p>Freshly baked in Calicut</p>
+  <!-- SLIDES -->
+  <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=1200')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=1200')"></div>
+  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=1200')"></div>
 
-<a href="https://wa.me/919074087851" class="btn primary">Order on WhatsApp</a>
-<a href="#menu-section" class="btn secondary">View Cakes</a>
-</div>
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+    <h1>Homemade Cakes Crafted with Love ❤️</h1>
+    <p>Freshly baked in Calicut</p>
+
+    <a href="https://wa.me/919074087851" class="btn primary">Order on WhatsApp</a>
+    <a href="#menu-section" class="btn secondary">View Cakes</a>
+  </div>
+
 </section>
-
+<div class="filters">
+  <button onclick="filterCakes('all')" class="active">All</button>
+  <button onclick="filterCakes('birthday')">Birthday</button>
+  <button onclick="filterCakes('chocolate')">Chocolate</button>
+  <button onclick="filterCakes('custom')">Custom</button>
+</div>
 <section id="menu-section"></section>
 
 <!-- GALLERY -->
@@ -1290,32 +1360,82 @@ observer.observe(document.querySelector('.stats'));
 
 </script>
 <script>
-fetch("https://opensheet.elk.sh/13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I/1")
+let allCakes = [];
+
+fetch("https://opensheet.elk.sh/13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I/Sheet1")
   .then(res => res.json())
   .then(data => {
-
-    const container = document.getElementById("menu-section");
-    container.innerHTML = ""; // clear old items
-
-    data.forEach(item => {
-      container.innerHTML += `
-        <div class="product-card">
-          <img src="${item.Image}" class="card-img">
-          <div class="card-content">
-            <div class="card-header">
-              <h3>${item.Name}</h3>
-              <span class="price">₹${item.Price}</span>
-            </div>
-            <p>${item.Description}</p>
-            <a href="https://wa.me/919074087851" class="btn primary">
-              Order Now
-            </a>
-          </div>
-        </div>
-      `;
-    });
-
+    allCakes = data;
+    displayCakes(allCakes);
   });
+
+function displayCakes(data){
+  const container = document.getElementById("menu-section");
+  container.innerHTML = "";
+
+  data.forEach(item => {
+    if(!item.Name) return;
+
+    container.innerHTML += `
+      <div class="product-card">
+        <img src="${item.Image}" class="card-img">
+
+        <div class="card-content">
+          <div class="card-header">
+            <h3>${item.Name}</h3>
+            <span class="price">₹${item.Price}</span>
+          </div>
+
+          <p>${item.Description}</p>
+
+          <a href="https://wa.me/919074087851" class="btn primary">
+            Order Now
+          </a>
+        </div>
+      </div>
+    `;
+  });
+}
+</script>
+    <script>
+function filterCakes(category){
+
+  // button active state
+  document.querySelectorAll(".filters button").forEach(btn=>{
+    btn.classList.remove("active");
+  });
+
+  event.target.classList.add("active");
+
+  if(category === "all"){
+    displayCakes(allCakes);
+    return;
+  }
+
+  const filtered = allCakes.filter(item =>
+    item.Category?.toLowerCase() === category
+  );
+
+  displayCakes(filtered);
+}
+</script>
+    <script>
+const slides = document.querySelectorAll(".hero-slide");
+let current = 0;
+
+function showSlide(index){
+  slides.forEach(slide => {
+    slide.classList.remove("active");
+  });
+
+  slides[index].classList.add("active");
+}
+
+/* AUTO CHANGE */
+setInterval(()=>{
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}, 6000); // match animation timing
 </script>
 </body>
 </html>
