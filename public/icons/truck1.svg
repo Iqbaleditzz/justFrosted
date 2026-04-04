@@ -1,47 +1,41 @@
 <svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
 
   <!-- Background -->
-  <rect width="240" height="240" rx="48" fill="#e6c9cf"/>
+  <rect width="240" height="240" rx="50" fill="#e6c9cf"/>
 
-  <!-- Truck Outline -->
-  <path 
-    d="
-      M70 90
-      Q70 75 85 75
-      H120
-      Q135 75 135 90
-      V100
-      H150
-      Q155 100 160 105
+  <!-- Truck -->
+  <g fill="none" stroke="#d85c7f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Main cargo box -->
+    <rect x="70" y="85" width="70" height="65" rx="14"/>
+
+    <!-- Cabin -->
+    <path d="
+      M140 105
+      H155
+      Q160 105 164 110
       L180 130
-      Q185 135 185 145
-      V155
-      Q185 165 175 165
-      H160
-      Q155 180 140 180
-      Q125 180 120 165
-      H105
-      Q100 180 85 180
-      Q70 180 65 165
-      H60
-      Q50 165 50 155
-      V105
-      Q50 90 65 90
-      Z
-    "
-    fill="none"
-    stroke="#d45b7c"
-    stroke-width="7"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+      Q184 135 184 142
+      V150
+      Q184 158 176 158
+      H150
+    "/>
+
+    <!-- Bottom base line -->
+    <line x1="70" y1="150" x2="184" y2="150"/>
+
+    <!-- Wheel arches (cut effect look) -->
+    <path d="M90 150 A15 15 0 0 1 120 150"/>
+    <path d="M140 150 A15 15 0 0 1 170 150"/>
+
+  </g>
 
   <!-- Wheels -->
-  <circle cx="85" cy="165" r="12" fill="none" stroke="#d45b7c" stroke-width="7"/>
-  <circle cx="140" cy="165" r="12" fill="none" stroke="#d45b7c" stroke-width="7"/>
+  <circle cx="105" cy="150" r="14" fill="#e6c9cf" stroke="#d85c7f" stroke-width="8"/>
+  <circle cx="155" cy="150" r="14" fill="#e6c9cf" stroke="#d85c7f" stroke-width="8"/>
 
-  <!-- Wheel centers -->
-  <circle cx="85" cy="165" r="4" fill="#d45b7c"/>
-  <circle cx="140" cy="165" r="4" fill="#d45b7c"/>
+  <!-- Inner dots -->
+  <circle cx="105" cy="150" r="4" fill="#d85c7f"/>
+  <circle cx="155" cy="150" r="4" fill="#d85c7f"/>
 
 </svg>
