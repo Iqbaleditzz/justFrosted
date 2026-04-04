@@ -401,39 +401,12 @@ padding:12px 15px;
   padding:20px;
 }
 
-/* BIG FEATURE IMAGE */
+/* FEATURE IMAGE */
 .gallery-item:nth-child(1){
   grid-column: span 2;
 }
-.gallery-item{
-position:relative;
-overflow:hidden;
-border-radius:15px;
-}
-.gallery-item img{
-width:100%;
-height:100%;
-object-fit:cover;
-transition:.5s;
-}
-.gallery-overlay{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding:15px;
 
-  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-
-  color:white;
-  font-weight:600;
-  font-size:14px;
-
-  transform: translateY(100%);
-  transition:0.4s ease;
-}
-
-/* SHOW ON HOVER */
-
+/* CARD */
 .gallery-item{
   position:relative;
   overflow:hidden;
@@ -441,38 +414,65 @@ transition:.5s;
   box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
+/* IMAGE */
 .gallery-item img{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:0.5s;
+  transition:0.5s ease;
 }
 
-/* HOVER ZOOM */
+/* OVERLAY */
+.gallery-overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  padding:12px;
+
+  background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+
+  color:white;
+  font-size:14px;
+  font-weight:600;
+
+  transform:translateY(100%);
+  transition:0.4s ease;
+}
+
+/* HOVER EFFECT */
 .gallery-item:hover img{
   transform:scale(1.08);
-}  
-  .section-title{
+}
+
+.gallery-item:hover .gallery-overlay{
+  transform:translateY(0);
+}
+
+/* ===== HEADING ===== */
+.section-title{
   text-align:center;
   font-size:28px;
   font-family:'Playfair Display', serif;
 
-  background: linear-gradient(90deg, #ff7a9c, #ffb6c1, #ff7a9c);
+  background:linear-gradient(90deg,#ff7a9c,#ffb6c1,#ff7a9c);
   background-size:200% auto;
 
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
-  margin:30px 0 10px;
+  margin:30px 0 15px;
 
-  animation: gradientMove 4s linear infinite;
+  animation:gradientMove 4s linear infinite;
 }
 
 @keyframes gradientMove{
-  0%{ background-position:0% center; }
-  100%{ background-position:200% center; }
+  0%{background-position:0% center;}
+  100%{background-position:200% center;}
 }
-  .reveal{
+
+/* ===== REVEAL ===== */
+.reveal{
   opacity:0;
   transform:translateY(30px);
   transition:0.8s ease;
@@ -481,6 +481,19 @@ transition:.5s;
 .reveal.active{
   opacity:1;
   transform:translateY(0);
+}
+
+/* ===== MOBILE FIX ===== */
+@media(max-width:480px){
+
+  .gallery{
+    gap:10px;
+    padding:15px;
+  }
+
+  .section-title{
+    font-size:24px;
+  }
 }
 /* ===== ABOUT ===== */
 .about{
@@ -1000,89 +1013,78 @@ padding:30px;
 </div>
 <section id="menu-section"></section>
 
-<!-- GALLERY -->
-<section id="gallery" class="gallery">
-<h2 class="section-title reveal">
-  Moments Made Sweeter 🍰
-</h2>
-  <div class="gallery">
-  <!-- Existing -->
-  <div class="gallery-item">
-    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
-    <div class="gallery-overlay">Custom Cakes</div>
+<section id="gallery" class="gallery-section">
+
+  <!-- HEADING -->
+  <h2 class="section-title reveal">
+    Moments Made Sweeter 🍰
+  </h2>
+
+  <!-- GRID -->
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+      <div class="gallery-overlay">Custom Cakes</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f">
+      <div class="gallery-overlay">Chocolate</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3008.jpeg">
+      <div class="gallery-overlay">Fresh Cakes</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3009.jpeg">
+      <div class="gallery-overlay">Chocolate Cakes</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3010.jpeg">
+      <div class="gallery-overlay">Birthday Cakes</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3011.jpeg">
+      <div class="gallery-overlay">Custom Designs</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3012.jpeg">
+      <div class="gallery-overlay">Premium Cakes</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3013.jpeg">
+      <div class="gallery-overlay">Sweet Treats</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3014.jpeg">
+      <div class="gallery-overlay">Handmade</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3016.jpeg">
+      <div class="gallery-overlay">Celebration Cakes</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3017.jpeg">
+      <div class="gallery-overlay">Custom Orders</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="public/cakes/IMG_3018.jpeg">
+      <div class="gallery-overlay">Delicious Cakes</div>
+    </div>
+
   </div>
 
-  <div class="gallery-item">
-    <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f">
-    <div class="gallery-overlay">Chocolate</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
-    <div class="gallery-overlay">Custom Cakes</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
-    <div class="gallery-overlay">Custom Cakes</div>
-  </div>
-
-  <!-- YOUR IMAGES -->
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3008.jpeg">
-    <div class="gallery-overlay">Fresh Cakes</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3009.jpeg">
-    <div class="gallery-overlay">Chocolate Cakes</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3010.jpeg">
-    <div class="gallery-overlay">Birthday Cakes</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3011.jpeg">
-    <div class="gallery-overlay">Custom Designs</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3012.jpeg">
-    <div class="gallery-overlay">Premium Cakes</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3013.jpeg">
-    <div class="gallery-overlay">Sweet Treats</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3014.jpeg">
-    <div class="gallery-overlay">Handmade</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3016.jpeg">
-    <div class="gallery-overlay">Celebration Cakes</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3017.jpeg">
-    <div class="gallery-overlay">Custom Orders</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3018.jpeg">
-    <div class="gallery-overlay">Delicious Cakes</div>
-  </div>
-
-  <div class="gallery-item">
-    <img src="public/cakes/IMG_3019.jpeg">
-    <div class="gallery-overlay">Fresh Bakes</div>
-  </div>
-</div>
 </section>
 
 <!-- ABOUT -->
