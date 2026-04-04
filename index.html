@@ -452,6 +452,36 @@ transition:.5s;
 .gallery-item:hover img{
   transform:scale(1.08);
 }  
+  .section-title{
+  text-align:center;
+  font-size:28px;
+  font-family:'Playfair Display', serif;
+
+  background: linear-gradient(90deg, #ff7a9c, #ffb6c1, #ff7a9c);
+  background-size:200% auto;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  margin:30px 0 10px;
+
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove{
+  0%{ background-position:0% center; }
+  100%{ background-position:200% center; }
+}
+  .reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:0.8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
 /* ===== ABOUT ===== */
 .about{
 background:#f3e9e9;
@@ -971,9 +1001,10 @@ padding:30px;
 <section id="menu-section"></section>
 
 <!-- GALLERY -->
-<!-- GALLERY -->
 <section id="gallery" class="gallery">
-
+<h2 class="section-title reveal">
+  Moments Made Sweeter 🍰
+</h2>
   <!-- Existing -->
   <div class="gallery-item">
     <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
@@ -1540,6 +1571,19 @@ setInterval(()=>{
   current = (current + 1) % slides.length;
   showSlide(current);
 }, 6000); // match animation timing
+</script>
+    <script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+  });
+},{ threshold:0.3 });
+
+reveals.forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
