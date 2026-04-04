@@ -1005,6 +1005,7 @@ padding:30px;
 <h2 class="section-title reveal">
   Moments Made Sweeter 🍰
 </h2>
+  <div class="gallery">
   <!-- Existing -->
   <div class="gallery-item">
     <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
@@ -1081,7 +1082,7 @@ padding:30px;
     <img src="public/cakes/IMG_3019.jpeg">
     <div class="gallery-overlay">Fresh Bakes</div>
   </div>
-
+</div>
 </section>
 
 <!-- ABOUT -->
@@ -1399,21 +1400,17 @@ padding:30px;
 </a>
 
 <script>
+/* =========================
+   MENU TOGGLE
+========================= */
 const menu = document.getElementById("menu");
 
-/* OPEN */
 function openMenu() {
   menu.classList.add("active");
 }
 
-/* CLOSE */
 function closeMenu() {
   menu.classList.remove("active");
-}
-
-/* TOGGLE */
-function toggleMenu() {
-  menu.classList.toggle("active");
 }
 
 /* CLOSE WHEN CLICK OUTSIDE */
@@ -1426,40 +1423,54 @@ document.addEventListener("click", function(e) {
   }
 });
 
-/* CLOSE WHEN CLICKING LINKS */
+/* CLOSE ON LINK CLICK */
 document.querySelectorAll(".side-menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    closeMenu();
-  });
+  link.addEventListener("click", closeMenu);
 });
 
-/* CLOSE WITH ESC KEY */
+/* CLOSE WITH ESC */
 document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
-    closeMenu();
-  }
+  if (e.key === "Escape") closeMenu();
 });
-</script>
-    <script>
 
+
+/* =========================
+   HERO SLIDER
+========================= */
+const slides = document.querySelectorAll(".hero-slide");
+let current = 0;
+
+function showSlide(index){
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+setInterval(()=>{
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}, 6000);
+
+
+/* =========================
+   COUNT ANIMATION
+========================= */
 const counters = document.querySelectorAll('.count');
-let started = false;
+let countStarted = false;
 
 function startCounting() {
-  if (started) return;
-  started = true;
+  if (countStarted) return;
+  countStarted = true;
 
   counters.forEach(counter => {
     const target = +counter.getAttribute('data-target');
     let count = 0;
-
     const increment = target / 100;
 
-    const updateCount = () => {
-      if (count < target) {
+    function updateCount(){
+      if(count < target){
         count += increment;
 
-        if (target % 1 !== 0) {
+        if(target % 1 !== 0){
           counter.innerText = count.toFixed(1);
         } else {
           counter.innerText = Math.ceil(count);
@@ -1467,31 +1478,45 @@ function startCounting() {
 
         setTimeout(updateCount, 20);
       } else {
-        if (target >= 100) {
-  counter.innerText = Math.floor(target) + '+';
-} else {
-  counter.innerText = target;
-}
+        counter.innerText = target >= 100 
+          ? Math.floor(target) + '+' 
+          : target;
       }
-    };
+    }
 
     updateCount();
   });
 }
 
-// 🔥 Intersection Observer (trigger on scroll)
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+
+/* =========================
+   SCROLL OBSERVER (MERGED)
+========================= */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+
+    /* COUNT TRIGGER */
+    if(entry.target.classList.contains("stats") && entry.isIntersecting){
       startCounting();
     }
+
+    /* REVEAL ANIMATION */
+    if(entry.target.classList.contains("reveal") && entry.isIntersecting){
+      entry.target.classList.add("active");
+    }
+
   });
-}, { threshold: 0.5 });
+},{ threshold:0.3 });
 
-observer.observe(document.querySelector('.stats'));
+/* OBSERVE ELEMENTS */
+document.querySelectorAll(".stats, .reveal").forEach(el=>{
+  observer.observe(el);
+});
 
-</script>
-<script>
+
+/* =========================
+   CATEGORY FILTER
+========================= */
 let allCakes = [];
 
 fetch("https://opensheet.elk.sh/13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I/Sheet1")
@@ -1510,11 +1535,12 @@ function displayCakes(data){
 
     container.innerHTML += `
       <div class="product-card">
-<img 
-  src="${item.Image}" 
-  class="card-img"
-  onerror="this.src='public/cakes/IMG_3014.jpeg'"
->
+        <img 
+          src="${item.Image}" 
+          class="card-img"
+          onerror="this.src='public/cakes/IMG_3014.jpeg'"
+        >
+
         <div class="card-content">
           <div class="card-header">
             <h3>${item.Name}</h3>
@@ -1531,11 +1557,11 @@ function displayCakes(data){
     `;
   });
 }
-</script>
-    <script>
+
+
+/* FILTER FUNCTION */
 function filterCakes(category){
 
-  // button active state
   document.querySelectorAll(".filters button").forEach(btn=>{
     btn.classList.remove("active");
   });
@@ -1553,37 +1579,19 @@ function filterCakes(category){
 
   displayCakes(filtered);
 }
-</script>
-    <script>
-const slides = document.querySelectorAll(".hero-slide");
-let current = 0;
 
-function showSlide(index){
-  slides.forEach(slide => {
-    slide.classList.remove("active");
+
+/* =========================
+   AUTO CENTER FILTER BUTTON
+========================= */
+document.querySelectorAll(".filters button").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    btn.scrollIntoView({
+      behavior:"smooth",
+      inline:"center"
+    });
   });
-
-  slides[index].classList.add("active");
-}
-
-/* AUTO CHANGE */
-setInterval(()=>{
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}, 6000); // match animation timing
-</script>
-    <script>
-const reveals = document.querySelectorAll(".reveal");
-
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
-  });
-},{ threshold:0.3 });
-
-reveals.forEach(el => observer.observe(el));
+});
 </script>
 </body>
 </html>
