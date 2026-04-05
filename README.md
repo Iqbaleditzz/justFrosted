@@ -5,7 +5,7 @@ A modern, mobile-first bakery website built using pure HTML, CSS, and JavaScript
 ---
 
 ## 🚀 Live Demo
-https://iqbaleditzz.github.io
+[https://iqbaleditzz.github.io](https://iqbaleditzz.github.io/justFrosted/)
 
 ---
 
