@@ -702,7 +702,79 @@ text-align:center;
   padding: 50px 20px;
   text-align: center;
 }
+/* ===== REVIEW SLIDER ===== */
+.slider{
+  overflow:hidden;
+  position:relative;
+}
 
+.slides{
+  display:flex;
+  transition:0.5s ease;
+}
+
+.slide{
+  min-width:100%;
+  padding:0 10px;
+}
+
+.dots{
+  text-align:center;
+  margin-top:10px;
+}
+
+.dot{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  margin:5px;
+  border-radius:50%;
+  background:#ccc;
+  cursor:pointer;
+}
+
+.dot.active{
+  background:#ff7a9c;
+}
+  /* ===== REVIEW CTA ===== */
+.review-cta{
+  text-align:center;
+  padding:30px 20px;
+}
+
+.review-cta h3{
+  font-family:'Playfair Display', serif;
+  font-size:24px;
+  margin-bottom:8px;
+}
+
+.review-cta p{
+  color:#7a6a6a;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* BUTTON */
+.review-btn{
+  display:inline-block;
+  padding:14px 28px;
+
+  background: linear-gradient(135deg, #ff7a9c, #ffb6c1);
+  color:white;
+
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+
+  box-shadow:0 10px 20px rgba(255,122,156,0.3);
+
+  transition:0.3s;
+}
+
+.review-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 15px 30px rgba(255,122,156,0.4);
+}
 /* SUB */
 .test-sub {
   color: #ff7a9c;
@@ -998,6 +1070,194 @@ padding:30px;
   animation: pulse 2s infinite;
 }
 
+  /* =========================
+   GLOBAL MAX WIDTH (CENTER SITE)
+========================= */
+body{
+  max-width:1400px;
+  margin:auto;
+}
+
+/* =========================
+   DESKTOP NAV IMPROVEMENT
+========================= */
+@media(min-width:768px){
+
+  .nav-inner{
+    padding:15px 40px;
+  }
+
+  .logo span{
+    font-size:24px;
+  }
+
+  .menu-btn{
+    font-size:26px;
+  }
+}
+
+/* =========================
+   HERO RESPONSIVE
+========================= */
+@media(min-width:768px){
+
+  .hero{
+    height:90vh;
+  }
+
+  .hero-content{
+    left:60px;
+    bottom:60px;
+    max-width:500px;
+  }
+
+  .hero-content h1{
+    font-size:42px;
+  }
+
+  .hero-content p{
+    font-size:18px;
+  }
+
+  .btn{
+    max-width:280px;
+  }
+}
+
+@media(min-width:1024px){
+
+  .hero-content h1{
+    font-size:52px;
+  }
+
+}
+
+/* =========================
+   FILTER CENTER + WIDTH
+========================= */
+@media(min-width:768px){
+
+  .filters{
+    justify-content:center;
+    padding:20px;
+  }
+}
+
+/* =========================
+   PRODUCT GRID (DESKTOP)
+========================= */
+@media(min-width:768px){
+
+  #menu-section{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:20px;
+    padding:20px 40px;
+  }
+
+  .product-card{
+    margin:0;
+  }
+}
+
+@media(min-width:1024px){
+
+  #menu-section{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+/* =========================
+   GALLERY GRID UPGRADE
+========================= */
+@media(min-width:768px){
+
+  .gallery-grid{
+    grid-template-columns: repeat(3, 1fr);
+    padding:30px 40px;
+  }
+
+  .gallery-item:nth-child(1){
+    grid-column: span 2;
+    height:300px;
+  }
+}
+
+@media(min-width:1024px){
+
+  .gallery-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .gallery-item:nth-child(1){
+    grid-column: span 2;
+    height:350px;
+  }
+
+}
+
+/* =========================
+   WHY SECTION GRID
+========================= */
+@media(min-width:768px){
+
+  .why-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+/* =========================
+   ORDER STEPS GRID
+========================= */
+@media(min-width:768px){
+
+  .order-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+/* =========================
+   CONTACT GRID
+========================= */
+@media(min-width:768px){
+
+  .contact-section{
+    padding:60px;
+  }
+
+  .contact-card{
+    max-width:400px;
+    margin:20px auto;
+  }
+
+}
+
+/* =========================
+   TESTIMONIAL WIDTH FIX
+========================= */
+@media(min-width:768px){
+
+  .testimonial-section{
+    max-width:700px;
+    margin:auto;
+  }
+
+}
+
+/* =========================
+   BUTTON POLISH (DESKTOP)
+========================= */
+@media(min-width:768px){
+
+  .btn{
+    font-size:16px;
+    padding:16px;
+  }
+
+}
 </style>
 </head>
 
@@ -1237,63 +1497,26 @@ padding:30px;
   </div>
 
 </section>
+<!-- REVIEW CTA -->
+<section class="review-cta">
 
+  <h3>Loved our cakes?</h3>
+  <p>Share your experience with us 💖</p>
+
+  <a href="https://forms.gle/tEHkJrVQYLfpNsNa9" target="_blank" class="review-btn">
+    ⭐ Write a Review
+  </a>
+
+</section>
 <!-- TESTIMONIAL -->
 <section class="testimonial-section">
 
   <p class="test-sub">CUSTOMER LOVE</p>
   <h2 class="test-title">What People Say</h2>
 
-  <!-- CARD 1 -->
-  <div class="test-card">
-    <div class="stars">
-      <!-- 5 SVG STARS -->
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-    </div>
-
-    <p class="review-text">
-      "The red velvet cake was absolutely divine! Best I've ever had in Calicut. Will definitely order again."
-    </p>
-
-    <h4 class="review-name">Ayesha M.</h4>
-  </div>
-
-  <!-- CARD 2 -->
-  <div class="test-card">
-    <div class="stars">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-    </div>
-
-    <p class="review-text">
-      "Ordered a custom birthday cake for my daughter. The design was perfect and it tasted amazing!"
-    </p>
-
-    <h4 class="review-name">Rahul K.</h4>
-  </div>
-
-  <!-- CARD 3 -->
-  <div class="test-card">
-    <div class="stars">
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      <svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-    </div>
-
-    <p class="review-text">
-      "Those brownies are dangerously addictive 😍 Fresh, fudgy, and delivered right on time."
-    </p>
-
-    <h4 class="review-name">Customer</h4>
+  <div class="slider">
+    <div class="slides" id="slides"></div>
+    <div class="dots" id="dots"></div>
   </div>
 
 </section>
@@ -1649,6 +1872,93 @@ document.querySelectorAll(".filters button").forEach(btn=>{
     });
   });
 });
+  /* =========================
+   REVIEW SLIDER (GOOGLE SHEET)
+========================= */
+
+const reviewURL = "https://opensheet.elk.sh/13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I/reviews";
+
+fetch(reviewURL)
+  .then(res => res.json())
+  .then(data => createReviewSlider(data));
+
+function createReviewSlider(data){
+
+  const slides = document.getElementById("slides");
+  const dots = document.getElementById("dots");
+
+  slides.innerHTML = "";
+  dots.innerHTML = "";
+
+  // only good reviews
+  data = data.filter(r => r.rating >= 4);
+
+  data.reverse().forEach((item, i) => {
+
+    slides.innerHTML += `
+      <div class="slide">
+        <div class="test-card">
+          <div class="stars">${"★".repeat(item.rating)}</div>
+          <p class="review-text">"${item.review}"</p>
+          <h4 class="review-name">${item.name}</h4>
+        </div>
+      </div>
+    `;
+
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if(i === 0) dot.classList.add("active");
+
+    dot.onclick = ()=> goToReview(i);
+    dots.appendChild(dot);
+  });
+
+  initReviewSlider();
+}
+
+let reviewIndex = 0;
+
+function initReviewSlider(){
+
+  const slides = document.getElementById("slides");
+  const total = document.querySelectorAll(".slide").length;
+
+  function updateDots(){
+    document.querySelectorAll(".dot").forEach((d,i)=>{
+      d.classList.toggle("active", i===reviewIndex);
+    });
+  }
+
+  window.goToReview = function(i){
+    reviewIndex = i;
+    slides.style.transform = `translateX(-${reviewIndex * 100}%)`;
+    updateDots();
+  }
+
+  // AUTO
+  setInterval(()=>{
+    reviewIndex = (reviewIndex + 1) % total;
+    goToReview(reviewIndex);
+  },4000);
+
+  // TOUCH
+  let startX = 0;
+
+  slides.addEventListener("touchstart", e=>{
+    startX = e.touches[0].clientX;
+  });
+
+  slides.addEventListener("touchend", e=>{
+    let endX = e.changedTouches[0].clientX;
+
+    if(startX - endX > 50) reviewIndex++;
+    else if(endX - startX > 50) reviewIndex--;
+
+    reviewIndex = (reviewIndex + total) % total;
+
+    goToReview(reviewIndex);
+  });
+}
 </script>
 </body>
 </html>
