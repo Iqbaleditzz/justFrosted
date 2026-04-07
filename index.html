@@ -1,1964 +1,1060 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Just Frosted</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Just Frosted – Homemade Cakes in Calicut</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-html{
-  scroll-behavior: smooth;
+:root{
+  --pink:#ff7a9c;
+  --pink-light:#ffd6e2;
+  --pink-dark:#e85c82;
+  --cream:#fff8f2;
+  --beige:#f5e6d3;
+  --beige2:#fef3e8;
+  --brown:#6b4226;
+  --text:#2d1b0e;
+  --text-muted:#8a6a58;
+  --white:#ffffff;
+  --green-wa:#25d366;
+  --radius:22px;
+  --shadow:0 8px 32px rgba(255,122,156,0.13);
+  --glass:rgba(255,255,255,0.55);
+  --glass-border:rgba(255,255,255,0.8);
 }
-/* ===== BASE ===== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#fff7f2;color:#2b2b2b;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
 body{
-  font-family: 'Poppins', sans-serif;
+  font-family:'Poppins',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+  min-height:100vh;
 }
 
-h1,h2,h3{
-  font-family: 'Playfair Display', serif;
+/* ── BLOBS ─────────────────────────────────────────── */
+.blob-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
 }
-/* ===== NAV ===== */
-.nav{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(255,255,255,0.9);
-backdrop-filter:blur(10px);
-z-index:1000;
+.blob{
+  position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;
+  animation:blobFloat 18s ease-in-out infinite;
 }
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 15px;
-}
-/* LOGO CONTAINER */
-.logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
+.blob1{width:520px;height:520px;background:radial-gradient(circle,#ffb3cb,#ff7a9c);top:-120px;left:-120px;animation-delay:0s}
+.blob2{width:400px;height:400px;background:radial-gradient(circle,#ffd6a5,#ffb347);top:40%;right:-100px;animation-delay:-6s}
+.blob3{width:350px;height:350px;background:radial-gradient(circle,#c9f0ff,#a0d8ef);bottom:-80px;left:30%;animation-delay:-12s}
+.blob4{width:280px;height:280px;background:radial-gradient(circle,#f7c8e0,#e991b9);top:60%;left:10%;animation-delay:-4s}
+@keyframes blobFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(30px,-40px) scale(1.05)}
+  66%{transform:translate(-20px,25px) scale(.96)}
 }
 
-/* IMAGE LOGO */
-.logo-img{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  object-fit:cover;
+/* ── NOISE TEXTURE ──────────────────────────────────── */
+.noise{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.025;
 }
 
-/* SVG ICON */
-.logo-icon{
-  width:22px;
-  height:22px;
+/* ── MAIN CONTENT WRAPPER ───────────────────────────── */
+main,nav,section,footer,.hero{position:relative;z-index:2}
+
+/* ── NAVBAR ─────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,248,242,0.72);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);
+  box-shadow:0 2px 24px rgba(255,122,156,.08);
 }
-
-/* TEXT */
-.logo span{
-  font-family:'Playfair Display',serif;
-  color:#ff7a9c;
-  font-size:20px;
-  font-weight:600;
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--pink-light)}
+.nav-brand-text{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--pink-dark);letter-spacing:.02em}
+.nav-cake-icon{font-size:1.1rem}
+.hamburger{
+  background:none;border:none;cursor:pointer;
+  display:flex;flex-direction:column;gap:5px;padding:6px;
 }
-.menu-btn{font-size:22px;cursor:pointer;}
-
-/* ===== SIDEBAR BASE ===== */
-.side-menu {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 80%;
-  max-width: 320px;
-  height: 100%;
-  background: #f1bcf5;
-
-  padding: 25px 20px;
-  z-index: 2000;
-
-  display: flex;
-  flex-direction: column;
-
-  transition: right 0.4s ease;
-  box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+.hamburger span{
+  display:block;width:26px;height:2.5px;background:var(--pink-dark);
+  border-radius:2px;transition:transform .3s,opacity .3s;
 }
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
-/* ACTIVE STATE */
-.side-menu.active {
-  right: 0;
-}
-
-/* ===== OVERLAY BACKGROUND ===== */
-.side-menu::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: rgba(0,0,0,0.35);
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.3s ease;
-}
-
-.side-menu.active::before {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ===== TOP BAR ===== */
-.menu-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 2;
-}
-
-.menu-top h2 {
-  font-family: 'Playfair Display', serif;
-  color: #ff7a9c;
-  font-size: 22px;
-}
-
-/* CLOSE BUTTON */
-.close-btn {
-  font-size: 26px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.close-btn:hover {
-  transform: rotate(90deg);
-}
-
-/* ===== FILTER ===== */
-.filters{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-
-  padding:12px 15px;
-
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling: touch;
-
-  scrollbar-width:none; /* Firefox */
-}
-
-.filters::-webkit-scrollbar{
-  display:none; /* Chrome */
-}
-
-.filters button{
-  flex:0 0 auto;   /* 🔥 THIS MAKES IT SLIDE */
-
-  border:none;
-  padding:10px 18px;
-  border-radius:25px;
-
-  background:#eee;
-  color:#4a4a4a;
-
-  font-size:14px;
-  font-weight:500;
-
-  cursor:pointer;
-  white-space:nowrap;
-
-  transition:0.3s;
-}
-
-.filters button.active{
-  background:#ff7a9c;
-  color:white;
-  box-shadow:0 5px 15px rgba(255,122,156,0.3);
-} 
-  
-  /* ===== MENU LINKS ===== */
-  #menu-section{
-  padding: 20px 0;
-  scroll-margin-top: 90px;
-}
-.side-menu a {
-  display: block;
-  padding: 12px 5px;
-  margin: 5px 0;
-
-  font-size: 18px;
-  font-weight: 500;
-
-  color: #213cce;
-  text-decoration: none;
-
-  border-radius: 10px;
-
-  transition: all 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.side-menu a:hover {
-  background: #ffe6ec;
-  color: #ff7a9c;
-  padding-left: 15px;
-}
-
-/* ===== ENTRY ANIMATION (STAGGER) ===== */
-.side-menu a {
-  opacity: 0;
-  transform: translateX(20px);
-}
-
-.side-menu.active a {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* DELAY EACH ITEM */
-.side-menu.active a:nth-child(2) { transition-delay: 0.1s; }
-.side-menu.active a:nth-child(3) { transition-delay: 0.15s; }
-.side-menu.active a:nth-child(4) { transition-delay: 0.2s; }
-.side-menu.active a:nth-child(5) { transition-delay: 0.25s; }
-
-/* ===== SCROLLABLE MENU ===== */
-.side-menu {
-  overflow-y: auto;
-}
-
-/* ===== MOBILE TWEAK ===== */
-@media (max-width: 480px) {
-  .side-menu {
-    width: 85%;
-  }
-}
-/* ===== HERO ===== */
-.hero{
-  margin-top:70px;
-  position:relative;
-  height:80vh;
-  overflow:hidden;
-}
-
-/* SLIDES */
-.hero-slide{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-
-  opacity:0;
-  transform:scale(1);
-  transition: opacity 1s ease-in-out;
-
-  will-change: transform;
-}
-
-/* ACTIVE */
-.hero-slide.active{
-  opacity:1;
-  z-index:1;
-}
-
-/* OVERLAY */
+/* ── SIDEBAR ────────────────────────────────────────── */
 .overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,.6),transparent);
-  z-index:2;
+  position:fixed;inset:0;z-index:1100;
+  background:rgba(45,27,14,.35);backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;transition:opacity .3s;
 }
+.overlay.active{opacity:1;pointer-events:all}
+.sidebar{
+  position:fixed;top:0;right:0;z-index:1200;
+  width:280px;height:100%;
+  background:rgba(255,248,242,.95);backdrop-filter:blur(24px);
+  border-left:1px solid var(--glass-border);
+  transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;padding:32px 28px;gap:0;
+  box-shadow:-8px 0 40px rgba(255,122,156,.12);
+}
+.sidebar.active{transform:translateX(0)}
+.sidebar-close{
+  align-self:flex-end;background:none;border:none;cursor:pointer;
+  font-size:1.6rem;color:var(--text-muted);margin-bottom:32px;line-height:1;
+}
+.sidebar nav-links{display:flex;flex-direction:column}
+.sidebar a{
+  font-size:1.1rem;font-weight:500;color:var(--text);
+  text-decoration:none;padding:14px 0;
+  border-bottom:1px solid var(--pink-light);
+  transition:color .2s,padding-left .2s;
+}
+.sidebar a:hover{color:var(--pink);padding-left:8px}
+.sidebar a:last-child{border-bottom:none}
 
-/* CONTENT */
+/* ── HERO ───────────────────────────────────────────── */
+.hero{
+  position:relative;width:100%;height:100svh;min-height:600px;
+  overflow:hidden;display:flex;align-items:center;justify-content:center;
+  margin-top:0;
+}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.2s ease;
+  animation:kenBurns 12s ease-in-out infinite;
+}
+.hero-slide.active{opacity:1}
+.hero-slide:nth-child(2){animation-delay:-4s}
+.hero-slide:nth-child(3){animation-delay:-8s}
+@keyframes kenBurns{
+  0%{transform:scale(1)}50%{transform:scale(1.07)}100%{transform:scale(1)}
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(20,8,4,.35) 0%,rgba(20,8,4,.58) 60%,rgba(20,8,4,.75) 100%);
+}
 .hero-content{
-  position:absolute;
-  bottom:30px;
-  left:20px;
-  color:white;
-  z-index:3;
+  position:relative;z-index:2;text-align:center;padding:0 24px;
+  animation:heroIn .9s ease both;
 }
-
-/* ===== KEN BURNS ANIMATION ===== */
-.hero-slide.active{
-  animation: kenburns 6s ease-in-out forwards;
+@keyframes heroIn{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+.hero-content h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,6vw,4rem);
+  font-weight:700;color:#fff;
+  line-height:1.2;margin-bottom:12px;
+  text-shadow:0 2px 24px rgba(0,0,0,.4);
 }
-
-@keyframes kenburns{
-  0%{
-    transform: scale(1) translate(0,0);
-  }
-  100%{
-    transform: scale(1.15) translate(-2%, -2%);
-  }
+.hero-content p{
+  font-size:clamp(.95rem,2.5vw,1.2rem);
+  color:rgba(255,255,255,.85);margin-bottom:36px;
+  font-weight:300;letter-spacing:.04em;
 }
-
-/* BUTTONS */
-.btn{
-  display:block;
-
-  width:90%;
-  max-width:350px;
-
-  margin:12px auto;   /* center */
-
-  padding:14px;
-  border-radius:30px;
-
-  text-align:center;
-  text-decoration:none;
-  font-weight:600;
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-wa{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green-wa);color:#fff;
+  padding:14px 28px;border-radius:50px;
+  font-size:.95rem;font-weight:600;text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);
+  transition:transform .2s,box-shadow .2s;
 }
-
-/* COLORS */
-.primary{
-  background:#25D366;
-  color:white;
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.45)}
+.btn-menu{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.18);color:#fff;
+  padding:14px 28px;border-radius:50px;
+  font-size:.95rem;font-weight:600;text-decoration:none;
+  border:1px solid rgba(255,255,255,.45);
+  backdrop-filter:blur(6px);
+  transition:transform .2s,background .2s;
 }
+.btn-menu:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
 
-.secondary{
-  background:#ff7a9c;
-  color:white;
-}
-
-
-/* ===== CARDS ===== */
-.product-card{
-  background:#f3ebe7;
-  border-radius:25px;
-  overflow:hidden;
-  margin:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* IMAGE */
-.card-img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-}
-
-/* CONTENT */
-.card-content{
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-}
-
-.product-card .btn{
-  margin-top:15px;
-}
-/* HEADER */
-.card-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-/* PRICE */
-.price{
-  color:#ff7a9c;
-  font-weight:bold;
-  font-size:16px;
-}
-
-/* DESCRIPTION */
-.card-content p{
-  margin:8px 0 12px;
-  color:#6b5e5e;
-  font-size:14px;
-}
-
-/* 🔥 BUTTON FIX */
-.product-card .btn{
-  display:block;
-
-  width:85%;
-  margin:15px auto 0;
-
-  padding:12px;
-  border-radius:30px;
-
-  text-align:center;
-  text-decoration:none;
-
-  background:#25D366;
-  color:#fff;
-
-  font-weight:600;
-  font-size:14px;
-
-  transition:0.3s;
-}
-
-/* HOVER */
-.product-card .btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* ===== GALLERY GRID ===== */
-.gallery-grid{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap:12px;
-  padding:20px;
-}
-
-/* FEATURE IMAGE */
-.gallery-item:nth-child(1){
-  grid-column: span 2;
-  height:260px;
-}
-
-/* DYNAMIC HEIGHT (BREAKS BORING GRID) */
-.gallery-item:nth-child(3n){ height:220px; }
-.gallery-item:nth-child(4n){ height:260px; }
-.gallery-item:nth-child(5n){ height:200px; }
-
-/* CARD */
-.gallery-item{
-  position:relative;
-  overflow:hidden;
-  border-radius:20px;
-
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(10px);
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.08),
-    inset 0 1px 1px rgba(255,255,255,0.4);
-
-  transition: all 0.4s ease;
-}
-
-/* IMAGE */
-.gallery-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition: transform 0.6s ease;
-}
-
-/* OVERLAY */
-.gallery-overlay{
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:100%;
-  padding:12px;
-
-  background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-
-  color:white;
-  font-size:13px;
-  font-weight:500;
-
-  transform:translateY(100%);
-  transition:0.4s ease;
-}
-
-/* HOVER */
-.gallery-item:hover{
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-.gallery-item:hover img{
-  transform: scale(1.12);
-}
-
-.gallery-item:hover .gallery-overlay{
-  transform:translateY(0);
-}
-
-/* ===== ENTRY ANIMATION ===== */
-.gallery-item{
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeUp 0.6s ease forwards;
-}
-
-.gallery-item:nth-child(2){animation-delay:0.1s;}
-.gallery-item:nth-child(3){animation-delay:0.2s;}
-.gallery-item:nth-child(4){animation-delay:0.3s;}
-.gallery-item:nth-child(5){animation-delay:0.4s;}
-
-@keyframes fadeUp{
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:480px){
-  .gallery-grid{
-    gap:10px;
-    padding:15px;
-  }
-}
-/* ===== HEADING ===== */
+/* ── SECTION BASE ───────────────────────────────────── */
+section{padding:80px 24px}
 .section-title{
-  text-align:center;
-  font-size:28px;
-  font-family:'Playfair Display', serif;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.7rem,4vw,2.6rem);
+  font-weight:700;text-align:center;
+  color:var(--text);margin-bottom:12px;
+}
+.section-sub{
+  text-align:center;color:var(--text-muted);
+  font-size:.95rem;margin-bottom:48px;
+}
+.section-inner{max-width:1200px;margin:0 auto}
 
-  background:linear-gradient(90deg,#ff7a9c,#ffb6c1,#ff7a9c);
-  background-size:200% auto;
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-
-  margin:30px 0 15px;
-
-  animation:gradientMove 4s linear infinite;
+/* ── CATEGORY FILTER ────────────────────────────────── */
+#menu{background:transparent}
+.cat-scroll{
+  display:flex;gap:10px;overflow-x:auto;
+  padding:0 4px 16px;margin-bottom:36px;
+  scrollbar-width:none;-ms-overflow-style:none;
+  scroll-snap-type:x mandatory;
+}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-btn{
+  flex:0 0 auto;scroll-snap-align:center;
+  padding:10px 22px;border-radius:50px;
+  border:1.5px solid var(--pink-light);
+  background:rgba(255,255,255,.7);
+  color:var(--text-muted);font-size:.88rem;font-weight:500;
+  cursor:pointer;white-space:nowrap;
+  transition:all .22s;backdrop-filter:blur(8px);
+}
+.cat-btn:hover{border-color:var(--pink);color:var(--pink)}
+.cat-btn.active{
+  background:var(--pink);color:#fff;
+  border-color:var(--pink);
+  box-shadow:0 4px 16px rgba(255,122,156,.35);
 }
 
-@keyframes gradientMove{
-  0%{background-position:0% center;}
-  100%{background-position:200% center;}
+/* ── MENU GRID ──────────────────────────────────────── */
+.menu-grid{
+  display:grid;gap:24px;
+  grid-template-columns:1fr;
 }
+@media(min-width:600px){.menu-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.menu-grid{grid-template-columns:1fr 1fr 1fr}}
 
-/* ===== REVEAL ===== */
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.8s ease;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ===== MOBILE FIX ===== */
-@media(max-width:480px){
-
-  .gallery{
-    gap:10px;
-    padding:15px;
-  }
-
-  .section-title{
-    font-size:24px;
-  }
-}
-/* ===== ABOUT ===== */
-.about{
-background:#f3e9e9;
-padding:40px 20px;
-text-align:center;
-}
-.about h2{font-family:'Playfair Display',serif;}
-/* HEART ICON */
-.about-icon{
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
-  background: #fbe3ea;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-icon svg{
-  width: 30px;
-  fill: #ff7a9c;
-}
-  /* STATS ROW */
-.stats{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  text-align: center;
-
-  margin-top: 30px;
-}
-
-/* EACH */
-.stat{
-  flex: 1;
-}
-
-/* NUMBER */
-.stat h3{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3px;
-
-  font-size: 26px;
-  font-weight: 700;
-  color: #ff7a9c;
-}
-
-/* LABEL */
-.stat p{
-  font-size: 12px;
-  color: #7a6a6a;
-  margin-top: 4px;
-}
-
-/* STAR */
-.star-icon{
-  width: 16px;
-  height: 16px;
-  fill: #ff7a9c;
-}
-
-/* MOBILE PERFECT FIX */
-@media(max-width:480px){
-  .stats{
-    gap: 5px;
-  }
-
-  .stat h3{
-    font-size: 22px;
-  }
-
-  .stat p{
-    font-size: 11px;
-  }
-}
-
-/* ===== WHY ===== */
-/* SECTION */
-.why-section {
-  background: #fff7f2;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-/* SUBTITLE */
-.why-sub {
-  color: #ff7a9c;
-  letter-spacing: 3px;
-  font-size: 12px;
-}
-
-/* TITLE */
-.why-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin: 10px 0 30px;
-}
-
-/* GRID */
-.why-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-/* CARD */
-.why-card {
-  background: #f6efea;
-  border-radius: 25px;
-  padding: 25px 20px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* ICON BOX */
-.icon-box {
-  width: 70px;
-  height: 70px;
-  background: #fbe3ea;
-  border-radius: 20px;
-  margin: 0 auto 15px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* SVG */
-.icon-box svg {
-  width: 30px;
-  height: 30px;
-}
-
-/* TITLE */
-.why-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #3a2a24;
-}
-
-/* TEXT */
-.why-card p {
-  font-size: 14px;
-  color: #7a6a6a;
-  line-height: 1.6;
-}
-/* ===== TESTIMONIAL ===== */
-/* SECTION */
-.testimonial-section {
-  background: #fff7f2;
-  padding: 50px 20px;
-  text-align: center;
-}
-/* ===== REVIEW SLIDER ===== */
-.slider{
+.cake-card{
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
   overflow:hidden;
-  position:relative;
+  box-shadow:var(--shadow);
+  transition:transform .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.cake-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(255,122,156,.22)}
+.cake-img{
+  width:100%;height:220px;object-fit:cover;
+  display:block;background:#f5e6d3;
+}
+.cake-body{padding:20px;flex:1;display:flex;flex-direction:column;gap:8px}
+.cake-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:var(--text);
+}
+.cake-price{
+  font-size:1rem;font-weight:700;color:var(--pink-dark);
+}
+.cake-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6;flex:1}
+.btn-order{
+  display:block;text-align:center;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+  color:#fff;padding:11px 20px;border-radius:50px;
+  font-size:.88rem;font-weight:600;text-decoration:none;
+  margin-top:12px;border:none;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(255,122,156,.3);
+}
+.btn-order:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,122,156,.42)}
+
+.menu-loader,.menu-error{
+  text-align:center;padding:60px 20px;color:var(--text-muted);
+  grid-column:1/-1;font-size:.95rem;
+}
+.spinner{
+  width:36px;height:36px;border:3px solid var(--pink-light);
+  border-top-color:var(--pink);border-radius:50%;
+  animation:spin .7s linear infinite;margin:0 auto 16px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── GALLERY ────────────────────────────────────────── */
+#gallery{background:var(--beige2)}
+.gallery-title-grad{
+  background:linear-gradient(135deg,var(--pink-dark),#ff9a5c,var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  animation:gradShift 4s ease infinite alternate;
+  background-size:200%;
+}
+@keyframes gradShift{0%{background-position:0%}100%{background-position:100%}}
+.masonry{
+  columns:1;gap:18px;
+}
+@media(min-width:540px){.masonry{columns:2}}
+@media(min-width:900px){.masonry{columns:3}}
+.masonry-item{
+  break-inside:avoid;margin-bottom:18px;
+  border-radius:18px;overflow:hidden;
+  position:relative;cursor:pointer;
+  box-shadow:0 4px 20px rgba(0,0,0,.1);
+}
+.masonry-item img{
+  width:100%;display:block;
+  transition:transform .4s ease;
+}
+.masonry-item:hover img{transform:scale(1.06)}
+.masonry-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(45,27,14,.7) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s;
+  display:flex;align-items:flex-end;padding:20px;
+}
+.masonry-item:hover .masonry-overlay{opacity:1}
+.masonry-overlay span{
+  color:#fff;font-size:.88rem;font-weight:500;
+  font-family:'Playfair Display',serif;font-style:italic;
 }
 
-.slides{
-  display:flex;
-  transition:0.5s ease;
+/* ── ABOUT ──────────────────────────────────────────── */
+#about{
+  background:linear-gradient(135deg,var(--beige) 0%,#fff5f8 100%);
 }
-
-.slide{
-  min-width:100%;
-  padding:0 10px;
+.about-inner{
+  max-width:900px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;
 }
-
-.dots{
-  text-align:center;
-  margin-top:10px;
+.about-heart{font-size:2.8rem;animation:heartbeat 1.4s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+.about-text{
+  font-size:1rem;line-height:1.9;color:var(--text-muted);max-width:680px;
 }
-
-.dot{
-  display:inline-block;
-  width:8px;
-  height:8px;
-  margin:5px;
-  border-radius:50%;
-  background:#ccc;
-  cursor:pointer;
+.counters{
+  display:flex;gap:32px;flex-wrap:wrap;justify-content:center;
+  margin-top:12px;
 }
-
-.dot.active{
-  background:#ff7a9c;
+.counter-card{
+  background:var(--glass);backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-radius:20px;padding:28px 36px;
+  text-align:center;box-shadow:var(--shadow);
+  min-width:140px;
 }
-  /* ===== REVIEW CTA ===== */
-.review-cta{
-  text-align:center;
-  padding:30px 20px;
-}
-
-.review-cta h3{
-  font-family:'Playfair Display', serif;
-  font-size:24px;
-  margin-bottom:8px;
-}
-
-.review-cta p{
-  color:#7a6a6a;
-  font-size:14px;
-  margin-bottom:20px;
-}
-
-/* BUTTON */
-.review-btn{
-  display:inline-block;
-  padding:14px 28px;
-
-  background: linear-gradient(135deg, #ff7a9c, #ffb6c1);
-  color:white;
-
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-
-  box-shadow:0 10px 20px rgba(255,122,156,0.3);
-
-  transition:0.3s;
-}
-
-.review-btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 15px 30px rgba(255,122,156,0.4);
-}
-/* SUB */
-.test-sub {
-  color: #ff7a9c;
-  letter-spacing: 3px;
-  font-size: 12px;
-}
-
-/* TITLE */
-.test-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin: 10px 0 30px;
-}
-
-/* CARD */
-.test-card {
-  background: #f6efea;
-  border-radius: 25px;
-  padding: 25px;
-  margin: 15px 0;
-  text-align: left;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* STARS */
-.stars {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 10px;
-}
-
-.stars svg {
-  width: 18px;
-  height: 18px;
-  fill: #f4b740;
-}
-
-/* TEXT */
-.review-text {
-  color: #3a2a24;
-  line-height: 1.7;
-  margin-bottom: 15px;
-}
-
-/* NAME */
-.review-name {
-  color: #ff7a9c;
-  font-weight: 600;
-}
-/* ===== STEPS ===== */
-/* SECTION */
-.order-section {
-  background: #fff7f2;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-/* SUB */
-.order-sub {
-  color: #ff7a9c;
-  letter-spacing: 3px;
-  font-size: 12px;
-}
-
-/* TITLE */
-.order-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin: 10px 0 30px;
-}
-
-/* GRID */
-.order-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px 20px;
-}
-
-/* ITEM */
-.order-item {
-  text-align: center;
-}
-
-/* ICON CIRCLE */
-.icon-circle {
-  width: 70px;
-  height: 70px;
-  background: #fbe3ea;
-  border-radius: 50%;
-  margin: 0 auto 15px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* SVG */
-.icon-circle svg {
-  width: 28px;
-  height: 28px;
-}
-
-/* STEP */
-.step {
-  color: #ff7a9c;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-/* TITLE */
-.order-item h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-/* DESC */
-.desc {
-  font-size: 14px;
-  color: #7a6a6a;
-}
-
-/* BUTTON */
-.order-btn-main {
-  display: block;
-  margin: 40px auto 0;
-  background: #25D366;
-  color: white;
-  padding: 18px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
-  width: 90%;
-  max-width: 400px;
-}
-
-/* ICON */
-.wa-icon {
-  margin-right: 8px;
-}
-.wa-img{
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
- .wa-float{
-  background: #25D366;
-  padding: 12px;
-} 
-/* ===== CONTACT ===== */
-/* SECTION */
-.contact-section {
-  background: #f3e9e9;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-/* SUB */
-.contact-sub {
-  color: #ff7a9c;
-  letter-spacing: 3px;
-  font-size: 12px;
-}
-
-/* TITLE */
-.contact-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin: 10px 0 30px;
-}
-
-/* CARD */
-.contact-card {
-  background: #f6efea;
-  border-radius: 25px;
-  padding: 25px;
-  margin: 20px 0;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-/* ICON */
-.icon-svg{
-  width:30px;
-  height:30px;
-  color:#ff7a9c;
-}
-
-  /* FIX ICON ALIGN */
-.icon-box img{
+.counter-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;font-weight:700;color:var(--pink-dark);
   display:block;
 }
-
-/* FIX BUTTON TAP */
-a{
-  -webkit-tap-highlight-color: transparent;
-}
-.icon-circle {
-  width: 70px;
-  height: 70px;
-  background: #fbe3ea;
-  border-radius: 50%;
-  margin: 0 auto 15px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.counter-label{
+  font-size:.82rem;color:var(--text-muted);margin-top:4px;display:block;
 }
 
-.icon-circle svg {
-  width: 28px;
-  height: 28px;
+/* ── WHY CHOOSE US ──────────────────────────────────── */
+#why{background:var(--cream)}
+.why-grid{
+  display:grid;gap:20px;
+  grid-template-columns:1fr 1fr;
+}
+@media(min-width:768px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+.why-card{
+  background:var(--glass);backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);
+  padding:28px 20px;text-align:center;
+  box-shadow:var(--shadow);
+  transition:transform .25s,box-shadow .25s;
+}
+.why-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(255,122,156,.2)}
+.why-icon{font-size:2.4rem;margin-bottom:14px;display:block}
+.why-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;
+}
+.why-desc{font-size:.82rem;color:var(--text-muted);line-height:1.7}
+
+/* ── REVIEW CTA ─────────────────────────────────────── */
+#review-cta{
+  background:linear-gradient(135deg,#ff7a9c 0%,#ff9a5c 100%);
+  text-align:center;padding:72px 24px;
+}
+#review-cta h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,4vw,2.4rem);
+  color:#fff;margin-bottom:10px;
+}
+#review-cta p{color:rgba(255,255,255,.88);font-size:1rem;margin-bottom:32px}
+.btn-review{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:var(--pink-dark);
+  padding:14px 32px;border-radius:50px;
+  font-size:.95rem;font-weight:700;text-decoration:none;
+  box-shadow:0 6px 24px rgba(0,0,0,.12);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-review:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.18)}
+
+/* ── TESTIMONIALS ───────────────────────────────────── */
+#testimonials{background:var(--beige2)}
+.testimonial-slider{position:relative;overflow:hidden}
+.testimonial-track{
+  display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.testimonial-card{
+  min-width:100%;padding:0 8px;
+  box-sizing:border-box;
+}
+@media(min-width:700px){
+  .testimonial-card{min-width:50%}
+}
+@media(min-width:1000px){
+  .testimonial-card{min-width:33.333%}
+}
+.t-inner{
+  background:var(--glass);backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);padding:28px 24px;
+  box-shadow:var(--shadow);height:100%;
+}
+.t-stars{font-size:1.1rem;color:#ffb347;margin-bottom:12px}
+.t-text{
+  font-size:.9rem;line-height:1.75;color:var(--text-muted);
+  font-style:italic;margin-bottom:16px;
+}
+.t-name{font-weight:600;font-size:.88rem;color:var(--pink-dark)}
+.dots{
+  display:flex;justify-content:center;gap:8px;margin-top:28px;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--pink-light);cursor:pointer;transition:background .2s,transform .2s;
+}
+.dot.active{background:var(--pink);transform:scale(1.3)}
+
+/* ── HOW TO ORDER ───────────────────────────────────── */
+#how{background:var(--cream)}
+.steps-grid{
+  display:grid;gap:20px;
+  grid-template-columns:1fr 1fr;
+}
+@media(min-width:768px){.steps-grid{grid-template-columns:repeat(4,1fr)}}
+.step-card{
+  background:var(--glass);backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);padding:28px 18px;
+  text-align:center;box-shadow:var(--shadow);
+  position:relative;
+}
+.step-num{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+  color:#fff;font-weight:700;font-size:.95rem;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 14px;box-shadow:0 4px 12px rgba(255,122,156,.35);
+}
+.step-icon{font-size:2rem;margin-bottom:10px;display:block}
+.step-title{font-weight:600;font-size:.92rem;color:var(--text);margin-bottom:6px}
+.step-desc{font-size:.8rem;color:var(--text-muted);line-height:1.6}
+
+/* ── CONTACT ────────────────────────────────────────── */
+#contact{background:var(--beige2)}
+.contact-cards{
+  display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;
+}
+.contact-card{
+  background:var(--glass);backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--radius);padding:26px 30px;
+  text-align:center;box-shadow:var(--shadow);
+  min-width:180px;
+}
+.contact-icon{font-size:2rem;margin-bottom:10px;display:block}
+.contact-label{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.contact-val{
+  font-size:.92rem;font-weight:600;color:var(--text);
+  text-decoration:none;
+}
+.contact-val:hover{color:var(--pink)}
+.map-wrap{
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);border:1px solid var(--glass-border);
+  max-width:900px;margin:0 auto;
+}
+.map-wrap iframe{width:100%;height:320px;display:block;border:none}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+footer{
+  background:var(--text);color:rgba(255,255,255,.7);
+  text-align:center;padding:36px 24px;
+  position:relative;z-index:2;
+}
+footer .footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;color:#fff;font-weight:700;margin-bottom:8px;
+}
+footer p{font-size:.85rem}
+
+/* ── FLOATING WA ────────────────────────────────────── */
+.float-wa{
+  position:fixed;bottom:28px;right:24px;z-index:9999;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--green-wa);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);
+  text-decoration:none;
+  animation:waPulse 2.2s ease-in-out infinite;
+  transition:transform .2s;
+}
+.float-wa:hover{transform:scale(1.1)}
+.float-wa svg{width:30px;height:30px;fill:#fff}
+@keyframes waPulse{
+  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.5)}
+  50%{box-shadow:0 6px 24px rgba(37,211,102,.45),0 0 0 14px rgba(37,211,102,0)}
 }
 
-/* TITLE */
-.contact-card h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  margin-bottom: 5px;
+/* ── SCROLL REVEAL ──────────────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .65s ease,transform .65s ease;
 }
+.reveal.visible{opacity:1;transform:none}
 
-/* TEXT */
-.contact-card p {
-  color: #7a6a6a;
-}
-
-/* HIGHLIGHT TEXT */
-.highlight {
-  color: #ff7a9c;
-  font-weight: 600;
-}
-
-/* MAP */
-.map-box {
-  margin-top: 25px;
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.map-box iframe {
-  width: 100%;
-  height: 250px;
-  border: none;
-}
-/* ===== FOOTER ===== */
-.footer{
-background:#6b3d2e;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-/* FLOAT BUTTON */
-.wa-float{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-
-  width: 60px;
-  height: 60px;
-
-  background: #25D366;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-
-  z-index: 9999;
-}
-
-/* ICON */
-.wa-icon{
-  width: 28px;
-  height: 28px;
-}
-
-/* HOVER EFFECT */
-.wa-float:hover{
-  transform: scale(1.1);
-}
-
-/* OPTIONAL: PULSE ANIMATION */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); }
-  70% { box-shadow: 0 0 0 15px rgba(37,211,102,0); }
-  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
-}
-
-.wa-float{
-  animation: pulse 2s infinite;
-}
-
-  /* =========================
-   GLOBAL MAX WIDTH (CENTER SITE)
-========================= */
-body{
-  max-width:1400px;
-  margin:auto;
-}
-
-/* =========================
-   DESKTOP NAV IMPROVEMENT
-========================= */
-@media(min-width:768px){
-
-  .nav-inner{
-    padding:15px 40px;
-  }
-
-  .logo span{
-    font-size:24px;
-  }
-
-  .menu-btn{
-    font-size:26px;
-  }
-}
-
-/* =========================
-   HERO RESPONSIVE
-========================= */
-@media(min-width:768px){
-
-  .hero{
-    height:90vh;
-  }
-
-  .hero-content{
-    left:60px;
-    bottom:60px;
-    max-width:500px;
-  }
-
-  .hero-content h1{
-    font-size:42px;
-  }
-
-  .hero-content p{
-    font-size:18px;
-  }
-
-  .btn{
-    max-width:280px;
-  }
-}
-
-@media(min-width:1024px){
-
-  .hero-content h1{
-    font-size:52px;
-  }
-
-}
-
-/* =========================
-   FILTER CENTER + WIDTH
-========================= */
-@media(min-width:768px){
-
-  .filters{
-    justify-content:center;
-    padding:20px;
-  }
-}
-
-/* =========================
-   PRODUCT GRID (DESKTOP)
-========================= */
-@media(min-width:768px){
-
-  #menu-section{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:20px;
-    padding:20px 40px;
-  }
-
-  .product-card{
-    margin:0;
-  }
-}
-
-@media(min-width:1024px){
-
-  #menu-section{
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-}
-
-/* =========================
-   GALLERY GRID UPGRADE
-========================= */
-@media(min-width:768px){
-
-  .gallery-grid{
-    grid-template-columns: repeat(3, 1fr);
-    padding:30px 40px;
-  }
-
-  .gallery-item:nth-child(1){
-    grid-column: span 2;
-    height:300px;
-  }
-}
-
-@media(min-width:1024px){
-
-  .gallery-grid{
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .gallery-item:nth-child(1){
-    grid-column: span 2;
-    height:350px;
-  }
-
-}
-
-/* =========================
-   WHY SECTION GRID
-========================= */
-@media(min-width:768px){
-
-  .why-grid{
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-}
-
-/* =========================
-   ORDER STEPS GRID
-========================= */
-@media(min-width:768px){
-
-  .order-grid{
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-}
-
-/* =========================
-   CONTACT GRID
-========================= */
-@media(min-width:768px){
-
-  .contact-section{
-    padding:60px;
-  }
-
-  .contact-card{
-    max-width:400px;
-    margin:20px auto;
-  }
-
-}
-
-/* =========================
-   TESTIMONIAL WIDTH FIX
-========================= */
-@media(min-width:768px){
-
-  .testimonial-section{
-    max-width:700px;
-    margin:auto;
-  }
-
-}
-
-/* =========================
-   BUTTON POLISH (DESKTOP)
-========================= */
-@media(min-width:768px){
-
-  .btn{
-    font-size:16px;
-    padding:16px;
-  }
-
-}
+/* ── SWIPE CURSOR ON SLIDER ─────────────────────────── */
+.testimonial-slider{cursor:grab}
+.testimonial-slider:active{cursor:grabbing}
 </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<header class="nav">
-<div class="nav-inner">
-<div class="logo">
-
-  <!-- IMAGE LOGO -->
-  <img src="public/icons/logo.jpg" alt="logo" class="logo-img">
-  <!-- TEXT -->
-  <span>Just Frosted</span>
-<img src="public/icons/cakee.svg" class="icon-svg" alt="cake">
+<!-- Blobs -->
+<div class="blob-bg" aria-hidden="true">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+  <div class="blob blob4"></div>
 </div>
-<div class="menu-btn" onclick="openMenu()">☰</div>
-</div>
-</header>
+<div class="noise" aria-hidden="true"></div>
 
-<div class="side-menu" id="menu">
+<!-- NAVBAR -->
+<nav aria-label="Main navigation">
+  <a class="nav-brand" href="#">
+    <img class="nav-logo" src="public/icons/logo.jpg" alt="Just Frosted logo" onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=80&q=80';this.onerror=null"/>
+    <span class="nav-brand-text">Just Frosted</span>
+    <span class="nav-cake-icon" aria-hidden="true">🎂</span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <div class="menu-top">
-    <h2>Just Frosted</h2>
-    <span class="close-btn" id="closeBtn">✕</span>
-  </div>
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" aria-hidden="true"></div>
 
-  <a href="#" onclick="closeMenu()">Home</a>
-  <a href="#menu-section" onclick="closeMenu()">Menu</a>
-  <a href="#gallery" onclick="closeMenu()">Gallery</a>
-  <a href="#about" onclick="closeMenu()">About</a>
-
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar" role="dialog" aria-label="Navigation menu">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+  <a href="#home" class="sidebar-link">Home</a>
+  <a href="#menu" class="sidebar-link">Menu</a>
+  <a href="#gallery" class="sidebar-link">Gallery</a>
+  <a href="#about" class="sidebar-link">About</a>
 </div>
 
 <!-- HERO -->
-<section class="hero">
-
-  <!-- SLIDES -->
-  <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=1200')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=1200')"></div>
-  <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=1200')"></div>
-
-  <!-- OVERLAY -->
-  <div class="overlay"></div>
-
-  <!-- CONTENT -->
+<section class="hero" id="home" aria-label="Hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=1400&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1400&q=80')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=1400&q=80')"></div>
+  </div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Homemade Cakes Crafted with Love ❤️</h1>
-    <p>Freshly baked in Calicut</p>
-
-    <a href="https://wa.me/919074087851" class="btn primary">Order on WhatsApp</a>
-    <a href="#menu-section" class="btn secondary">View Cakes</a>
+    <h1>Homemade Cakes Crafted<br>with Love ❤️</h1>
+    <p>Freshly baked in Calicut, Kerala</p>
+    <div class="hero-btns">
+      <a class="btn-wa" href="https://wa.me/919074087851?text=Hi!%20I'd%20like%20to%20order%20a%20cake%20from%20Just%20Frosted%20🎂" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.84L.057 23.57l5.926-1.433A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.009-1.374l-.36-.213-3.514.85.883-3.428-.233-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+        Order on WhatsApp
+      </a>
+      <a class="btn-menu" href="#menu">View Cakes 🎂</a>
+    </div>
   </div>
-
 </section>
-<div class="filters">
-  <button onclick="filterCakes('all')" class="active">All</button>
-  <button onclick="filterCakes('birthday')">Birthday</button>
-  <button onclick="filterCakes('chocolate')">Chocolate</button>
-  <button onclick="filterCakes('custom')">Custom</button>
-  <button onclick="filterCakes('premium')">Premium</button>
-  <button onclick="filterCakes('eggless')">Eggless</button>
-  <button onclick="filterCakes('fruit')">Fruit</button>
-  <button onclick="filterCakes('wedding')">Wedding</button>
-  <button onclick="filterCakes('kids')">Kids</button>
-  <button onclick="filterCakes('brownies')">Brownies</button>
-  <button onclick="filterCakes('cupcakes')">Cupcakes</button>
-  <button onclick="filterCakes('truffle')">Truffle</button>
-</div>
-<section id="menu-section"></section>
 
-<section id="gallery" class="gallery-section">
+<!-- MENU SECTION -->
+<section id="menu">
+  <div class="section-inner">
+    <h2 class="section-title reveal">Our Delicious Cakes</h2>
+    <p class="section-sub reveal">Every bite crafted with love, freshness & finesse</p>
 
-  <!-- HEADING -->
-  <h2 class="section-title reveal">
-    Moments Made Sweeter 🍰
-  </h2>
-
-  <!-- GRID -->
-  <div class="gallery-grid">
-
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
-      <div class="gallery-overlay">Custom Cakes</div>
+    <!-- Category Filter -->
+    <div class="cat-scroll" id="catScroll" role="group" aria-label="Filter by category">
+      <button class="cat-btn active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="birthday">🎂 Birthday</button>
+      <button class="cat-btn" data-cat="chocolate">🍫 Chocolate</button>
+      <button class="cat-btn" data-cat="custom">✨ Custom</button>
+      <button class="cat-btn" data-cat="premium">👑 Premium</button>
+      <button class="cat-btn" data-cat="eggless">🌿 Eggless</button>
+      <button class="cat-btn" data-cat="fruit">🍓 Fruit</button>
+      <button class="cat-btn" data-cat="wedding">💍 Wedding</button>
+      <button class="cat-btn" data-cat="kids">🧸 Kids</button>
+      <button class="cat-btn" data-cat="brownies">🟫 Brownies</button>
+      <button class="cat-btn" data-cat="cupcakes">🧁 Cupcakes</button>
+      <button class="cat-btn" data-cat="truffle">🌹 Truffle</button>
     </div>
 
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f">
-      <div class="gallery-overlay">Chocolate</div>
+    <div class="menu-grid" id="menuGrid">
+      <div class="menu-loader">
+        <div class="spinner"></div>
+        Loading our menu…
+      </div>
     </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3008.jpeg">
-      <div class="gallery-overlay">Fresh Cakes</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3009.jpeg">
-      <div class="gallery-overlay">Chocolate Cakes</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3010.jpeg">
-      <div class="gallery-overlay">Birthday Cakes</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3011.jpeg">
-      <div class="gallery-overlay">Custom Designs</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3012.jpeg">
-      <div class="gallery-overlay">Premium Cakes</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3013.jpeg">
-      <div class="gallery-overlay">Sweet Treats</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3014.jpeg">
-      <div class="gallery-overlay">Handmade</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3016.jpeg">
-      <div class="gallery-overlay">Celebration Cakes</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3017.jpeg">
-      <div class="gallery-overlay">Custom Orders</div>
-    </div>
-
-    <div class="gallery-item">
-      <img src="public/cakes/IMG_3018.jpeg">
-      <div class="gallery-overlay">Delicious Cakes</div>
-    </div>
-
   </div>
+</section>
 
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-inner">
+    <h2 class="section-title reveal">
+      <span class="gallery-title-grad">Moments Made Sweeter 🍰</span>
+    </h2>
+    <p class="section-sub reveal">Every cake is a memory waiting to be savoured</p>
+    <div class="masonry" id="galleryGrid"></div>
+  </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="about">
-  <div class="about-icon">
-
-  <!-- HEART SVG -->
-  <svg viewBox="0 0 24 24">
-    <path d="M12 21s-7-4.35-10-9a6 6 0 0110-5 6 6 0 0110 5c-3 4.65-10 9-10 9z"/>
-  </svg>
-
-</div>
-<h2>About Just Frosted</h2>
-<p>Just Frosted is a home baking brand creating delicious, handcrafted cakes in Calicut. Every cake is made fresh with premium ingredients and love. What started as a passion for baking has grown into a beloved local brand, bringing smiles to every celebration — one slice at a time.</p>
-
-<div class="stats">
-
-  <div class="stat">
-    <h3>
-      <span class="count" data-target="500">0</span>
-    </h3>
-    <p>Cakes Delivered</p>
+<section id="about">
+  <div class="about-inner reveal">
+    <div class="about-heart">❤️</div>
+    <h2 class="section-title" style="margin-bottom:0">Our Story</h2>
+    <p class="about-text">
+      Just Frosted was born from a simple belief — that the most meaningful cakes are made at home, with real ingredients and even realer love. Based in the heart of Calicut, we craft every cake by hand, from layered birthday cakes to delicate wedding tiers. No preservatives, no shortcuts — just fresh flavours and heartfelt baking. Whether you want something classic or completely custom, we bring your sweetest moments to life.
+    </p>
+    <div class="counters">
+      <div class="counter-card">
+        <span class="counter-num" data-target="500">0</span>
+        <span class="counter-label">Cakes Delivered</span>
+      </div>
+      <div class="counter-card">
+        <span class="counter-num" data-target="200">0</span>
+        <span class="counter-label">Happy Customers</span>
+      </div>
+      <div class="counter-card">
+        <span class="counter-num" data-target="4.9" data-decimal="1">0</span>
+        <span class="counter-label">Average Rating ⭐</span>
+      </div>
+    </div>
   </div>
-
-  <div class="stat">
-    <h3>
-      <span class="count" data-target="200">0</span>
-    </h3>
-    <p>Happy Customers</p>
-  </div>
-
-  <div class="stat rating">
-    <h3>
-      <span class="count" data-target="4.9">0</span>
-      <svg viewBox="0 0 24 24" class="star-icon">
-        <path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/>
-      </svg>
-    </h3>
-    <p>Average Rating</p>
-  </div>
-
-</div>
 </section>
 
-<!-- WHY -->
-<section class="why-section">
-
-  <p class="why-sub">THE JUST FROSTED DIFFERENCE</p>
-  <h2 class="why-title">Why Choose Us</h2>
-
-  <div class="why-grid">
-
-    <!-- CARD 1 -->
-    <div class="why-card">
-      <div class="icon-box">
-        <!-- CAKE SVG -->
-<img src="public/icons/cake1.svg" class="icon-svg" alt="cake1">
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="section-inner">
+    <h2 class="section-title reveal">Why Choose Just Frosted?</h2>
+    <p class="section-sub reveal">Because every detail matters when it's made with love</p>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">🔥</span>
+        <div class="why-title">Freshly Baked</div>
+        <div class="why-desc">Baked the morning of delivery — always fresh, always flavourful, never frozen.</div>
       </div>
-      <h3>Freshly<br>Baked Daily</h3>
-      <p>Every order is baked fresh — never frozen, always delicious.</p>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="why-card">
-      <div class="icon-box">
-        <!-- DELIVERY SVG -->
-<img src="public/icons/truck.svg" class="icon-svg" alt="truck">
+      <div class="why-card reveal">
+        <span class="why-icon">🛵</span>
+        <div class="why-title">Home Delivery</div>
+        <div class="why-desc">Delivered safely to your doorstep across Calicut with care and precision.</div>
       </div>
-      <h3>Home<br>Delivery</h3>
-      <p>We deliver right to your doorstep across Calicut.</p>
-    </div>
-
-    <!-- CARD 3 -->
-    <div class="why-card">
-      <div class="icon-box">
-        <!-- PALETTE SVG -->
-<img src="public/icons/palette.svg" class="icon-svg" alt="palette">
+      <div class="why-card reveal">
+        <span class="why-icon">🎨</span>
+        <div class="why-title">Fully Customisable</div>
+        <div class="why-desc">Your design, your flavour, your story. Every cake is made just for you.</div>
       </div>
-      <h3>Fully<br>Customizable</h3>
-      <p>Design your dream cake — flavors, colors, and themes.</p>
-    </div>
-
-    <!-- CARD 4 -->
-    <div class="why-card">
-      <div class="icon-box">
-        <!-- HEART SVG -->
-<img src="public/icons/love.svg" class="icon-svg" alt="love">
+      <div class="why-card reveal">
+        <span class="why-icon">💕</span>
+        <div class="why-title">Made with Love</div>
+        <div class="why-desc">Each creation is a labour of love — from batter to the last sprinkle on top.</div>
       </div>
-      <h3>Made with<br>Love</h3>
-      <p>Handcrafted with care using premium ingredients.</p>
     </div>
-
   </div>
-
 </section>
+
 <!-- REVIEW CTA -->
-<section class="review-cta">
-
-  <h3>Loved our cakes?</h3>
+<section id="review-cta" aria-label="Leave a review">
+  <h2>Loved our cakes?</h2>
   <p>Share your experience with us 💖</p>
-
-  <a href="https://forms.gle/tEHkJrVQYLfpNsNa9" target="_blank" class="review-btn">
-    ⭐ Write a Review
-  </a>
-
-</section>
-<!-- TESTIMONIAL -->
-<section class="testimonial-section">
-
-  <p class="test-sub">CUSTOMER LOVE</p>
-  <h2 class="test-title">What People Say</h2>
-
-  <div class="slider">
-    <div class="slides" id="slides"></div>
-    <div class="dots" id="dots"></div>
-  </div>
-
+  <a class="btn-review" href="https://forms.gle/tEHkJrVQYLfpNsNa9" target="_blank" rel="noopener">⭐ Write a Review</a>
 </section>
 
-<!-- STEPS -->
-<section class="order-section">
-
-  <p class="order-sub">SIMPLE & EASY</p>
-  <h2 class="order-title">How to Order</h2>
-
-  <div class="order-grid">
-
-    <!-- STEP 1 -->
-    <div class="order-item">
-      <div class="icon-circle">
-        <!-- CAKE -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M3 10h18v8H3z" stroke="#ff7a9c" stroke-width="2"/>
-          <path d="M6 10V7a6 6 0 0112 0v3" stroke="#ff7a9c" stroke-width="2"/>
-        </svg>
-      </div>
-      <p class="step">Step 1</p>
-      <h3>Choose Cake</h3>
-      <p class="desc">Browse our menu and pick your favorite</p>
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <h2 class="section-title reveal">What Our Customers Say 💬</h2>
+    <p class="section-sub reveal">Real words from real sweethearts</p>
+    <div class="testimonial-slider" id="tSlider" aria-label="Customer reviews">
+      <div class="testimonial-track" id="tTrack"></div>
     </div>
-
-    <!-- STEP 2 -->
-    <div class="order-item">
-      <div class="icon-circle">
-        <!-- CHAT -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z"
-          stroke="#ff7a9c" stroke-width="2"/>
-        </svg>
-      </div>
-      <p class="step">Step 2</p>
-      <h3>DM or WhatsApp</h3>
-      <p class="desc">Send us your requirements</p>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="order-item">
-      <div class="icon-circle">
-        <!-- CHECK -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="9" stroke="#ff7a9c" stroke-width="2"/>
-          <path d="M8 12l2 2 4-4" stroke="#ff7a9c" stroke-width="2"/>
-        </svg>
-      </div>
-      <p class="step">Step 3</p>
-      <h3>Confirm Order</h3>
-      <p class="desc">We confirm details and pricing</p>
-    </div>
-
-    <!-- STEP 4 -->
-    <div class="order-item">
-      <div class="icon-circle">
-        <!-- BOX -->
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M3 7l9 5 9-5-9-5-9 5z" stroke="#ff7a9c" stroke-width="2"/>
-          <path d="M3 7v10l9 5 9-5V7" stroke="#ff7a9c" stroke-width="2"/>
-        </svg>
-      </div>
-      <p class="step">Step 4</p>
-      <h3>Delivery / Pickup</h3>
-      <p class="desc">Get your cake fresh and on time</p>
-    </div>
-
+    <div class="dots" id="tDots"></div>
   </div>
+</section>
 
-  
-
-
+<!-- HOW TO ORDER -->
+<section id="how">
+  <div class="section-inner">
+    <h2 class="section-title reveal">How to Order 🛒</h2>
+    <p class="section-sub reveal">Simple, quick, and sweet</p>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">1</div>
+        <span class="step-icon">🎂</span>
+        <div class="step-title">Choose Your Cake</div>
+        <div class="step-desc">Browse our menu and pick your favourite flavour or design.</div>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">2</div>
+        <span class="step-icon">💬</span>
+        <div class="step-title">WhatsApp Us</div>
+        <div class="step-desc">Send us a message with your choice, date & any special requests.</div>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">3</div>
+        <span class="step-icon">✅</span>
+        <div class="step-title">Confirm Order</div>
+        <div class="step-desc">We'll confirm your order, discuss customization & take advance payment.</div>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-num">4</div>
+        <span class="step-icon">🚀</span>
+        <div class="step-title">Delivery / Pickup</div>
+        <div class="step-desc">Receive your freshly baked cake at your doorstep or pick it up from us!</div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section">
-
-  <p class="contact-sub">GET IN TOUCH</p>
-  <h2 class="contact-title">Contact Us</h2>
-
-  <!-- LOCATION -->
-  <div class="contact-card">
-    <div class="icon-circle">
-      <!-- LOCATION SVG -->
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M12 21s7-5 7-11a7 7 0 10-14 0c0 6 7 11 7 11z"
-        stroke="#ff7a9c" stroke-width="2"/>
-        <circle cx="12" cy="10" r="2" stroke="#ff7a9c" stroke-width="2"/>
-      </svg>
+<section id="contact">
+  <div class="section-inner">
+    <h2 class="section-title reveal">Find Us 📍</h2>
+    <p class="section-sub reveal">We're right here in Calicut — come say hi!</p>
+    <div class="contact-cards reveal">
+      <div class="contact-card">
+        <span class="contact-icon">📍</span>
+        <div class="contact-label">Location</div>
+        <span class="contact-val">Calicut, Kerala</span>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📞</span>
+        <div class="contact-label">Phone</div>
+        <a class="contact-val" href="tel:+919074087851">+91 90740 87851</a>
+      </div>
+      <div class="contact-card">
+        <span class="contact-icon">📸</span>
+        <div class="contact-label">Instagram</div>
+        <a class="contact-val" href="https://instagram.com/justfrosted" target="_blank" rel="noopener">@justfrosted</a>
+      </div>
     </div>
-    <h3>Location</h3>
-    <p>Calicut, Kerala, India</p>
-  </div>
-
-  <!-- PHONE -->
-  <div class="contact-card">
-    <div class="icon-circle">
-      <!-- PHONE SVG -->
-      <svg viewBox="0 0 24 24" fill="none">
-        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 
-        19.5 19.5 0 01-6-6A19.79 19.79 0 012.09 4.18 
-        2 2 0 014.06 2h3a2 2 0 012 1.72 
-        12.66 12.66 0 00.7 2.81 
-        2 2 0 01-.45 2.11L8.09 9.91 
-        a16 16 0 006 6l1.27-1.27 
-        a2 2 0 012.11-.45 
-        12.66 12.66 0 002.81.7A2 2 0 0122 16.92z"
-        stroke="#ff7a9c" stroke-width="2"/>
-      </svg>
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62601.88220225432!2d75.7436!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4747%3A0x1ef26d5c64605269!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Just Frosted location in Calicut"
+      ></iframe>
     </div>
-    <h3>Phone</h3>
-    <a href="tel:+919074087851" class="highlight">+91 90740 87851</a> 
   </div>
-
-  <!-- INSTAGRAM -->
-  <div class="contact-card">
-    <div class="icon-circle">
-      <!-- INSTAGRAM SVG -->
-      <svg viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="3" width="18" height="18" rx="5"
-        stroke="#ff7a9c" stroke-width="2"/>
-        <circle cx="12" cy="12" r="4"
-        stroke="#ff7a9c" stroke-width="2"/>
-        <circle cx="17" cy="7" r="1"
-        fill="#ff7a9c"/>
-      </svg>
-    </div>
-    <h3>Instagram</h3>
-    <a href="https://instagram.com/ju_st__frosted" target="_blank" class="highlight">
-  @justfrosted
-</a>
-  </div>
-
-  <!-- GOOGLE MAP -->
-  <div class="map-box">
-    <iframe 
-      src="https://maps.google.com/maps?q=kozhikode&t=&z=11&ie=UTF8&iwloc=&output=embed"
-      frameborder="0"
-      loading="lazy">
-    </iframe>
-  </div>
-
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-<h2>Just Frosted</h2>
-<p>Made with ❤️ in Calicut</p>
+<footer>
+  <div class="footer-brand">Just Frosted 🎂</div>
+  <p>Made with ❤️ in Calicut, Kerala</p>
 </footer>
 
-
-
-  <span class="wa-content">
-    
-    <!-- WHATSAPP SVG -->
-
-<a href="https://wa.me/919074087851" class="wa-float" target="_blank">
-  <img src="public/icons/IMG_0019.png" alt="WhatsApp" class="wa-img">
+<!-- FLOATING WA -->
+<a class="float-wa" href="https://wa.me/919074087851?text=Hi!%20I'd%20like%20to%20order%20a%20cake%20from%20Just%20Frosted%20🎂" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.84L.057 23.57l5.926-1.433A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.009-1.374l-.36-.213-3.514.85.883-3.428-.233-.373A9.818 9.818 0 1 1 12 21.818z"/>
+  </svg>
 </a>
 
-
 <script>
-/* =========================
-   MENU TOGGLE
-========================= */
-const menu = document.getElementById("menu");
+/* ── CONFIG ─────────────────────────────────────── */ 
+// Replace SHEET_ID with your actual Google Sheet ID
+const SHEET_ID = '13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I';
+const MENU_URL = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
+const REVIEWS_URL = `https://opensheet.elk.sh/${SHEET_ID}/reviews`;
+const WA_NUM = '+919074087851';
+const WA_BASE = `https://wa.me/${WA_NUM}?text=`;
 
-function openMenu() {
-  menu.classList.add("active");
+/* ── NAVBAR / SIDEBAR ───────────────────────────── */
+const hamburger = document.getElementById('hamburger');
+const sidebar   = document.getElementById('sidebar');
+const overlay   = document.getElementById('overlay');
+const sidebarClose = document.getElementById('sidebarClose');
+
+function openSidebar(){
+  sidebar.classList.add('active');
+  overlay.classList.add('active');
+  hamburger.classList.add('open');
+  hamburger.setAttribute('aria-expanded','true');
+  overlay.setAttribute('aria-hidden','false');
 }
-
-function closeMenu() {
-  menu.classList.remove("active");
+function closeSidebar(){
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+  overlay.setAttribute('aria-hidden','true');
 }
-
-/* CLOSE WHEN CLICK OUTSIDE */
-document.addEventListener("click", function(e) {
-  const isMenu = menu.contains(e.target);
-  const isBtn = e.target.closest(".menu-btn, .close-btn");
-document.getElementById("closeBtn").addEventListener("click", closeMenu);
-  if (menu.classList.contains("active") && !isMenu && !isBtn) {
-    closeMenu();
-  }
+hamburger.addEventListener('click', openSidebar);
+sidebarClose.addEventListener('click', closeSidebar);
+overlay.addEventListener('click', closeSidebar);
+document.querySelectorAll('.sidebar-link').forEach(a=>{
+  a.addEventListener('click', closeSidebar);
 });
 
-/* CLOSE ON LINK CLICK */
-document.querySelectorAll(".side-menu a").forEach(link => {
-  link.addEventListener("click", closeMenu);
-});
-
-/* CLOSE WITH ESC */
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") closeMenu();
-});
-
-
-/* =========================
-   HERO SLIDER
-========================= */
-const slides = document.querySelectorAll(".hero-slide");
-let current = 0;
-
-function showSlide(index){
-  slides.forEach(slide => slide.classList.remove("active"));
-  slides[index].classList.add("active");
-}
-
+/* ── HERO CAROUSEL ──────────────────────────────── */
+const slides = document.querySelectorAll('.hero-slide');
+let slideIdx = 0;
 setInterval(()=>{
-  current = (current + 1) % slides.length;
-  showSlide(current);
-}, 6000);
+  slides[slideIdx].classList.remove('active');
+  slideIdx = (slideIdx+1) % slides.length;
+  slides[slideIdx].classList.add('active');
+}, 5000);
 
-
-/* =========================
-   COUNT ANIMATION
-========================= */
-const counters = document.querySelectorAll('.count');
-let countStarted = false;
-
-function startCounting() {
-  if (countStarted) return;
-  countStarted = true;
-
-  counters.forEach(counter => {
-    const target = +counter.getAttribute('data-target');
-    let count = 0;
-    const increment = target / 100;
-
-    function updateCount(){
-      if(count < target){
-        count += increment;
-
-        if(target % 1 !== 0){
-          counter.innerText = count.toFixed(1);
-        } else {
-          counter.innerText = Math.ceil(count);
-        }
-
-        setTimeout(updateCount, 20);
-      } else {
-        counter.innerText = target >= 100 
-          ? Math.floor(target) + '+' 
-          : target;
-      }
-    }
-
-    updateCount();
+/* ── SCROLL REVEAL ──────────────────────────────── */
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }
   });
+},{threshold:.15});
+revealEls.forEach(el=>revealObs.observe(el));
+
+/* ── COUNTER ANIMATION ──────────────────────────── */
+function animateCounter(el){
+  const target = parseFloat(el.dataset.target);
+  const decimal = parseInt(el.dataset.decimal||0);
+  const dur = 1600;
+  const start = performance.now();
+  function step(now){
+    const t = Math.min((now-start)/dur,1);
+    const ease = 1-Math.pow(1-t,3);
+    const val = target*ease;
+    el.textContent = decimal ? val.toFixed(decimal) : Math.round(val)+(el.dataset.suffix||'+');
+    if(t<1) requestAnimationFrame(step);
+    else el.textContent = decimal ? target.toFixed(decimal) : target+'+';
+  }
+  requestAnimationFrame(step);
 }
-
-
-/* =========================
-   SCROLL OBSERVER (MERGED)
-========================= */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-
-    /* COUNT TRIGGER */
-    if(entry.target.classList.contains("stats") && entry.isIntersecting){
-      startCounting();
-    }
-
-    /* REVEAL ANIMATION */
-    if(entry.target.classList.contains("reveal") && entry.isIntersecting){
-      entry.target.classList.add("active");
-    }
-
+const counterEls = document.querySelectorAll('.counter-num');
+const counterObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ animateCounter(e.target); counterObs.unobserve(e.target); }
   });
-},{ threshold:0.3 });
+},{threshold:.5});
+counterEls.forEach(el=>counterObs.observe(el));
 
-/* OBSERVE ELEMENTS */
-document.querySelectorAll(".stats, .reveal").forEach(el=>{
-  observer.observe(el);
+/* ── GALLERY ────────────────────────────────────── */
+const galleryImgs = [
+  {url:'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=600&q=80',label:'Birthday Bliss'},
+  {url:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',label:'Chocolate Dream'},
+  {url:'https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=80',label:'Elegant Tiers'},
+  {url:'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=600&q=80',label:'Sweet Celebration'},
+  {url:'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80',label:'Fresh Berries'},
+  {url:'https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=600&q=80',label:'Golden Moments'},
+  {url:'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80',label:'Pastel Dreams'},
+  {url:'https://images.unsplash.com/photo-1519869325930-281384150729?w=600&q=80',label:'Truffle Love'},
+];
+const galleryGrid = document.getElementById('galleryGrid');
+galleryImgs.forEach(img=>{
+  const item = document.createElement('div');
+  item.className='masonry-item';
+  item.innerHTML=`<img src="${img.url}" alt="${img.label}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/ffd6e2/ff7a9c?text=Just+Frosted'"/>
+  <div class="masonry-overlay"><span>${img.label}</span></div>`;
+  galleryGrid.appendChild(item);
 });
 
+/* ── SAMPLE MENU (fallback / demo) ─────────────── */
+const sampleMenu = [
+  {name:'Classic Vanilla Birthday Cake',price:'₹450',description:'Soft vanilla sponge layered with fresh cream and sprinkles.',category:'birthday',image:'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400&q=80'},
+  {name:'Dark Chocolate Truffle',price:'₹600',description:'Rich dark chocolate ganache over moist chocolate sponge.',category:'chocolate',image:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80'},
+  {name:'Strawberry Fruit Cake',price:'₹520',description:'Fresh strawberries with whipped cream on a light sponge.',category:'fruit',image:'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80'},
+  {name:'Red Velvet Elegance',price:'₹580',description:'Iconic red velvet with silky cream cheese frosting.',category:'premium',image:'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80'},
+  {name:'Eggless Butterscotch',price:'₹480',description:'Creamy butterscotch cake — 100% eggless, 100% delicious.',category:'eggless',image:'https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=400&q=80'},
+  {name:'Rainbow Kids Cake',price:'₹650',description:'Vibrant rainbow layers with vanilla buttercream — kids go wild!',category:'kids',image:'https://images.unsplash.com/photo-1519869325930-281384150729?w=400&q=80'},
+  {name:'Fudge Brownies Box',price:'₹320',description:'Chewy, gooey, utterly irresistible homemade brownies.',category:'brownies',image:'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&q=80'},
+  {name:'Mini Cupcakes Assortment',price:'₹280',description:'A box of 6 assorted cupcakes — perfect for gifting.',category:'cupcakes',image:'https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&q=80'},
+  {name:'Wedding Tier Cake',price:'₹2200',description:'Two-tier fondant wedding cake — fully customised.',category:'wedding',image:'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=400&q=80'},
+];
 
-/* =========================
-   CATEGORY FILTER
-========================= */
-let allCakes = [];
+/* ── MENU RENDER ────────────────────────────────── */
+let allProducts = [];
+let activeCat = 'all';
 
-fetch("https://opensheet.elk.sh/13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I/Sheet1")
-  .then(res => res.json())
-  .then(data => {
-    allCakes = data;
-    displayCakes(allCakes);
-  });
-
-function displayCakes(data){
-  const container = document.getElementById("menu-section");
-  container.innerHTML = "";
-
-  data.forEach(item => {
-    if(!item.Name) return;
-
-    container.innerHTML += `
-      <div class="product-card">
-        <img 
-          src="${item.Image}" 
-          class="card-img"
-          onerror="this.src='public/cakes/IMG_3014.jpeg'"
-        >
-
-        <div class="card-content">
-          <div class="card-header">
-            <h3>${item.Name}</h3>
-            <span class="price">₹${item.Price}</span>
-          </div>
-
-          <p>${item.Description}</p>
-
-          <a href="https://wa.me/919074087851" class="btn primary">
-            Order Now
-          </a>
-        </div>
-      </div>
-    `;
-  });
-}
-
-
-/* FILTER FUNCTION */
-function filterCakes(category){
-
-  document.querySelectorAll(".filters button").forEach(btn=>{
-    btn.classList.remove("active");
-  });
-
-  event.target.classList.add("active");
-
-  if(category === "all"){
-    displayCakes(allCakes);
+function renderMenu(products){
+  const grid = document.getElementById('menuGrid');
+  const filtered = activeCat==='all'?products:products.filter(p=>(p.category||'').toLowerCase()===activeCat);
+  if(!filtered.length){
+    grid.innerHTML='<div class="menu-error">No cakes found in this category 😢</div>';
     return;
   }
-
-  const filtered = allCakes.filter(item =>
-    item.Category?.toLowerCase() === category
-  );
-
-  displayCakes(filtered);
+  grid.innerHTML = filtered.map(p=>{
+    const waMsg = encodeURIComponent(`Hi! I'd like to order: ${p.name} (${p.price||''}) 🎂`);
+    const img = p.image||'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80';
+    return `<div class="cake-card reveal">
+      <img class="cake-img" src="${img}" alt="${p.name}" loading="lazy"
+           onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80'"/>
+      <div class="cake-body">
+        <div class="cake-name">${p.name||'Unnamed Cake'}</div>
+        <div class="cake-price">${p.price||''}</div>
+        <div class="cake-desc">${p.description||''}</div>
+        <a class="btn-order" href="${WA_BASE}${waMsg}" target="_blank" rel="noopener">Order Now 🛒</a>
+      </div>
+    </div>`;
+  }).join('');
+  // Re-observe new elements
+  grid.querySelectorAll('.reveal').forEach(el=>{
+    el.classList.remove('visible');
+    revealObs.observe(el);
+  });
 }
 
+async function loadMenu(){
+  const grid = document.getElementById('menuGrid');
+  grid.innerHTML='<div class="menu-loader"><div class="spinner"></div>Loading our menu…</div>';
+  try{
+    const res = await fetch(MENU_URL);
+    if(!res.ok) throw new Error('Sheet fetch failed');
+    const data = await res.json();
+    allProducts = data;
+  } catch(e){
+    // Use sample data if sheet not configured
+    allProducts = sampleMenu;
+  }
+  renderMenu(allProducts);
+}
 
-/* =========================
-   AUTO CENTER FILTER BUTTON
-========================= */
-document.querySelectorAll(".filters button").forEach(btn=>{
-  btn.addEventListener("click", ()=>{
-    btn.scrollIntoView({
-      behavior:"smooth",
-      inline:"center"
-    });
+/* ── CATEGORY FILTER ────────────────────────────── */
+document.querySelectorAll('.cat-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    renderMenu(allProducts);
+    btn.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
   });
 });
-  /* =========================
-   REVIEW SLIDER (GOOGLE SHEET)
-========================= */
 
-const reviewURL = "https://opensheet.elk.sh/13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I/reviews";
+loadMenu();
 
-fetch(reviewURL)
-  .then(res => res.json())
-  .then(data => createReviewSlider(data));
+/* ── TESTIMONIALS ───────────────────────────────── */
+const sampleReviews = [
+  {name:'Amina Rashid',rating:5,review:'Absolutely loved the chocolate truffle cake! The texture was perfect and it tasted homemade in the best way. Will definitely order again!'},
+  {name:'Priya Nair',rating:5,review:'Ordered a custom birthday cake and it was stunning. Exactly what I wanted, and the taste was even better than the look!'},
+  {name:'Fathima Beevi',rating:5,review:'The eggless butterscotch cake was a dream. My whole family loved it. Just Frosted never disappoints!'},
+  {name:'Riya Krishnan',rating:4,review:'Great quality cakes at a very fair price. Delivery was on time and the packaging was beautiful.'},
+  {name:'Neha Thomas',rating:5,review:'The cupcake assortment was the highlight of our office party. Everyone was asking where I got them from!'},
+];
 
-function createReviewSlider(data){
+let tIdx = 0;
+let tTotal = 0;
+let tPerView = 1;
+let isDragging = false;
+let dragStartX = 0;
 
-  const slides = document.getElementById("slides");
-  const dots = document.getElementById("dots");
-
-  slides.innerHTML = "";
-  dots.innerHTML = "";
-
-  // only good reviews
-  data = data.filter(r => r.rating >= 4);
-
-  data.reverse().forEach((item, i) => {
-
-    slides.innerHTML += `
-      <div class="slide">
-        <div class="test-card">
-          <div class="stars">${"★".repeat(item.rating)}</div>
-          <p class="review-text">"${item.review}"</p>
-          <h4 class="review-name">${item.name}</h4>
-        </div>
-      </div>
-    `;
-
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    if(i === 0) dot.classList.add("active");
-
-    dot.onclick = ()=> goToReview(i);
-    dots.appendChild(dot);
-  });
-
-  initReviewSlider();
+function getTPerView(){
+  if(window.innerWidth >= 1000) return 3;
+  if(window.innerWidth >= 700) return 2;
+  return 1;
 }
 
-let reviewIndex = 0;
+function buildTestimonials(reviews){
+  const track = document.getElementById('tTrack');
+  const dots  = document.getElementById('tDots');
+  track.innerHTML = '';
+  dots.innerHTML  = '';
+  tTotal = reviews.length;
+  tPerView = getTPerView();
 
-function initReviewSlider(){
+  reviews.forEach(r=>{
+    const stars = '★'.repeat(Math.round(r.rating))+'☆'.repeat(5-Math.round(r.rating));
+    const card = document.createElement('div');
+    card.className='testimonial-card';
+    card.innerHTML=`<div class="t-inner"><div class="t-stars">${stars}</div><p class="t-text">"${r.review}"</p><div class="t-name">— ${r.name}</div></div>`;
+    track.appendChild(card);
+  });
 
-  const slides = document.getElementById("slides");
-  const total = document.querySelectorAll(".slide").length;
-
-  function updateDots(){
-    document.querySelectorAll(".dot").forEach((d,i)=>{
-      d.classList.toggle("active", i===reviewIndex);
-    });
+  const maxSlide = Math.max(0, tTotal - tPerView);
+  for(let i=0;i<=maxSlide;i++){
+    const d = document.createElement('button');
+    d.className='dot'+(i===0?' active':'');
+    d.setAttribute('aria-label',`Slide ${i+1}`);
+    d.addEventListener('click',()=>goSlide(i));
+    dots.appendChild(d);
   }
 
-  window.goToReview = function(i){
-    reviewIndex = i;
-    slides.style.transform = `translateX(-${reviewIndex * 100}%)`;
-    updateDots();
-  }
+  goSlide(0);
+}
 
-  // AUTO
-  setInterval(()=>{
-    reviewIndex = (reviewIndex + 1) % total;
-    goToReview(reviewIndex);
+function goSlide(i){
+  tPerView = getTPerView();
+  const maxSlide = Math.max(0, tTotal - tPerView);
+  tIdx = Math.max(0,Math.min(i,maxSlide));
+  const pct = (100/tPerView)*tIdx;
+  document.getElementById('tTrack').style.transform=`translateX(-${pct}%)`;
+  document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',j===tIdx));
+}
+
+// Auto-slide
+let tTimer = setInterval(()=>{
+  tPerView = getTPerView();
+  const maxSlide = Math.max(0, tTotal - tPerView);
+  goSlide(tIdx >= maxSlide ? 0 : tIdx+1);
+},4000);
+
+// Touch / drag swipe
+const tSlider = document.getElementById('tSlider');
+tSlider.addEventListener('pointerdown',e=>{isDragging=true;dragStartX=e.clientX;tSlider.setPointerCapture(e.pointerId)});
+tSlider.addEventListener('pointermove',e=>{if(!isDragging)return});
+tSlider.addEventListener('pointerup',e=>{
+  if(!isDragging)return;isDragging=false;
+  const diff = dragStartX - e.clientX;
+  if(Math.abs(diff)>40){ diff>0?goSlide(tIdx+1):goSlide(tIdx-1); }
+  clearInterval(tTimer);
+  tTimer=setInterval(()=>{
+    tPerView=getTPerView();
+    const maxSlide=Math.max(0,tTotal-tPerView);
+    goSlide(tIdx>=maxSlide?0:tIdx+1);
   },4000);
+});
 
-  // TOUCH
-  let startX = 0;
-
-  slides.addEventListener("touchstart", e=>{
-    startX = e.touches[0].clientX;
-  });
-
-  slides.addEventListener("touchend", e=>{
-    let endX = e.changedTouches[0].clientX;
-
-    if(startX - endX > 50) reviewIndex++;
-    else if(endX - startX > 50) reviewIndex--;
-
-    reviewIndex = (reviewIndex + total) % total;
-
-    goToReview(reviewIndex);
-  });
+async function loadReviews(){
+  let reviews = sampleReviews;
+  try{
+    const res = await fetch(REVIEWS_URL);
+    if(!res.ok)throw new Error();
+    const data = await res.json();
+    const filtered = data.filter(r=>parseFloat(r.rating)>=4);
+    if(filtered.length) reviews = filtered;
+  } catch(e){ /* use sample */ }
+  buildTestimonials(reviews);
 }
+loadReviews();
+
+window.addEventListener('resize',()=>{
+  tPerView=getTPerView();
+  goSlide(tIdx);
+});
+
+/* ── NAV PADDING OFFSET ─────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      const offset = 70;
+      window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-offset,behavior:'smooth'});
+    }
+  });
+});
 </script>
 </body>
 </html>
