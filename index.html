@@ -7,554 +7,445 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<!-- ═══ INLINE SVG SPRITE ═══════════════════════════ -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <symbol id="i-cake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"/><path d="M4 21h16"/>
+    <path d="M12 3v4"/><path d="M8 11V7"/><path d="M16 11V7"/><path d="M4 15h16"/>
+    <circle cx="8" cy="5" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="12" cy="1" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="16" cy="5" r="1" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+  <symbol id="i-heart-fill" viewBox="0 0 24 24">
+    <path fill="currentColor" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+  </symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.84L.057 23.57l5.926-1.433A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.009-1.374l-.36-.213-3.514.85.883-3.428-.233-.373A9.818 9.818 0 1 1 12 21.818z"/>
+  </symbol>
+  <symbol id="i-star-fill" viewBox="0 0 24 24" fill="currentColor">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </symbol>
+  <symbol id="i-star-empty" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </symbol>
+  <symbol id="i-fire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.5 14.5A4.5 4.5 0 0 0 12 19a4.5 4.5 0 0 0 4-6.5c-.8-1.5-2-3-2-5 0 0-1.5 1-2 3-.5-1-1.5-2-2-4C8 8 6 11 6 14a6 6 0 0 0 6 6 6 6 0 0 0 6-6c0-3-2-5.5-2-5.5"/>
+  </symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/>
+    <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+  </symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="13.5" cy="6.5" r="1"/><circle cx="17.5" cy="10.5" r="1"/><circle cx="8.5" cy="7.5" r="1"/><circle cx="6.5" cy="12.5" r="1"/>
+    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.236 2.636 7.855 6.356 9.312C9.424 21.768 10 21.268 10 20.5v-1a2 2 0 0 1 2-2h2a2 2 0 0 0 2-2v-.5c0-.414.336-.75.75-.75A3.25 3.25 0 0 0 20 11V9a7 7 0 0 0-8-7z"/>
+  </symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 3l2.5 5H20l-4.5 3.5 2 5.5L12 13l-5.5 3 2-5.5L4 7h5.5z"/>
+  </symbol>
+  <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+  </symbol>
+  <symbol id="i-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/>
+    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+  </symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.73 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.81a16 16 0 0 0 6 6l.98-.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  </symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+    <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+  </symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 20h20M4 20V10l4 4 4-6 4 6 4-4v10"/>
+  </symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8a7 7 0 0 1-7 7h-3z"/>
+    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+  </symbol>
+  <symbol id="i-fruit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3z"/>
+    <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3z"/>
+    <path d="M7 14c3.22-2.91 4.29-6.75 5-9 1.66 1 5.29 1.33 7 2"/>
+  </symbol>
+  <symbol id="i-ring" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="14" r="5"/><circle cx="15" cy="10" r="5"/>
+  </symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+    <line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+  </symbol>
+  <symbol id="i-brownie" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="3"/>
+    <line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/>
+    <line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>
+  </symbol>
+  <symbol id="i-cupcake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M17 11H7l-2 9h14l-2-9z"/>
+    <path d="M7 11a5 5 0 0 1 10 0"/>
+    <path d="M12 6v-2"/>
+    <circle cx="9" cy="3" r="1" fill="currentColor" stroke="none"/>
+    <circle cx="15" cy="3" r="1" fill="currentColor" stroke="none"/>
+  </symbol>
+  <symbol id="i-truffle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="13" r="6"/>
+    <path d="M12 7V4"/><path d="M9 4c0-1.1.9-2 3-2s3 .9 3 2"/>
+    <circle cx="12" cy="13" r="2.5" fill="currentColor" opacity=".2" stroke="none"/>
+  </symbol>
+  <symbol id="i-chocolate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="5" width="20" height="14" rx="2"/>
+    <line x1="2" y1="10" x2="22" y2="10"/><line x1="2" y1="15" x2="22" y2="15"/>
+    <line x1="8" y1="5" x2="8" y2="19"/><line x1="14" y1="5" x2="14" y2="19"/>
+  </symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+  </symbol>
+  <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+  </symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+    <polyline points="9 22 9 12 15 12 15 22"/>
+  </symbol>
+  <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2"/>
+    <circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+  </symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </symbol>
+</svg>
+
 <style>
 :root{
-  --pink:#ff7a9c;
-  --pink-light:#ffd6e2;
-  --pink-dark:#e85c82;
-  --cream:#fff8f2;
-  --beige:#f5e6d3;
-  --beige2:#fef3e8;
-  --brown:#6b4226;
-  --text:#2d1b0e;
-  --text-muted:#8a6a58;
-  --white:#ffffff;
-  --green-wa:#25d366;
-  --radius:22px;
+  --pink:#ff7a9c;--pink-light:#ffd6e2;--pink-dark:#e85c82;
+  --cream:#fff8f2;--beige:#f5e6d3;--beige2:#fef3e8;
+  --text:#2d1b0e;--text-muted:#8a6a58;
+  --green-wa:#25d366;--radius:22px;
   --shadow:0 8px 32px rgba(255,122,156,0.13);
-  --glass:rgba(255,255,255,0.55);
-  --glass-border:rgba(255,255,255,0.8);
+  --glass:rgba(255,255,255,0.55);--glass-border:rgba(255,255,255,0.8);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:'Poppins',sans-serif;
-  background:var(--cream);
-  color:var(--text);
-  overflow-x:hidden;
-  min-height:100vh;
-}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;min-height:100vh}
+
+/* ── ICON DEFAULTS ──────────────────────────────────── */
+svg use{inherit:all}
+.si{display:inline-block;vertical-align:middle;flex-shrink:0;width:1em;height:1em}
 
 /* ── BLOBS ─────────────────────────────────────────── */
-.blob-bg{
-  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-}
-.blob{
-  position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;
-  animation:blobFloat 18s ease-in-out infinite;
-}
-.blob1{width:520px;height:520px;background:radial-gradient(circle,#ffb3cb,#ff7a9c);top:-120px;left:-120px;animation-delay:0s}
+.blob-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.35;animation:blobFloat 18s ease-in-out infinite}
+.blob1{width:520px;height:520px;background:radial-gradient(circle,#ffb3cb,#ff7a9c);top:-120px;left:-120px}
 .blob2{width:400px;height:400px;background:radial-gradient(circle,#ffd6a5,#ffb347);top:40%;right:-100px;animation-delay:-6s}
 .blob3{width:350px;height:350px;background:radial-gradient(circle,#c9f0ff,#a0d8ef);bottom:-80px;left:30%;animation-delay:-12s}
 .blob4{width:280px;height:280px;background:radial-gradient(circle,#f7c8e0,#e991b9);top:60%;left:10%;animation-delay:-4s}
-@keyframes blobFloat{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(30px,-40px) scale(1.05)}
-  66%{transform:translate(-20px,25px) scale(.96)}
-}
-
-/* ── NOISE TEXTURE ──────────────────────────────────── */
-.noise{
-  position:fixed;inset:0;z-index:1;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  opacity:.025;
-}
-
-/* ── MAIN CONTENT WRAPPER ───────────────────────────── */
+@keyframes blobFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.05)}66%{transform:translate(-20px,25px) scale(.96)}}
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.025}
 main,nav,section,footer,.hero{position:relative;z-index:2}
 
 /* ── NAVBAR ─────────────────────────────────────────── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:1000;
-  padding:14px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,248,242,0.72);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--glass-border);
-  box-shadow:0 2px 24px rgba(255,122,156,.08);
+  padding:14px 24px;display:flex;align-items:center;justify-content:space-between;
+  background:rgba(255,248,242,0.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--glass-border);box-shadow:0 2px 24px rgba(255,122,156,.08);
 }
 .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--pink-light)}
 .nav-brand-text{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--pink-dark);letter-spacing:.02em}
-.nav-cake-icon{font-size:1.1rem}
-.hamburger{
-  background:none;border:none;cursor:pointer;
-  display:flex;flex-direction:column;gap:5px;padding:6px;
-}
-.hamburger span{
-  display:block;width:26px;height:2.5px;background:var(--pink-dark);
-  border-radius:2px;transition:transform .3s,opacity .3s;
-}
+.nav-brand svg{width:22px;height:22px;color:var(--pink-dark)}
+.hamburger{background:none;border:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:6px}
+.hamburger span{display:block;width:26px;height:2.5px;background:var(--pink-dark);border-radius:2px;transition:transform .3s,opacity .3s}
 .hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* ── SIDEBAR ────────────────────────────────────────── */
-.overlay{
-  position:fixed;inset:0;z-index:1100;
-  background:rgba(45,27,14,.35);backdrop-filter:blur(4px);
-  opacity:0;pointer-events:none;transition:opacity .3s;
-}
+.overlay{position:fixed;inset:0;z-index:1100;background:rgba(45,27,14,.35);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .3s}
 .overlay.active{opacity:1;pointer-events:all}
 .sidebar{
-  position:fixed;top:0;right:0;z-index:1200;
-  width:280px;height:100%;
+  position:fixed;top:0;right:0;z-index:1200;width:280px;height:100%;
   background:rgba(255,248,242,.95);backdrop-filter:blur(24px);
   border-left:1px solid var(--glass-border);
   transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
-  display:flex;flex-direction:column;padding:32px 28px;gap:0;
+  display:flex;flex-direction:column;padding:32px 28px;
   box-shadow:-8px 0 40px rgba(255,122,156,.12);
 }
 .sidebar.active{transform:translateX(0)}
 .sidebar-close{
-  align-self:flex-end;background:none;border:none;cursor:pointer;
-  font-size:1.6rem;color:var(--text-muted);margin-bottom:32px;line-height:1;
+  align-self:flex-end;background:none;border:none;cursor:pointer;margin-bottom:32px;
+  display:flex;align-items:center;justify-content:center;padding:6px;color:var(--text-muted);
 }
-.sidebar nav-links{display:flex;flex-direction:column}
+.sidebar-close svg{width:22px;height:22px}
 .sidebar a{
-  font-size:1.1rem;font-weight:500;color:var(--text);
-  text-decoration:none;padding:14px 0;
-  border-bottom:1px solid var(--pink-light);
-  transition:color .2s,padding-left .2s;
+  font-size:1.05rem;font-weight:500;color:var(--text);text-decoration:none;
+  padding:14px 0;border-bottom:1px solid var(--pink-light);
+  transition:color .2s,padding-left .2s;display:flex;align-items:center;gap:10px;
 }
+.sidebar a svg{width:18px;height:18px;color:var(--pink)}
 .sidebar a:hover{color:var(--pink);padding-left:8px}
 .sidebar a:last-child{border-bottom:none}
 
 /* ── HERO ───────────────────────────────────────────── */
-.hero{
-  position:relative;width:100%;height:100svh;min-height:600px;
-  overflow:hidden;display:flex;align-items:center;justify-content:center;
-  margin-top:0;
-}
+.hero{position:relative;width:100%;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .hero-slides{position:absolute;inset:0}
-.hero-slide{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:0;transition:opacity 1.2s ease;
-  animation:kenBurns 12s ease-in-out infinite;
-}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;animation:kenBurns 12s ease-in-out infinite}
 .hero-slide.active{opacity:1}
-.hero-slide:nth-child(2){animation-delay:-4s}
-.hero-slide:nth-child(3){animation-delay:-8s}
-@keyframes kenBurns{
-  0%{transform:scale(1)}50%{transform:scale(1.07)}100%{transform:scale(1)}
-}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(20,8,4,.35) 0%,rgba(20,8,4,.58) 60%,rgba(20,8,4,.75) 100%);
-}
-.hero-content{
-  position:relative;z-index:2;text-align:center;padding:0 24px;
-  animation:heroIn .9s ease both;
-}
+.hero-slide:nth-child(2){animation-delay:-4s}.hero-slide:nth-child(3){animation-delay:-8s}
+@keyframes kenBurns{0%{transform:scale(1)}50%{transform:scale(1.07)}100%{transform:scale(1)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,8,4,.35) 0%,rgba(20,8,4,.58) 60%,rgba(20,8,4,.75) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px;animation:heroIn .9s ease both}
 @keyframes heroIn{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
-.hero-content h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,6vw,4rem);
-  font-weight:700;color:#fff;
-  line-height:1.2;margin-bottom:12px;
-  text-shadow:0 2px 24px rgba(0,0,0,.4);
-}
-.hero-content p{
-  font-size:clamp(.95rem,2.5vw,1.2rem);
-  color:rgba(255,255,255,.85);margin-bottom:36px;
-  font-weight:300;letter-spacing:.04em;
-}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5.5vw,3.8rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:12px;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+.hero-h1-icon{display:inline-flex;vertical-align:middle;margin-left:8px}
+.hero-h1-icon svg{width:clamp(28px,4.5vw,46px);height:clamp(28px,4.5vw,46px);color:#ff7a9c}
+.hero-p{font-size:clamp(.95rem,2.5vw,1.2rem);color:rgba(255,255,255,.85);margin-bottom:36px;font-weight:300;letter-spacing:.04em;display:flex;align-items:center;justify-content:center;gap:8px}
+.hero-p svg{width:16px;height:16px;color:rgba(255,255,255,.7)}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn-wa{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--green-wa);color:#fff;
-  padding:14px 28px;border-radius:50px;
-  font-size:.95rem;font-weight:600;text-decoration:none;
-  box-shadow:0 4px 20px rgba(37,211,102,.35);
-  transition:transform .2s,box-shadow .2s;
+  display:inline-flex;align-items:center;gap:9px;background:var(--green-wa);color:#fff;
+  padding:14px 28px;border-radius:50px;font-size:.95rem;font-weight:600;text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .2s,box-shadow .2s;
 }
+.btn-wa svg{width:18px;height:18px;color:#fff}
 .btn-wa:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.45)}
-.btn-menu{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(255,255,255,.18);color:#fff;
-  padding:14px 28px;border-radius:50px;
-  font-size:.95rem;font-weight:600;text-decoration:none;
-  border:1px solid rgba(255,255,255,.45);
-  backdrop-filter:blur(6px);
-  transition:transform .2s,background .2s;
+.btn-outline{
+  display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.18);color:#fff;
+  padding:14px 28px;border-radius:50px;font-size:.95rem;font-weight:600;text-decoration:none;
+  border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(6px);transition:transform .2s,background .2s;
 }
-.btn-menu:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
+.btn-outline svg{width:18px;height:18px;color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
 
 /* ── SECTION BASE ───────────────────────────────────── */
 section{padding:80px 24px}
 .section-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.7rem,4vw,2.6rem);
-  font-weight:700;text-align:center;
-  color:var(--text);margin-bottom:12px;
+  font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:700;
+  text-align:center;color:var(--text);margin-bottom:12px;
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
 }
-.section-sub{
-  text-align:center;color:var(--text-muted);
-  font-size:.95rem;margin-bottom:48px;
-}
+.section-title svg{width:28px;height:28px;color:var(--pink)}
+.section-sub{text-align:center;color:var(--text-muted);font-size:.95rem;margin-bottom:48px}
 .section-inner{max-width:1200px;margin:0 auto}
 
 /* ── CATEGORY FILTER ────────────────────────────────── */
 #menu{background:transparent}
-.cat-scroll{
-  display:flex;gap:10px;overflow-x:auto;
-  padding:0 4px 16px;margin-bottom:36px;
-  scrollbar-width:none;-ms-overflow-style:none;
-  scroll-snap-type:x mandatory;
-}
+.cat-scroll{display:flex;gap:10px;overflow-x:auto;padding:0 4px 16px;margin-bottom:36px;scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x mandatory}
 .cat-scroll::-webkit-scrollbar{display:none}
 .cat-btn{
-  flex:0 0 auto;scroll-snap-align:center;
-  padding:10px 22px;border-radius:50px;
-  border:1.5px solid var(--pink-light);
-  background:rgba(255,255,255,.7);
-  color:var(--text-muted);font-size:.88rem;font-weight:500;
-  cursor:pointer;white-space:nowrap;
-  transition:all .22s;backdrop-filter:blur(8px);
+  flex:0 0 auto;scroll-snap-align:center;padding:10px 18px;border-radius:50px;
+  border:1.5px solid var(--pink-light);background:rgba(255,255,255,.7);
+  color:var(--text-muted);font-size:.85rem;font-weight:500;cursor:pointer;white-space:nowrap;
+  transition:all .22s;backdrop-filter:blur(8px);display:inline-flex;align-items:center;gap:7px;
 }
+.cat-btn svg{width:14px;height:14px;color:currentColor}
 .cat-btn:hover{border-color:var(--pink);color:var(--pink)}
-.cat-btn.active{
-  background:var(--pink);color:#fff;
-  border-color:var(--pink);
-  box-shadow:0 4px 16px rgba(255,122,156,.35);
-}
+.cat-btn.active{background:var(--pink);color:#fff;border-color:var(--pink);box-shadow:0 4px 16px rgba(255,122,156,.35)}
 
 /* ── MENU GRID ──────────────────────────────────────── */
-.menu-grid{
-  display:grid;gap:24px;
-  grid-template-columns:1fr;
-}
+.menu-grid{display:grid;gap:24px;grid-template-columns:1fr}
 @media(min-width:600px){.menu-grid{grid-template-columns:1fr 1fr}}
 @media(min-width:960px){.menu-grid{grid-template-columns:1fr 1fr 1fr}}
-
 .cake-card{
-  background:var(--glass);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  transition:transform .25s,box-shadow .25s;
-  display:flex;flex-direction:column;
+  background:var(--glass);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--glass-border);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;
 }
 .cake-card:hover{transform:translateY(-6px);box-shadow:0 18px 48px rgba(255,122,156,.22)}
-.cake-img{
-  width:100%;height:220px;object-fit:cover;
-  display:block;background:#f5e6d3;
-}
+.cake-img{width:100%;height:220px;object-fit:cover;display:block;background:#f5e6d3}
 .cake-body{padding:20px;flex:1;display:flex;flex-direction:column;gap:8px}
-.cake-name{
-  font-family:'Playfair Display',serif;
-  font-size:1.15rem;font-weight:700;color:var(--text);
-}
-.cake-price{
-  font-size:1rem;font-weight:700;color:var(--pink-dark);
-}
+.cake-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--text)}
+.cake-price{font-size:1rem;font-weight:700;color:var(--pink-dark)}
 .cake-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6;flex:1}
 .btn-order{
-  display:block;text-align:center;
-  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
-  color:#fff;padding:11px 20px;border-radius:50px;
-  font-size:.88rem;font-weight:600;text-decoration:none;
-  margin-top:12px;border:none;cursor:pointer;
-  transition:transform .2s,box-shadow .2s;
-  box-shadow:0 4px 16px rgba(255,122,156,.3);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(135deg,var(--pink),var(--pink-dark));color:#fff;
+  padding:11px 20px;border-radius:50px;font-size:.88rem;font-weight:600;
+  text-decoration:none;margin-top:12px;border:none;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(255,122,156,.3);
 }
+.btn-order svg{width:16px;height:16px;color:#fff}
 .btn-order:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,122,156,.42)}
-
-.menu-loader,.menu-error{
-  text-align:center;padding:60px 20px;color:var(--text-muted);
-  grid-column:1/-1;font-size:.95rem;
-}
-.spinner{
-  width:36px;height:36px;border:3px solid var(--pink-light);
-  border-top-color:var(--pink);border-radius:50%;
-  animation:spin .7s linear infinite;margin:0 auto 16px;
-}
+.menu-loader,.menu-error{text-align:center;padding:60px 20px;color:var(--text-muted);grid-column:1/-1;font-size:.95rem}
+.spinner{width:36px;height:36px;border:3px solid var(--pink-light);border-top-color:var(--pink);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 /* ── GALLERY ────────────────────────────────────────── */
 #gallery{background:var(--beige2)}
-.gallery-title-grad{
-  background:linear-gradient(135deg,var(--pink-dark),#ff9a5c,var(--pink));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text;
-  animation:gradShift 4s ease infinite alternate;
-  background-size:200%;
-}
+.gallery-grad{background:linear-gradient(135deg,var(--pink-dark),#ff9a5c,var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:gradShift 4s ease infinite alternate;background-size:200%}
 @keyframes gradShift{0%{background-position:0%}100%{background-position:100%}}
-.masonry{
-  columns:1;gap:18px;
-}
+.masonry{columns:1;gap:18px}
 @media(min-width:540px){.masonry{columns:2}}
 @media(min-width:900px){.masonry{columns:3}}
-.masonry-item{
-  break-inside:avoid;margin-bottom:18px;
-  border-radius:18px;overflow:hidden;
-  position:relative;cursor:pointer;
-  box-shadow:0 4px 20px rgba(0,0,0,.1);
-}
-.masonry-item img{
-  width:100%;display:block;
-  transition:transform .4s ease;
-}
+.masonry-item{break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.masonry-item img{width:100%;display:block;transition:transform .4s ease}
 .masonry-item:hover img{transform:scale(1.06)}
-.masonry-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(45,27,14,.7) 0%,transparent 60%);
-  opacity:0;transition:opacity .3s;
-  display:flex;align-items:flex-end;padding:20px;
-}
+.masonry-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(45,27,14,.7) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:20px}
 .masonry-item:hover .masonry-overlay{opacity:1}
-.masonry-overlay span{
-  color:#fff;font-size:.88rem;font-weight:500;
-  font-family:'Playfair Display',serif;font-style:italic;
-}
+.masonry-overlay span{color:#fff;font-size:.88rem;font-weight:500;font-family:'Playfair Display',serif;font-style:italic}
 
 /* ── ABOUT ──────────────────────────────────────────── */
-#about{
-  background:linear-gradient(135deg,var(--beige) 0%,#fff5f8 100%);
-}
-.about-inner{
-  max-width:900px;margin:0 auto;
-  display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;
-}
-.about-heart{font-size:2.8rem;animation:heartbeat 1.4s ease-in-out infinite}
+#about{background:linear-gradient(135deg,var(--beige) 0%,#fff5f8 100%)}
+.about-inner{max-width:900px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px}
+.about-heart{animation:heartbeat 1.4s ease-in-out infinite;display:flex}
+.about-heart svg{width:56px;height:56px;color:var(--pink)}
 @keyframes heartbeat{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
-.about-text{
-  font-size:1rem;line-height:1.9;color:var(--text-muted);max-width:680px;
-}
-.counters{
-  display:flex;gap:32px;flex-wrap:wrap;justify-content:center;
-  margin-top:12px;
-}
-.counter-card{
-  background:var(--glass);backdrop-filter:blur(12px);
-  border:1px solid var(--glass-border);
-  border-radius:20px;padding:28px 36px;
-  text-align:center;box-shadow:var(--shadow);
-  min-width:140px;
-}
-.counter-num{
-  font-family:'Playfair Display',serif;
-  font-size:2.2rem;font-weight:700;color:var(--pink-dark);
-  display:block;
-}
-.counter-label{
-  font-size:.82rem;color:var(--text-muted);margin-top:4px;display:block;
-}
+.about-text{font-size:1rem;line-height:1.9;color:var(--text-muted);max-width:680px}
+.counters{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.counter-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:20px;padding:28px 36px;text-align:center;box-shadow:var(--shadow);min-width:140px}
+.counter-icon{display:flex;justify-content:center;margin-bottom:10px}
+.counter-icon svg{width:28px;height:28px;color:var(--pink)}
+.counter-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--pink-dark);display:block}
+.counter-label{font-size:.82rem;color:var(--text-muted);margin-top:4px;display:block}
 
 /* ── WHY CHOOSE US ──────────────────────────────────── */
 #why{background:var(--cream)}
-.why-grid{
-  display:grid;gap:20px;
-  grid-template-columns:1fr 1fr;
-}
+.why-grid{display:grid;gap:20px;grid-template-columns:1fr 1fr}
 @media(min-width:768px){.why-grid{grid-template-columns:repeat(4,1fr)}}
-.why-card{
-  background:var(--glass);backdrop-filter:blur(14px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--radius);
-  padding:28px 20px;text-align:center;
-  box-shadow:var(--shadow);
-  transition:transform .25s,box-shadow .25s;
-}
+.why-card{background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s}
 .why-card:hover{transform:translateY(-5px);box-shadow:0 14px 36px rgba(255,122,156,.2)}
-.why-icon{font-size:2.4rem;margin-bottom:14px;display:block}
-.why-title{
-  font-family:'Playfair Display',serif;
-  font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;
-}
+.why-icon{display:flex;justify-content:center;margin-bottom:14px}
+.why-icon svg{width:42px;height:42px;color:var(--pink)}
+.why-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px}
 .why-desc{font-size:.82rem;color:var(--text-muted);line-height:1.7}
 
 /* ── REVIEW CTA ─────────────────────────────────────── */
-#review-cta{
-  background:linear-gradient(135deg,#ff7a9c 0%,#ff9a5c 100%);
-  text-align:center;padding:72px 24px;
-}
-#review-cta h2{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.6rem,4vw,2.4rem);
-  color:#fff;margin-bottom:10px;
-}
-#review-cta p{color:rgba(255,255,255,.88);font-size:1rem;margin-bottom:32px}
+#review-cta{background:linear-gradient(135deg,#ff7a9c 0%,#ff9a5c 100%);text-align:center;padding:72px 24px}
+#review-cta h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.4rem);color:#fff;margin-bottom:10px}
+.cta-sub{color:rgba(255,255,255,.9);font-size:1rem;margin-bottom:32px;display:flex;align-items:center;justify-content:center;gap:8px}
+.cta-sub svg{width:18px;height:18px;color:rgba(255,255,255,.85)}
 .btn-review{
-  display:inline-flex;align-items:center;gap:8px;
-  background:#fff;color:var(--pink-dark);
-  padding:14px 32px;border-radius:50px;
-  font-size:.95rem;font-weight:700;text-decoration:none;
-  box-shadow:0 6px 24px rgba(0,0,0,.12);
-  transition:transform .2s,box-shadow .2s;
+  display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--pink-dark);
+  padding:14px 32px;border-radius:50px;font-size:.95rem;font-weight:700;text-decoration:none;
+  box-shadow:0 6px 24px rgba(0,0,0,.12);transition:transform .2s,box-shadow .2s;
 }
+.btn-review svg{width:18px;height:18px;color:#ffb347}
 .btn-review:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,.18)}
 
 /* ── TESTIMONIALS ───────────────────────────────────── */
 #testimonials{background:var(--beige2)}
-.testimonial-slider{position:relative;overflow:hidden}
-.testimonial-track{
-  display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);
-  will-change:transform;
-}
-.testimonial-card{
-  min-width:100%;padding:0 8px;
-  box-sizing:border-box;
-}
-@media(min-width:700px){
-  .testimonial-card{min-width:50%}
-}
-@media(min-width:1000px){
-  .testimonial-card{min-width:33.333%}
-}
-.t-inner{
-  background:var(--glass);backdrop-filter:blur(16px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--radius);padding:28px 24px;
-  box-shadow:var(--shadow);height:100%;
-}
-.t-stars{font-size:1.1rem;color:#ffb347;margin-bottom:12px}
-.t-text{
-  font-size:.9rem;line-height:1.75;color:var(--text-muted);
-  font-style:italic;margin-bottom:16px;
-}
-.t-name{font-weight:600;font-size:.88rem;color:var(--pink-dark)}
-.dots{
-  display:flex;justify-content:center;gap:8px;margin-top:28px;
-}
-.dot{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--pink-light);cursor:pointer;transition:background .2s,transform .2s;
-}
+.testimonial-slider{position:relative;overflow:hidden;cursor:grab}
+.testimonial-slider:active{cursor:grabbing}
+.testimonial-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);will-change:transform}
+.testimonial-card{min-width:100%;padding:0 8px;box-sizing:border-box}
+@media(min-width:700px){.testimonial-card{min-width:50%}}
+@media(min-width:1000px){.testimonial-card{min-width:33.333%}}
+.t-inner{background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow);height:100%}
+.t-stars{display:flex;gap:3px;margin-bottom:12px}
+.t-stars svg{width:16px;height:16px}
+.t-stars .filled{color:#ffb347}
+.t-stars .empty{color:#ddd}
+.t-text{font-size:.9rem;line-height:1.75;color:var(--text-muted);font-style:italic;margin-bottom:16px}
+.t-name{font-weight:600;font-size:.88rem;color:var(--pink-dark);display:flex;align-items:center;gap:6px}
+.t-name svg{width:14px;height:14px;color:var(--pink)}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:28px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--pink-light);cursor:pointer;transition:background .2s,transform .2s;border:none}
 .dot.active{background:var(--pink);transform:scale(1.3)}
 
 /* ── HOW TO ORDER ───────────────────────────────────── */
 #how{background:var(--cream)}
-.steps-grid{
-  display:grid;gap:20px;
-  grid-template-columns:1fr 1fr;
-}
+.steps-grid{display:grid;gap:20px;grid-template-columns:1fr 1fr}
 @media(min-width:768px){.steps-grid{grid-template-columns:repeat(4,1fr)}}
-.step-card{
-  background:var(--glass);backdrop-filter:blur(14px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--radius);padding:28px 18px;
-  text-align:center;box-shadow:var(--shadow);
-  position:relative;
-}
-.step-num{
-  width:38px;height:38px;border-radius:50%;
-  background:linear-gradient(135deg,var(--pink),var(--pink-dark));
-  color:#fff;font-weight:700;font-size:.95rem;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 14px;box-shadow:0 4px 12px rgba(255,122,156,.35);
-}
-.step-icon{font-size:2rem;margin-bottom:10px;display:block}
+.step-card{background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:28px 18px;text-align:center;box-shadow:var(--shadow)}
+.step-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--pink-dark));color:#fff;font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 4px 12px rgba(255,122,156,.35)}
+.step-icon{display:flex;justify-content:center;margin-bottom:10px}
+.step-icon svg{width:40px;height:40px;color:var(--pink)}
 .step-title{font-weight:600;font-size:.92rem;color:var(--text);margin-bottom:6px}
 .step-desc{font-size:.8rem;color:var(--text-muted);line-height:1.6}
+/* WhatsApp icon in step is filled green */
+.step-icon .wa-step{color:var(--green-wa)}
 
 /* ── CONTACT ────────────────────────────────────────── */
 #contact{background:var(--beige2)}
-.contact-cards{
-  display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;
-}
-.contact-card{
-  background:var(--glass);backdrop-filter:blur(14px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--radius);padding:26px 30px;
-  text-align:center;box-shadow:var(--shadow);
-  min-width:180px;
-}
-.contact-icon{font-size:2rem;margin-bottom:10px;display:block}
+.contact-cards{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-bottom:36px}
+.contact-card{background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--glass-border);border-radius:var(--radius);padding:26px 30px;text-align:center;box-shadow:var(--shadow);min-width:180px}
+.contact-icon{display:flex;justify-content:center;margin-bottom:12px}
+.contact-icon svg{width:34px;height:34px;color:var(--pink)}
 .contact-label{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
-.contact-val{
-  font-size:.92rem;font-weight:600;color:var(--text);
-  text-decoration:none;
-}
+.contact-val{font-size:.92rem;font-weight:600;color:var(--text);text-decoration:none}
 .contact-val:hover{color:var(--pink)}
-.map-wrap{
-  border-radius:var(--radius);overflow:hidden;
-  box-shadow:var(--shadow);border:1px solid var(--glass-border);
-  max-width:900px;margin:0 auto;
-}
+.map-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--glass-border);max-width:900px;margin:0 auto}
 .map-wrap iframe{width:100%;height:320px;display:block;border:none}
 
 /* ── FOOTER ─────────────────────────────────────────── */
-footer{
-  background:var(--text);color:rgba(255,255,255,.7);
-  text-align:center;padding:36px 24px;
-  position:relative;z-index:2;
-}
-footer .footer-brand{
-  font-family:'Playfair Display',serif;
-  font-size:1.4rem;color:#fff;font-weight:700;margin-bottom:8px;
-}
-footer p{font-size:.85rem}
+footer{background:var(--text);color:rgba(255,255,255,.7);text-align:center;padding:36px 24px;position:relative;z-index:2}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;font-weight:700;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:10px}
+.footer-brand svg{width:22px;height:22px;color:#ff7a9c}
+footer p{font-size:.85rem;display:flex;align-items:center;justify-content:center;gap:6px}
+footer p svg{width:14px;height:14px;color:#ff7a9c}
 
 /* ── FLOATING WA ────────────────────────────────────── */
-.float-wa{
-  position:fixed;bottom:28px;right:24px;z-index:9999;
-  width:58px;height:58px;border-radius:50%;
-  background:var(--green-wa);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 6px 24px rgba(37,211,102,.45);
-  text-decoration:none;
-  animation:waPulse 2.2s ease-in-out infinite;
-  transition:transform .2s;
-}
+.float-wa{position:fixed;bottom:28px;right:24px;z-index:9999;width:58px;height:58px;border-radius:50%;background:var(--green-wa);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);text-decoration:none;animation:waPulse 2.2s ease-in-out infinite;transition:transform .2s}
 .float-wa:hover{transform:scale(1.1)}
-.float-wa svg{width:30px;height:30px;fill:#fff}
-@keyframes waPulse{
-  0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.5)}
-  50%{box-shadow:0 6px 24px rgba(37,211,102,.45),0 0 0 14px rgba(37,211,102,0)}
-}
+.float-wa svg{width:30px;height:30px;color:#fff}
+@keyframes waPulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45),0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 6px 24px rgba(37,211,102,.45),0 0 0 14px rgba(37,211,102,0)}}
 
 /* ── SCROLL REVEAL ──────────────────────────────────── */
-.reveal{
-  opacity:0;transform:translateY(30px);
-  transition:opacity .65s ease,transform .65s ease;
-}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s ease,transform .65s ease}
 .reveal.visible{opacity:1;transform:none}
-
-/* ── SWIPE CURSOR ON SLIDER ─────────────────────────── */
-.testimonial-slider{cursor:grab}
-.testimonial-slider:active{cursor:grabbing}
 </style>
 </head>
 <body>
 
-<!-- Blobs -->
 <div class="blob-bg" aria-hidden="true">
-  <div class="blob blob1"></div>
-  <div class="blob blob2"></div>
-  <div class="blob blob3"></div>
-  <div class="blob blob4"></div>
+  <div class="blob blob1"></div><div class="blob blob2"></div>
+  <div class="blob blob3"></div><div class="blob blob4"></div>
 </div>
 <div class="noise" aria-hidden="true"></div>
 
 <!-- NAVBAR -->
 <nav aria-label="Main navigation">
   <a class="nav-brand" href="#">
-    <img class="nav-logo" src="public/icons/logo.jpg" alt="Just Frosted logo" onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=80&q=80';this.onerror=null"/>
+    <img class="nav-logo" src="public/icons/logo.jpg" alt="Just Frosted logo"
+         onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=80&q=80';this.onerror=null"/>
     <span class="nav-brand-text">Just Frosted</span>
-    <span class="nav-cake-icon" aria-hidden="true">🎂</span>
+    <svg width="22" height="22" aria-hidden="true"><use href="#i-cake"/></svg>
   </a>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- OVERLAY -->
 <div class="overlay" id="overlay" aria-hidden="true"></div>
 
 <!-- SIDEBAR -->
 <div class="sidebar" id="sidebar" role="dialog" aria-label="Navigation menu">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
-  <a href="#home" class="sidebar-link">Home</a>
-  <a href="#menu" class="sidebar-link">Menu</a>
-  <a href="#gallery" class="sidebar-link">Gallery</a>
-  <a href="#about" class="sidebar-link">About</a>
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+    <svg width="22" height="22"><use href="#i-close"/></svg>
+  </button>
+  <a href="#home" class="sidebar-link">
+    <svg width="18" height="18"><use href="#i-home"/></svg>Home
+  </a>
+  <a href="#menu" class="sidebar-link">
+    <svg width="18" height="18"><use href="#i-cake"/></svg>Menu
+  </a>
+  <a href="#gallery" class="sidebar-link">
+    <svg width="18" height="18"><use href="#i-image"/></svg>Gallery
+  </a>
+  <a href="#about" class="sidebar-link">
+    <svg width="18" height="18"><use href="#i-heart"/></svg>About
+  </a>
 </div>
 
 <!-- HERO -->
@@ -566,45 +457,79 @@ footer p{font-size:.85rem}
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Homemade Cakes Crafted<br>with Love ❤️</h1>
-    <p>Freshly baked in Calicut, Kerala</p>
+    <p class="hero-h1">
+      Homemade Cakes Crafted with Love
+      <span class="hero-h1-icon" aria-hidden="true">
+        <svg width="46" height="46"><use href="#i-heart-fill"/></svg>
+      </span>
+    </p>
+    <p class="hero-p">
+      <svg width="16" height="16"><use href="#i-pin"/></svg>
+      Freshly baked in Calicut, Kerala
+    </p>
     <div class="hero-btns">
-      <a class="btn-wa" href="https://wa.me/919074087851?text=Hi!%20I'd%20like%20to%20order%20a%20cake%20from%20Just%20Frosted%20🎂" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.84L.057 23.57l5.926-1.433A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.009-1.374l-.36-.213-3.514.85.883-3.428-.233-.373A9.818 9.818 0 1 1 12 21.818z"/></svg>
+      <a class="btn-wa" href="https://wa.me/919074087851?text=Hi!%20I'd%20like%20to%20order%20a%20cake%20from%20Just%20Frosted" target="_blank" rel="noopener">
+        <svg width="18" height="18"><use href="#i-wa"/></svg>
         Order on WhatsApp
       </a>
-      <a class="btn-menu" href="#menu">View Cakes 🎂</a>
+      <a class="btn-outline" href="#menu">
+        <svg width="18" height="18"><use href="#i-cake"/></svg>
+        View Cakes
+      </a>
     </div>
   </div>
 </section>
 
-<!-- MENU SECTION -->
+<!-- MENU -->
 <section id="menu">
   <div class="section-inner">
-    <h2 class="section-title reveal">Our Delicious Cakes</h2>
-    <p class="section-sub reveal">Every bite crafted with love, freshness & finesse</p>
+    <h2 class="section-title reveal">
+      <svg width="28" height="28"><use href="#i-cake"/></svg>
+      Our Delicious Cakes
+    </h2>
+    <p class="section-sub reveal">Every bite crafted with love, freshness &amp; finesse</p>
 
-    <!-- Category Filter -->
     <div class="cat-scroll" id="catScroll" role="group" aria-label="Filter by category">
-      <button class="cat-btn active" data-cat="all">All</button>
-      <button class="cat-btn" data-cat="birthday">🎂 Birthday</button>
-      <button class="cat-btn" data-cat="chocolate">🍫 Chocolate</button>
-      <button class="cat-btn" data-cat="custom">✨ Custom</button>
-      <button class="cat-btn" data-cat="premium">👑 Premium</button>
-      <button class="cat-btn" data-cat="eggless">🌿 Eggless</button>
-      <button class="cat-btn" data-cat="fruit">🍓 Fruit</button>
-      <button class="cat-btn" data-cat="wedding">💍 Wedding</button>
-      <button class="cat-btn" data-cat="kids">🧸 Kids</button>
-      <button class="cat-btn" data-cat="brownies">🟫 Brownies</button>
-      <button class="cat-btn" data-cat="cupcakes">🧁 Cupcakes</button>
-      <button class="cat-btn" data-cat="truffle">🌹 Truffle</button>
+      <button class="cat-btn active" data-cat="all">
+        <svg width="14" height="14"><use href="#i-grid"/></svg>All
+      </button>
+      <button class="cat-btn" data-cat="birthday">
+        <svg width="14" height="14"><use href="#i-cake"/></svg>Birthday
+      </button>
+      <button class="cat-btn" data-cat="chocolate">
+        <svg width="14" height="14"><use href="#i-chocolate"/></svg>Chocolate
+      </button>
+      <button class="cat-btn" data-cat="custom">
+        <svg width="14" height="14"><use href="#i-palette"/></svg>Custom
+      </button>
+      <button class="cat-btn" data-cat="premium">
+        <svg width="14" height="14"><use href="#i-crown"/></svg>Premium
+      </button>
+      <button class="cat-btn" data-cat="eggless">
+        <svg width="14" height="14"><use href="#i-leaf"/></svg>Eggless
+      </button>
+      <button class="cat-btn" data-cat="fruit">
+        <svg width="14" height="14"><use href="#i-fruit"/></svg>Fruit
+      </button>
+      <button class="cat-btn" data-cat="wedding">
+        <svg width="14" height="14"><use href="#i-ring"/></svg>Wedding
+      </button>
+      <button class="cat-btn" data-cat="kids">
+        <svg width="14" height="14"><use href="#i-smile"/></svg>Kids
+      </button>
+      <button class="cat-btn" data-cat="brownies">
+        <svg width="14" height="14"><use href="#i-brownie"/></svg>Brownies
+      </button>
+      <button class="cat-btn" data-cat="cupcakes">
+        <svg width="14" height="14"><use href="#i-cupcake"/></svg>Cupcakes
+      </button>
+      <button class="cat-btn" data-cat="truffle">
+        <svg width="14" height="14"><use href="#i-truffle"/></svg>Truffle
+      </button>
     </div>
 
     <div class="menu-grid" id="menuGrid">
-      <div class="menu-loader">
-        <div class="spinner"></div>
-        Loading our menu…
-      </div>
+      <div class="menu-loader"><div class="spinner"></div>Loading our menu…</div>
     </div>
   </div>
 </section>
@@ -613,7 +538,7 @@ footer p{font-size:.85rem}
 <section id="gallery">
   <div class="section-inner">
     <h2 class="section-title reveal">
-      <span class="gallery-title-grad">Moments Made Sweeter 🍰</span>
+      <span class="gallery-grad">Moments Made Sweeter</span>
     </h2>
     <p class="section-sub reveal">Every cake is a memory waiting to be savoured</p>
     <div class="masonry" id="galleryGrid"></div>
@@ -623,23 +548,28 @@ footer p{font-size:.85rem}
 <!-- ABOUT -->
 <section id="about">
   <div class="about-inner reveal">
-    <div class="about-heart">❤️</div>
+    <div class="about-heart">
+      <svg width="56" height="56"><use href="#i-heart-fill"/></svg>
+    </div>
     <h2 class="section-title" style="margin-bottom:0">Our Story</h2>
     <p class="about-text">
       Just Frosted was born from a simple belief — that the most meaningful cakes are made at home, with real ingredients and even realer love. Based in the heart of Calicut, we craft every cake by hand, from layered birthday cakes to delicate wedding tiers. No preservatives, no shortcuts — just fresh flavours and heartfelt baking. Whether you want something classic or completely custom, we bring your sweetest moments to life.
     </p>
     <div class="counters">
       <div class="counter-card">
+        <div class="counter-icon"><svg width="28" height="28"><use href="#i-package"/></svg></div>
         <span class="counter-num" data-target="500">0</span>
         <span class="counter-label">Cakes Delivered</span>
       </div>
       <div class="counter-card">
+        <div class="counter-icon"><svg width="28" height="28"><use href="#i-smile"/></svg></div>
         <span class="counter-num" data-target="200">0</span>
         <span class="counter-label">Happy Customers</span>
       </div>
       <div class="counter-card">
+        <div class="counter-icon"><svg width="28" height="28" style="color:#ffb347"><use href="#i-star-fill"/></svg></div>
         <span class="counter-num" data-target="4.9" data-decimal="1">0</span>
-        <span class="counter-label">Average Rating ⭐</span>
+        <span class="counter-label">Average Rating</span>
       </div>
     </div>
   </div>
@@ -648,26 +578,29 @@ footer p{font-size:.85rem}
 <!-- WHY CHOOSE US -->
 <section id="why">
   <div class="section-inner">
-    <h2 class="section-title reveal">Why Choose Just Frosted?</h2>
+    <h2 class="section-title reveal">
+      <svg width="28" height="28"><use href="#i-sparkle"/></svg>
+      Why Choose Just Frosted?
+    </h2>
     <p class="section-sub reveal">Because every detail matters when it's made with love</p>
     <div class="why-grid">
       <div class="why-card reveal">
-        <span class="why-icon">🔥</span>
+        <div class="why-icon"><svg width="42" height="42"><use href="#i-fire"/></svg></div>
         <div class="why-title">Freshly Baked</div>
         <div class="why-desc">Baked the morning of delivery — always fresh, always flavourful, never frozen.</div>
       </div>
       <div class="why-card reveal">
-        <span class="why-icon">🛵</span>
+        <div class="why-icon"><svg width="42" height="42"><use href="#i-truck"/></svg></div>
         <div class="why-title">Home Delivery</div>
         <div class="why-desc">Delivered safely to your doorstep across Calicut with care and precision.</div>
       </div>
       <div class="why-card reveal">
-        <span class="why-icon">🎨</span>
+        <div class="why-icon"><svg width="42" height="42"><use href="#i-palette"/></svg></div>
         <div class="why-title">Fully Customisable</div>
         <div class="why-desc">Your design, your flavour, your story. Every cake is made just for you.</div>
       </div>
       <div class="why-card reveal">
-        <span class="why-icon">💕</span>
+        <div class="why-icon"><svg width="42" height="42"><use href="#i-heart"/></svg></div>
         <div class="why-title">Made with Love</div>
         <div class="why-desc">Each creation is a labour of love — from batter to the last sprinkle on top.</div>
       </div>
@@ -678,14 +611,23 @@ footer p{font-size:.85rem}
 <!-- REVIEW CTA -->
 <section id="review-cta" aria-label="Leave a review">
   <h2>Loved our cakes?</h2>
-  <p>Share your experience with us 💖</p>
-  <a class="btn-review" href="https://forms.gle/tEHkJrVQYLfpNsNa9" target="_blank" rel="noopener">⭐ Write a Review</a>
+  <p class="cta-sub">
+    <svg width="18" height="18"><use href="#i-heart-fill"/></svg>
+    Share your experience with us
+  </p>
+  <a class="btn-review" href="https://forms.gle/tEHkJrVQYLfpNsNa9" target="_blank" rel="noopener">
+    <svg width="18" height="18"><use href="#i-star-fill"/></svg>
+    Write a Review
+  </a>
 </section>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-inner">
-    <h2 class="section-title reveal">What Our Customers Say 💬</h2>
+    <h2 class="section-title reveal">
+      <svg width="28" height="28"><use href="#i-message"/></svg>
+      What Our Customers Say
+    </h2>
     <p class="section-sub reveal">Real words from real sweethearts</p>
     <div class="testimonial-slider" id="tSlider" aria-label="Customer reviews">
       <div class="testimonial-track" id="tTrack"></div>
@@ -697,30 +639,33 @@ footer p{font-size:.85rem}
 <!-- HOW TO ORDER -->
 <section id="how">
   <div class="section-inner">
-    <h2 class="section-title reveal">How to Order 🛒</h2>
+    <h2 class="section-title reveal">
+      <svg width="28" height="28"><use href="#i-cart"/></svg>
+      How to Order
+    </h2>
     <p class="section-sub reveal">Simple, quick, and sweet</p>
     <div class="steps-grid">
       <div class="step-card reveal">
         <div class="step-num">1</div>
-        <span class="step-icon">🎂</span>
+        <div class="step-icon"><svg width="40" height="40"><use href="#i-cake"/></svg></div>
         <div class="step-title">Choose Your Cake</div>
         <div class="step-desc">Browse our menu and pick your favourite flavour or design.</div>
       </div>
       <div class="step-card reveal">
         <div class="step-num">2</div>
-        <span class="step-icon">💬</span>
+        <div class="step-icon"><svg width="40" height="40" class="wa-step"><use href="#i-wa"/></svg></div>
         <div class="step-title">WhatsApp Us</div>
-        <div class="step-desc">Send us a message with your choice, date & any special requests.</div>
+        <div class="step-desc">Send us a message with your choice, date &amp; any special requests.</div>
       </div>
       <div class="step-card reveal">
         <div class="step-num">3</div>
-        <span class="step-icon">✅</span>
+        <div class="step-icon"><svg width="40" height="40"><use href="#i-check"/></svg></div>
         <div class="step-title">Confirm Order</div>
-        <div class="step-desc">We'll confirm your order, discuss customization & take advance payment.</div>
+        <div class="step-desc">We'll confirm your order, discuss customization &amp; take advance payment.</div>
       </div>
       <div class="step-card reveal">
         <div class="step-num">4</div>
-        <span class="step-icon">🚀</span>
+        <div class="step-icon"><svg width="40" height="40"><use href="#i-truck"/></svg></div>
         <div class="step-title">Delivery / Pickup</div>
         <div class="step-desc">Receive your freshly baked cake at your doorstep or pick it up from us!</div>
       </div>
@@ -731,129 +676,105 @@ footer p{font-size:.85rem}
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
-    <h2 class="section-title reveal">Find Us 📍</h2>
+    <h2 class="section-title reveal">
+      <svg width="28" height="28"><use href="#i-pin"/></svg>
+      Find Us
+    </h2>
     <p class="section-sub reveal">We're right here in Calicut — come say hi!</p>
     <div class="contact-cards reveal">
       <div class="contact-card">
-        <span class="contact-icon">📍</span>
+        <div class="contact-icon"><svg width="34" height="34"><use href="#i-pin"/></svg></div>
         <div class="contact-label">Location</div>
         <span class="contact-val">Calicut, Kerala</span>
       </div>
       <div class="contact-card">
-        <span class="contact-icon">📞</span>
+        <div class="contact-icon"><svg width="34" height="34"><use href="#i-phone"/></svg></div>
         <div class="contact-label">Phone</div>
         <a class="contact-val" href="tel:+919074087851">+91 90740 87851</a>
       </div>
       <div class="contact-card">
-        <span class="contact-icon">📸</span>
+        <div class="contact-icon"><svg width="34" height="34"><use href="#i-instagram"/></svg></div>
         <div class="contact-label">Instagram</div>
-        <a class="contact-val" href="https://instagram.com/justfrosted" target="_blank" rel="noopener">@justfrosted</a>
+        <a class="contact-val" href="https://instagram.com/ju_st__frosted" target="_blank" rel="noopener">@justfrosted</a>
       </div>
     </div>
     <div class="map-wrap reveal">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62601.88220225432!2d75.7436!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4747%3A0x1ef26d5c64605269!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="Just Frosted location in Calicut"
-      ></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62601.88220225432!2d75.7436!3d11.2588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65938563d4747%3A0x1ef26d5c64605269!2sKozhikode%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Just Frosted location in Calicut"></iframe>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Just Frosted 🎂</div>
-  <p>Made with ❤️ in Calicut, Kerala</p>
+  <div class="footer-brand">
+    Just Frosted
+    <svg width="22" height="22"><use href="#i-cake"/></svg>
+  </div>
+  <p>
+    Made with
+    <svg width="14" height="14"><use href="#i-heart-fill"/></svg>
+    in Calicut, Kerala
+  </p>
 </footer>
 
 <!-- FLOATING WA -->
-<a class="float-wa" href="https://wa.me/919074087851?text=Hi!%20I'd%20like%20to%20order%20a%20cake%20from%20Just%20Frosted%20🎂" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.522 5.84L.057 23.57l5.926-1.433A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.009-1.374l-.36-.213-3.514.85.883-3.428-.233-.373A9.818 9.818 0 1 1 12 21.818z"/>
-  </svg>
+<a class="float-wa" href="https://wa.me/919074087851?text=Hi!%20I'd%20like%20to%20order%20a%20cake%20from%20Just%20Frosted" target="_blank" rel="noopener" aria-label="Order on WhatsApp">
+  <svg width="30" height="30"><use href="#i-wa"/></svg>
 </a>
 
 <script>
-/* ── CONFIG ─────────────────────────────────────── */ 
-// Replace SHEET_ID with your actual Google Sheet ID
-const SHEET_ID = '13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I';
-const MENU_URL = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
+/* ── CONFIG ─────────────────────────────────────── */
+const SHEET_ID    = '13aPNa_QB1XOtpfEYc2HdJyk5TaIIRmA7UyuyPgQNW9I';
+const MENU_URL    = `https://opensheet.elk.sh/${SHEET_ID}/Sheet1`;
 const REVIEWS_URL = `https://opensheet.elk.sh/${SHEET_ID}/reviews`;
-const WA_NUM = '+919074087851';
-const WA_BASE = `https://wa.me/${WA_NUM}?text=`;
+const WA_BASE     = 'https://wa.me/919074087851?text=';
 
-/* ── NAVBAR / SIDEBAR ───────────────────────────── */
-const hamburger = document.getElementById('hamburger');
-const sidebar   = document.getElementById('sidebar');
-const overlay   = document.getElementById('overlay');
-const sidebarClose = document.getElementById('sidebarClose');
+function icon(id, w=16, h=16, extra=''){
+  return `<svg width="${w}" height="${h}" ${extra} aria-hidden="true"><use href="#${id}"/></svg>`;
+}
+function stars(n){
+  return [1,2,3,4,5].map(i=>`<svg width="16" height="16" class="${i<=n?'filled':'empty'}"><use href="#i-star-${i<=n?'fill':'empty'}"/></svg>`).join('');
+}
 
-function openSidebar(){
-  sidebar.classList.add('active');
-  overlay.classList.add('active');
-  hamburger.classList.add('open');
-  hamburger.setAttribute('aria-expanded','true');
-  overlay.setAttribute('aria-hidden','false');
-}
-function closeSidebar(){
-  sidebar.classList.remove('active');
-  overlay.classList.remove('active');
-  hamburger.classList.remove('open');
-  hamburger.setAttribute('aria-expanded','false');
-  overlay.setAttribute('aria-hidden','true');
-}
+/* ── SIDEBAR ────────────────────────────────────── */
+const hamburger   = document.getElementById('hamburger');
+const sidebar     = document.getElementById('sidebar');
+const overlay     = document.getElementById('overlay');
+const sidebarClose= document.getElementById('sidebarClose');
+function openSidebar(){ sidebar.classList.add('active'); overlay.classList.add('active'); hamburger.classList.add('open'); hamburger.setAttribute('aria-expanded','true'); overlay.setAttribute('aria-hidden','false') }
+function closeSidebar(){ sidebar.classList.remove('active'); overlay.classList.remove('active'); hamburger.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); overlay.setAttribute('aria-hidden','true') }
 hamburger.addEventListener('click', openSidebar);
 sidebarClose.addEventListener('click', closeSidebar);
 overlay.addEventListener('click', closeSidebar);
-document.querySelectorAll('.sidebar-link').forEach(a=>{
-  a.addEventListener('click', closeSidebar);
-});
+document.querySelectorAll('.sidebar-link').forEach(a=>a.addEventListener('click', closeSidebar));
 
 /* ── HERO CAROUSEL ──────────────────────────────── */
 const slides = document.querySelectorAll('.hero-slide');
-let slideIdx = 0;
-setInterval(()=>{
-  slides[slideIdx].classList.remove('active');
-  slideIdx = (slideIdx+1) % slides.length;
-  slides[slideIdx].classList.add('active');
-}, 5000);
+let si = 0;
+setInterval(()=>{ slides[si].classList.remove('active'); si=(si+1)%slides.length; slides[si].classList.add('active'); }, 5000);
 
 /* ── SCROLL REVEAL ──────────────────────────────── */
-const revealEls = document.querySelectorAll('.reveal');
-const revealObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }
-  });
+const revealObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
 },{threshold:.15});
-revealEls.forEach(el=>revealObs.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
 
-/* ── COUNTER ANIMATION ──────────────────────────── */
-function animateCounter(el){
-  const target = parseFloat(el.dataset.target);
-  const decimal = parseInt(el.dataset.decimal||0);
-  const dur = 1600;
-  const start = performance.now();
-  function step(now){
-    const t = Math.min((now-start)/dur,1);
-    const ease = 1-Math.pow(1-t,3);
-    const val = target*ease;
-    el.textContent = decimal ? val.toFixed(decimal) : Math.round(val)+(el.dataset.suffix||'+');
-    if(t<1) requestAnimationFrame(step);
-    else el.textContent = decimal ? target.toFixed(decimal) : target+'+';
-  }
-  requestAnimationFrame(step);
+/* ── COUNTERS ───────────────────────────────────── */
+function animCounter(el){
+  const target=parseFloat(el.dataset.target), dec=parseInt(el.dataset.decimal||0), dur=1600, t0=performance.now();
+  (function step(now){ const t=Math.min((now-t0)/dur,1), ease=1-Math.pow(1-t,3), val=target*ease;
+    el.textContent=dec?val.toFixed(dec):Math.round(val)+'+';
+    if(t<1)requestAnimationFrame(step); else el.textContent=dec?target.toFixed(dec):target+'+';
+  })(t0);
 }
-const counterEls = document.querySelectorAll('.counter-num');
-const counterObs = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){ animateCounter(e.target); counterObs.unobserve(e.target); }
-  });
-},{threshold:.5});
-counterEls.forEach(el=>counterObs.observe(el));
+new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isIntersecting){animCounter(e.target); e.target._o && e.target._o.unobserve(e.target);} }),{threshold:.5})
+  .observe.bind(null);
+const cObs=new IntersectionObserver(entries=>entries.forEach(e=>{ if(e.isIntersecting){animCounter(e.target);cObs.unobserve(e.target);} }),{threshold:.5});
+document.querySelectorAll('.counter-num').forEach(el=>cObs.observe(el));
 
 /* ── GALLERY ────────────────────────────────────── */
-const galleryImgs = [
+const galleryImgs=[
   {url:'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=600&q=80',label:'Birthday Bliss'},
   {url:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80',label:'Chocolate Dream'},
   {url:'https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600&q=80',label:'Elegant Tiers'},
@@ -863,42 +784,35 @@ const galleryImgs = [
   {url:'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=600&q=80',label:'Pastel Dreams'},
   {url:'https://images.unsplash.com/photo-1519869325930-281384150729?w=600&q=80',label:'Truffle Love'},
 ];
-const galleryGrid = document.getElementById('galleryGrid');
+const gg=document.getElementById('galleryGrid');
 galleryImgs.forEach(img=>{
-  const item = document.createElement('div');
-  item.className='masonry-item';
-  item.innerHTML=`<img src="${img.url}" alt="${img.label}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/ffd6e2/ff7a9c?text=Just+Frosted'"/>
+  const d=document.createElement('div'); d.className='masonry-item';
+  d.innerHTML=`<img src="${img.url}" alt="${img.label}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300/ffd6e2/ff7a9c?text=Just+Frosted'"/>
   <div class="masonry-overlay"><span>${img.label}</span></div>`;
-  galleryGrid.appendChild(item);
+  gg.appendChild(d);
 });
 
-/* ── SAMPLE MENU (fallback / demo) ─────────────── */
-const sampleMenu = [
+/* ── MENU ───────────────────────────────────────── */
+const sampleMenu=[
   {name:'Classic Vanilla Birthday Cake',price:'₹450',description:'Soft vanilla sponge layered with fresh cream and sprinkles.',category:'birthday',image:'https://images.unsplash.com/photo-1571115764595-644a1f56a55c?w=400&q=80'},
   {name:'Dark Chocolate Truffle',price:'₹600',description:'Rich dark chocolate ganache over moist chocolate sponge.',category:'chocolate',image:'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80'},
   {name:'Strawberry Fruit Cake',price:'₹520',description:'Fresh strawberries with whipped cream on a light sponge.',category:'fruit',image:'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=80'},
   {name:'Red Velvet Elegance',price:'₹580',description:'Iconic red velvet with silky cream cheese frosting.',category:'premium',image:'https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&q=80'},
-  {name:'Eggless Butterscotch',price:'₹480',description:'Creamy butterscotch cake — 100% eggless, 100% delicious.',category:'eggless',image:'https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=400&q=80'},
-  {name:'Rainbow Kids Cake',price:'₹650',description:'Vibrant rainbow layers with vanilla buttercream — kids go wild!',category:'kids',image:'https://images.unsplash.com/photo-1519869325930-281384150729?w=400&q=80'},
+  {name:'Eggless Butterscotch',price:'₹480',description:'Creamy butterscotch — 100% eggless, 100% delicious.',category:'eggless',image:'https://images.unsplash.com/photo-1560180474-e8563fd75bab?w=400&q=80'},
+  {name:'Rainbow Kids Cake',price:'₹650',description:'Vibrant rainbow layers with vanilla buttercream — kids love it!',category:'kids',image:'https://images.unsplash.com/photo-1519869325930-281384150729?w=400&q=80'},
   {name:'Fudge Brownies Box',price:'₹320',description:'Chewy, gooey, utterly irresistible homemade brownies.',category:'brownies',image:'https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=400&q=80'},
   {name:'Mini Cupcakes Assortment',price:'₹280',description:'A box of 6 assorted cupcakes — perfect for gifting.',category:'cupcakes',image:'https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=400&q=80'},
   {name:'Wedding Tier Cake',price:'₹2200',description:'Two-tier fondant wedding cake — fully customised.',category:'wedding',image:'https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=400&q=80'},
 ];
-
-/* ── MENU RENDER ────────────────────────────────── */
-let allProducts = [];
-let activeCat = 'all';
+let allProducts=[], activeCat='all';
 
 function renderMenu(products){
-  const grid = document.getElementById('menuGrid');
-  const filtered = activeCat==='all'?products:products.filter(p=>(p.category||'').toLowerCase()===activeCat);
-  if(!filtered.length){
-    grid.innerHTML='<div class="menu-error">No cakes found in this category 😢</div>';
-    return;
-  }
-  grid.innerHTML = filtered.map(p=>{
-    const waMsg = encodeURIComponent(`Hi! I'd like to order: ${p.name} (${p.price||''}) 🎂`);
-    const img = p.image||'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80';
+  const grid=document.getElementById('menuGrid');
+  const list=activeCat==='all'?products:products.filter(p=>(p.category||'').toLowerCase()===activeCat);
+  if(!list.length){ grid.innerHTML=`<div class="menu-error">${icon('i-cake',22,22)} No cakes found in this category</div>`; return; }
+  grid.innerHTML=list.map(p=>{
+    const msg=encodeURIComponent(`Hi! I'd like to order: ${p.name} (${p.price||''})`);
+    const img=p.image||'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80';
     return `<div class="cake-card reveal">
       <img class="cake-img" src="${img}" alt="${p.name}" loading="lazy"
            onerror="this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80'"/>
@@ -906,153 +820,95 @@ function renderMenu(products){
         <div class="cake-name">${p.name||'Unnamed Cake'}</div>
         <div class="cake-price">${p.price||''}</div>
         <div class="cake-desc">${p.description||''}</div>
-        <a class="btn-order" href="${WA_BASE}${waMsg}" target="_blank" rel="noopener">Order Now 🛒</a>
-      </div>
-    </div>`;
+        <a class="btn-order" href="${WA_BASE}${msg}" target="_blank" rel="noopener">
+          ${icon('i-cart',16,16)} Order Now
+        </a>
+      </div></div>`;
   }).join('');
-  // Re-observe new elements
-  grid.querySelectorAll('.reveal').forEach(el=>{
-    el.classList.remove('visible');
-    revealObs.observe(el);
-  });
+  grid.querySelectorAll('.reveal').forEach(el=>{ el.classList.remove('visible'); revealObs.observe(el); });
 }
 
 async function loadMenu(){
-  const grid = document.getElementById('menuGrid');
+  const grid=document.getElementById('menuGrid');
   grid.innerHTML='<div class="menu-loader"><div class="spinner"></div>Loading our menu…</div>';
-  try{
-    const res = await fetch(MENU_URL);
-    if(!res.ok) throw new Error('Sheet fetch failed');
-    const data = await res.json();
-    allProducts = data;
-  } catch(e){
-    // Use sample data if sheet not configured
-    allProducts = sampleMenu;
-  }
+  try{ const r=await fetch(MENU_URL); if(!r.ok)throw 0; allProducts=await r.json(); }
+  catch(e){ allProducts=sampleMenu; }
   renderMenu(allProducts);
 }
 
-/* ── CATEGORY FILTER ────────────────────────────── */
 document.querySelectorAll('.cat-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    activeCat = btn.dataset.cat;
-    renderMenu(allProducts);
+    btn.classList.add('active'); activeCat=btn.dataset.cat; renderMenu(allProducts);
     btn.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
   });
 });
-
 loadMenu();
 
 /* ── TESTIMONIALS ───────────────────────────────── */
-const sampleReviews = [
+const sampleReviews=[
   {name:'Amina Rashid',rating:5,review:'Absolutely loved the chocolate truffle cake! The texture was perfect and it tasted homemade in the best way. Will definitely order again!'},
   {name:'Priya Nair',rating:5,review:'Ordered a custom birthday cake and it was stunning. Exactly what I wanted, and the taste was even better than the look!'},
   {name:'Fathima Beevi',rating:5,review:'The eggless butterscotch cake was a dream. My whole family loved it. Just Frosted never disappoints!'},
   {name:'Riya Krishnan',rating:4,review:'Great quality cakes at a very fair price. Delivery was on time and the packaging was beautiful.'},
   {name:'Neha Thomas',rating:5,review:'The cupcake assortment was the highlight of our office party. Everyone was asking where I got them from!'},
 ];
+let tIdx=0,tTotal=0,tPerView=1,dragging=false,dragX=0;
+function getPV(){ return window.innerWidth>=1000?3:window.innerWidth>=700?2:1; }
 
-let tIdx = 0;
-let tTotal = 0;
-let tPerView = 1;
-let isDragging = false;
-let dragStartX = 0;
-
-function getTPerView(){
-  if(window.innerWidth >= 1000) return 3;
-  if(window.innerWidth >= 700) return 2;
-  return 1;
-}
-
-function buildTestimonials(reviews){
-  const track = document.getElementById('tTrack');
-  const dots  = document.getElementById('tDots');
-  track.innerHTML = '';
-  dots.innerHTML  = '';
-  tTotal = reviews.length;
-  tPerView = getTPerView();
-
+function buildT(reviews){
+  const track=document.getElementById('tTrack'), dots=document.getElementById('tDots');
+  track.innerHTML=''; dots.innerHTML=''; tTotal=reviews.length; tPerView=getPV();
   reviews.forEach(r=>{
-    const stars = '★'.repeat(Math.round(r.rating))+'☆'.repeat(5-Math.round(r.rating));
-    const card = document.createElement('div');
-    card.className='testimonial-card';
-    card.innerHTML=`<div class="t-inner"><div class="t-stars">${stars}</div><p class="t-text">"${r.review}"</p><div class="t-name">— ${r.name}</div></div>`;
-    track.appendChild(card);
+    const c=document.createElement('div'); c.className='testimonial-card';
+    c.innerHTML=`<div class="t-inner">
+      <div class="t-stars">${stars(Math.round(r.rating))}</div>
+      <p class="t-text">"${r.review}"</p>
+      <div class="t-name">${icon('i-heart',14,14)} ${r.name}</div>
+    </div>`;
+    track.appendChild(c);
   });
-
-  const maxSlide = Math.max(0, tTotal - tPerView);
-  for(let i=0;i<=maxSlide;i++){
-    const d = document.createElement('button');
-    d.className='dot'+(i===0?' active':'');
-    d.setAttribute('aria-label',`Slide ${i+1}`);
-    d.addEventListener('click',()=>goSlide(i));
-    dots.appendChild(d);
+  const max=Math.max(0,tTotal-tPerView);
+  for(let i=0;i<=max;i++){
+    const d=document.createElement('button'); d.className='dot'+(i===0?' active':'');
+    d.setAttribute('aria-label',`Slide ${i+1}`); d.addEventListener('click',()=>goT(i)); dots.appendChild(d);
   }
-
-  goSlide(0);
+  goT(0);
 }
 
-function goSlide(i){
-  tPerView = getTPerView();
-  const maxSlide = Math.max(0, tTotal - tPerView);
-  tIdx = Math.max(0,Math.min(i,maxSlide));
-  const pct = (100/tPerView)*tIdx;
-  document.getElementById('tTrack').style.transform=`translateX(-${pct}%)`;
+function goT(i){
+  tPerView=getPV(); const max=Math.max(0,tTotal-tPerView);
+  tIdx=Math.max(0,Math.min(i,max));
+  document.getElementById('tTrack').style.transform=`translateX(-${(100/tPerView)*tIdx}%)`;
   document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',j===tIdx));
 }
 
-// Auto-slide
-let tTimer = setInterval(()=>{
-  tPerView = getTPerView();
-  const maxSlide = Math.max(0, tTotal - tPerView);
-  goSlide(tIdx >= maxSlide ? 0 : tIdx+1);
-},4000);
+let tTimer=setInterval(()=>{ tPerView=getPV(); goT(tIdx>=Math.max(0,tTotal-tPerView)?0:tIdx+1); },4000);
 
-// Touch / drag swipe
-const tSlider = document.getElementById('tSlider');
-tSlider.addEventListener('pointerdown',e=>{isDragging=true;dragStartX=e.clientX;tSlider.setPointerCapture(e.pointerId)});
-tSlider.addEventListener('pointermove',e=>{if(!isDragging)return});
+const tSlider=document.getElementById('tSlider');
+tSlider.addEventListener('pointerdown',e=>{ dragging=true; dragX=e.clientX; tSlider.setPointerCapture(e.pointerId); });
 tSlider.addEventListener('pointerup',e=>{
-  if(!isDragging)return;isDragging=false;
-  const diff = dragStartX - e.clientX;
-  if(Math.abs(diff)>40){ diff>0?goSlide(tIdx+1):goSlide(tIdx-1); }
+  if(!dragging)return; dragging=false;
+  const d=dragX-e.clientX;
+  if(Math.abs(d)>40){ goT(d>0?tIdx+1:tIdx-1); }
   clearInterval(tTimer);
-  tTimer=setInterval(()=>{
-    tPerView=getTPerView();
-    const maxSlide=Math.max(0,tTotal-tPerView);
-    goSlide(tIdx>=maxSlide?0:tIdx+1);
-  },4000);
+  tTimer=setInterval(()=>{ tPerView=getPV(); goT(tIdx>=Math.max(0,tTotal-tPerView)?0:tIdx+1); },4000);
 });
 
 async function loadReviews(){
-  let reviews = sampleReviews;
-  try{
-    const res = await fetch(REVIEWS_URL);
-    if(!res.ok)throw new Error();
-    const data = await res.json();
-    const filtered = data.filter(r=>parseFloat(r.rating)>=4);
-    if(filtered.length) reviews = filtered;
-  } catch(e){ /* use sample */ }
-  buildTestimonials(reviews);
+  let rv=sampleReviews;
+  try{ const r=await fetch(REVIEWS_URL); if(!r.ok)throw 0; const d=await r.json(); const f=d.filter(x=>parseFloat(x.rating)>=4); if(f.length)rv=f; }
+  catch(e){}
+  buildT(rv);
 }
 loadReviews();
+window.addEventListener('resize',()=>goT(tIdx));
 
-window.addEventListener('resize',()=>{
-  tPerView=getTPerView();
-  goSlide(tIdx);
-});
-
-/* ── NAV PADDING OFFSET ─────────────────────────── */
+/* ── SMOOTH SCROLL ──────────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
-    const target = document.querySelector(a.getAttribute('href'));
-    if(target){
-      e.preventDefault();
-      const offset = 70;
-      window.scrollTo({top:target.getBoundingClientRect().top+window.scrollY-offset,behavior:'smooth'});
-    }
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); window.scrollTo({top:t.getBoundingClientRect().top+scrollY-70,behavior:'smooth'}); }
   });
 });
 </script>
